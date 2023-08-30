@@ -2,6 +2,7 @@
 // const sequelize = require('../database/db')
 
 // const Usuario = require('../database/models/usuario') //(sequelize, DataTypes)
+const Laboratorio = require('../database/models/laboratorio')
 const Medicamentos = require('../database/models/medicamentos') //(sequelize, DataTypes)
 const { updateSaldo } = require('./UsuarioController')
 
@@ -12,6 +13,7 @@ function listAll(req, res) {
             // id_usuario: req.userId,
             deletado: false,
         },
+        include: Laboratorio,
     })
         .then((result) => {
             res.status(201).json(result)
