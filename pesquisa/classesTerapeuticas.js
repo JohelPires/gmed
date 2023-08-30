@@ -1,6 +1,7 @@
 const lista = require('./listacmed.js')
 const classesterapeuticas = []
 const fs = require('fs')
+const Classeterapeutica = require('../src/database/models/classeterapeutica')
 
 lista.map((item) => {
     const ct = {} // Create a new object for each item
@@ -24,3 +25,11 @@ fs.writeFile(filePath, jsonContent, (err) => {
         console.log('JSON file has been written successfully.')
     }
 })
+
+Classeterapeutica.bulkCreate(uniquect)
+    .then((result) => {
+        console.log(result)
+    })
+    .catch((err) => {
+        console.log(err)
+    })

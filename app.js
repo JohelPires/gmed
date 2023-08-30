@@ -6,6 +6,8 @@ const rotasUsuario = require('./src/Routes/rotasUsuario')
 const rotasMed = require('./src/Routes/rotasMed')
 const rotasLab = require('./src/Routes/rotasLab')
 const rotasPA = require('./src/Routes/rotasPA')
+require('./src/database/models/classeterapeutica')
+
 const app = express()
 
 const cors = require('cors')
