@@ -3,7 +3,8 @@ const database = require('./src/database/db')
 // const routes = require('./src/Routes/routes')
 const rotasUsuario = require('./src/Routes/rotasUsuario')
 // const rotasCategoria = require('./src/Routes/rotasCategoria')
-// const rotasTrans = require('./src/Routes/rotasTrans')
+const rotasMed = require('./src/Routes/rotasMed')
+const rotasLab = require('./src/Routes/rotasLab')
 const app = express()
 
 const cors = require('cors')
@@ -16,7 +17,8 @@ app.use(
 app.use(express.json())
 app.use('/usuario', rotasUsuario)
 // app.use('/categoria', rotasCategoria)
-// app.use('/trans', rotasTrans)
+app.use('/medicamentos', rotasMed)
+app.use('/laboratorios', rotasLab)
 
 database
     .sync({ alter: true, logging: false })

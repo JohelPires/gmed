@@ -26,6 +26,10 @@ const Classeterapeutica = sequelize.define(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        codigo: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
     },
     { freezeTableName: true }
 )

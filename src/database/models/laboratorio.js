@@ -30,6 +30,10 @@ const Laboratorio = sequelize.define(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        deletado: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        },
     },
     { freezeTableName: true }
 )
