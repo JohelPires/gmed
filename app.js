@@ -5,6 +5,7 @@ const rotasUsuario = require('./src/Routes/rotasUsuario')
 // const rotasCategoria = require('./src/Routes/rotasCategoria')
 const rotasMed = require('./src/Routes/rotasMed')
 const rotasLab = require('./src/Routes/rotasLab')
+const rotasPA = require('./src/Routes/rotasPA')
 const app = express()
 
 const cors = require('cors')
@@ -19,6 +20,7 @@ app.use('/usuario', rotasUsuario)
 // app.use('/categoria', rotasCategoria)
 app.use('/medicamentos', rotasMed)
 app.use('/laboratorios', rotasLab)
+app.use('/pa', rotasPA)
 
 database
     .sync({ alter: true, logging: false })

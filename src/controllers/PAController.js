@@ -2,12 +2,11 @@
 // const sequelize = require('../database/db')
 
 // const Usuario = require('../database/models/usuario') //(sequelize, DataTypes)
-const Medicamentos = require('../database/models/medicamentos') //(sequelize, DataTypes)
-const { updateSaldo } = require('./UsuarioController')
+const Principioativo = require('../database/models/principioativo') //(sequelize, DataTypes)
 
 // TESTADO: OK
 function listAll(req, res) {
-    Medicamentos.findAll({
+    Principioativo.findAll({
         where: {
             // id_usuario: req.userId,
             deletado: false,
@@ -21,22 +20,11 @@ function listAll(req, res) {
         })
 }
 
-// {
-//     nome,
-//     id_principio_ativo,
-//     id_laboratorio,
-//     registro,
-//     ean,
-//     apresentacao,
-//     id_classe_terapeutica,
-//     quantidade,
-//     vencimento,
-// }
-
+// TESTADO: OK
 function add(req, res) {
-    const medicamento = req.body
-
-    Medicamentos.create(medicamento)
+    const { nome } = req.body
+    // const id_usuario = req.userId
+    Principioativo.create({ nome })
         .then((result) => {
             res.status(200).json(result)
         })
@@ -47,7 +35,7 @@ function add(req, res) {
 
 function findId(req, res) {
     const { id } = req.params
-    Medicamentos.findByPk(id)
+    Principioativo.findByPk(id)
         .then((result) => {
             res.status(200).json(result)
         })
@@ -58,14 +46,14 @@ function findId(req, res) {
 
 function update(req, res) {
     const { id } = req.params
-    Medicamentos.update(req.body, {
+    Principioativo.update(req.body, {
         where: {
             id: parseInt(id),
         },
     })
         .then((result) => {
             if (result[0]) {
-                res.status(200).json('Medicamentos atualizada.')
+                res.status(200).json('Principioativo atualizada.')
             } else {
                 res.status(404).json('não encontrado.')
             }
@@ -77,14 +65,14 @@ function update(req, res) {
 
 // function deleta(req, res) {
 //     const { id } = req.params
-//     Medicamentos.destroy({
+//     Principioativo.destroy({
 //         where: {
 //             id: parseInt(id),
 //         },
 //     })
 //         .then((result) => {
 //             if (result) {
-//                 res.status(200).json('Medicamentos deletada com sucesso.')
+//                 res.status(200).json('Principioativo deletada com sucesso.')
 //             } else {
 //                 res.status(404).json('não encontrado.')
 //             }
@@ -96,7 +84,7 @@ function update(req, res) {
 
 function deleta(req, res) {
     const { id } = req.params
-    Medicamentos.update(
+    Principioativo.update(
         { deleted: true },
         {
             where: {
@@ -106,7 +94,7 @@ function deleta(req, res) {
     )
         .then((result) => {
             if (result[0]) {
-                res.status(200).json('Medicamentos apagada.')
+                res.status(200).json('Principioativo apagada.')
             } else {
                 res.status(404).json('não encontrado.')
             }
