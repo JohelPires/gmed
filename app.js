@@ -6,6 +6,7 @@ const rotasUsuario = require('./src/Routes/rotasUsuario')
 const rotasMed = require('./src/Routes/rotasMed')
 const rotasLab = require('./src/Routes/rotasLab')
 const rotasPA = require('./src/Routes/rotasPA')
+const rotasCT = require('./src/Routes/rotasCT')
 require('./src/database/models/classeterapeutica')
 
 const app = express()
@@ -23,6 +24,7 @@ app.use('/usuario', rotasUsuario)
 app.use('/medicamentos', rotasMed)
 app.use('/laboratorios', rotasLab)
 app.use('/pa', rotasPA)
+app.use('/ct', rotasCT)
 
 database
     .sync({ alter: true, logging: false })

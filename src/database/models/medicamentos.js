@@ -1,6 +1,9 @@
 const { Sequelize, DataTypes } = require('sequelize')
 const sequelize = require('../db')
 const Usuario = require('./usuario')
+const PrincipioAtivo = require('./principioativo') // Import the PrincipioAtivo model
+const Laboratorio = require('./laboratorio') // Import the Laboratorio model
+const ClasseTerapeutica = require('./classeterapeutica') // Import the ClasseTerapeutica model
 
 // "nome": "ORENCIA",
 // "principio_aivo": "ABATACEPTE",
@@ -63,9 +66,10 @@ const Medicamentos = sequelize.define(
     },
     { freezeTableName: true }
 )
-// Transacao.associate = function (models) {
-//     Transacao.belongsTo(models.Conta, { foreignKey: 'id_conta' })
-//     Transacao.belongsTo(models.Categoria, { foreignKey: 'id_categoria' })
-// }
+
+// Set up the associations
+Medicamentos.belongsTo(PrincipioAtivo, { foreignKey: 'id_principio_ativo' })
+Medicamentos.belongsTo(Laboratorio, { foreignKey: 'id_laboratorio' })
+Medicamentos.belongsTo(ClasseTerapeutica, { foreignKey: 'id_classe_terapeutica' })
 
 module.exports = Medicamentos
