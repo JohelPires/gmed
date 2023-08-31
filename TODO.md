@@ -5,6 +5,6 @@
 -   [ ] Endpoints:
     -   [ ] CRUD medicamentos
     -   [x] CRUD laboratorios
-    -   [ ] CRUD principios ativos
+    -   [x] CRUD principios ativos
     -   [ ] get classes terapeuticas
     -   [ ] endpoints de dashboard

@@ -44,6 +44,7 @@ function findId(req, res) {
         })
 }
 
+// TESTADO: OK
 function update(req, res) {
     const { id } = req.params
     Principioativo.update(req.body, {
@@ -53,7 +54,7 @@ function update(req, res) {
     })
         .then((result) => {
             if (result[0]) {
-                res.status(200).json('Principioativo atualizada.')
+                res.status(200).json('Principio ativo atualizado.')
             } else {
                 res.status(404).json('não encontrado.')
             }
@@ -82,10 +83,11 @@ function update(req, res) {
 //         })
 // }
 
+// TESTADO: OK
 function deleta(req, res) {
     const { id } = req.params
     Principioativo.update(
-        { deleted: true },
+        { deletado: true },
         {
             where: {
                 id: parseInt(id),
@@ -94,7 +96,7 @@ function deleta(req, res) {
     )
         .then((result) => {
             if (result[0]) {
-                res.status(200).json('Principioativo apagada.')
+                res.status(200).json('Principio ativo apagado.')
             } else {
                 res.status(404).json('não encontrado.')
             }
