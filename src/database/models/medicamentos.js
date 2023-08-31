@@ -40,6 +40,7 @@ const Medicamentos = sequelize.define(
         registro: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
         },
         ean: {
             type: DataTypes.STRING,

@@ -8,7 +8,7 @@
     -   [x] CRUD principios ativos
     -   [x] get classes terapeuticas
     -   [ ] endpoints de dashboard
--   [ ] registro e ean devem ser unicos
+-   [x] registro deve ser unico
 
 ## se sobrar tempo:
 

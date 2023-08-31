@@ -60,9 +60,11 @@ function add(req, res) {
             res.status(200).json(result)
         })
         .catch((err) => {
-            res.status(400).json(
-                'Informe nome, id_principio_ativo, id_laboratorio, registro, ean, apresentacao, id_classe_terapeutica, quantidade, vencimento'
-            )
+            const erros = err.errors.map((item) => item.message)
+            res.status(400).json(erros)
+            // res.status(400).json(
+            //     'Informe nome, id_principio_ativo, id_laboratorio, registro, ean, apresentacao, id_classe_terapeutica, quantidade, vencimento'
+            // )
         })
 }
 
