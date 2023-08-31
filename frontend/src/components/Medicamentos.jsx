@@ -6,6 +6,7 @@ import axios from 'axios'
 import meses from '../data/meses'
 import { FaCheckSquare, FaChevronLeft, FaChevronRight, FaSquare } from 'react-icons/fa'
 import { BsFilter } from 'react-icons/bs'
+import Med from './Med'
 
 function Medicamentos({ isAuth, reload, setReload, setMeds, meds, setDadosMes, dadosMes, mesAtual, setMesAtual }) {
     // const [data, setData] = useState(testData.transactions)
@@ -57,7 +58,7 @@ function Medicamentos({ isAuth, reload, setReload, setMeds, meds, setDadosMes, d
                     <Spinner animation='border' variant='primary' />
                 ) : meds.length > 0 ? (
                     meds.map((item) => {
-                        return <p>{item.nome}</p>
+                        return <Med item={item} />
                     })
                 ) : (
                     <p>{msg}</p>
