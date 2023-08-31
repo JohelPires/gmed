@@ -1,0 +1,347 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "GMed",
+    "dateExported": "2023-08-31T13:37:33.001Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "d4f111cf-c84a-4dc9-b1b2-79cfcfe7f632",
+            "name": "Usuarios",
+            "containerId": "",
+            "created": "2023-08-31T10:50:26.627Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "2fa67ef0-863f-48cd-9e58-3f939a74972f",
+            "name": "Laboratorios",
+            "containerId": "",
+            "created": "2023-08-31T10:50:40.843Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "2e5a9ae3-e6d9-449b-8483-a5fc712e55fa",
+            "name": "Principios Ativos",
+            "containerId": "",
+            "created": "2023-08-31T12:27:31.964Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "7ddd35dc-8402-4e0b-9cd1-08f3bca91307",
+            "name": "Medicamentos",
+            "containerId": "",
+            "created": "2023-08-31T12:37:16.347Z",
+            "sortNum": 35000
+        },
+        {
+            "_id": "b5288223-97a3-4396-90c7-45acfcb9ab89",
+            "name": "Classes Terapeuticas",
+            "containerId": "",
+            "created": "2023-08-31T12:34:37.412Z",
+            "sortNum": 40000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "4256328b-5032-40de-946d-dc5e45fd8e5c",
+            "colId": "abdcb566-c821-4166-8bc3-7ab5075b4f2a",
+            "containerId": "d4f111cf-c84a-4dc9-b1b2-79cfcfe7f632",
+            "name": "Login",
+            "url": "localhost:5000/usuario/login",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-08-31T10:51:52.461Z",
+            "modified": "2023-08-31T10:52:52.173Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"johel@gmail.com\",\n  \"senha\": \"123\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "59c8d387-b32a-46cd-9a12-adf12aab6751",
+            "colId": "abdcb566-c821-4166-8bc3-7ab5075b4f2a",
+            "containerId": "2fa67ef0-863f-48cd-9e58-3f939a74972f",
+            "name": "Listar",
+            "url": "localhost:5000/laboratorios",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-08-31T10:53:08.665Z",
+            "modified": "2023-08-31T10:53:28.815Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "0272adcb-cedc-4e91-9ac7-e05fd033546c",
+            "colId": "abdcb566-c821-4166-8bc3-7ab5075b4f2a",
+            "containerId": "2e5a9ae3-e6d9-449b-8483-a5fc712e55fa",
+            "name": "Listar",
+            "url": "localhost:5000/pa",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-08-31T12:27:31.964Z",
+            "modified": "2023-08-31T12:28:14.123Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "3d91efa8-1c1d-4d9f-b596-ddea8347fcc6",
+            "colId": "abdcb566-c821-4166-8bc3-7ab5075b4f2a",
+            "containerId": "b5288223-97a3-4396-90c7-45acfcb9ab89",
+            "name": "Listar",
+            "url": "localhost:5000/ct",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-08-31T12:34:37.412Z",
+            "modified": "2023-08-31T12:35:45.277Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "346b7d4e-e5d5-4432-a9f9-5b45937d6b52",
+            "colId": "abdcb566-c821-4166-8bc3-7ab5075b4f2a",
+            "containerId": "7ddd35dc-8402-4e0b-9cd1-08f3bca91307",
+            "name": "Listar",
+            "url": "localhost:5000/medicamentos",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-08-31T12:37:16.347Z",
+            "modified": "2023-08-31T12:37:35.515Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "a6fea039-232b-4f04-a74a-3f476aab6d0c",
+            "colId": "abdcb566-c821-4166-8bc3-7ab5075b4f2a",
+            "containerId": "d4f111cf-c84a-4dc9-b1b2-79cfcfe7f632",
+            "name": "Registrar",
+            "url": "localhost:5000/usuario/registrar",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-08-31T13:36:33.552Z",
+            "modified": "2023-08-31T13:37:21.520Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Johel 2\",\n  \"email\": \"johel2@gmail.com\",\n  \"senha\": \"123\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "94ff267d-3657-472c-af6b-782b686e9459",
+            "colId": "abdcb566-c821-4166-8bc3-7ab5075b4f2a",
+            "containerId": "2fa67ef0-863f-48cd-9e58-3f939a74972f",
+            "name": "Adicionar",
+            "url": "localhost:5000/laboratorios",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-08-31T12:07:06.974Z",
+            "modified": "2023-08-31T12:15:09.748Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"EMS SIGMA PHARMA LTDA\",\n  \"cnpj\": \"00.923.140/0001-31\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "be50baf8-a707-4f21-bf75-721ec782fa10",
+            "colId": "abdcb566-c821-4166-8bc3-7ab5075b4f2a",
+            "containerId": "2e5a9ae3-e6d9-449b-8483-a5fc712e55fa",
+            "name": "Adicionar",
+            "url": "localhost:5000/pa",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-08-31T12:27:31.965Z",
+            "modified": "2023-08-31T12:28:47.255Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Teste\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "e70c5d50-5432-4631-8c6d-21fd9becb313",
+            "colId": "abdcb566-c821-4166-8bc3-7ab5075b4f2a",
+            "containerId": "7ddd35dc-8402-4e0b-9cd1-08f3bca91307",
+            "name": "Adicionar",
+            "url": "localhost:5000/medicamentos",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-08-31T12:37:16.348Z",
+            "modified": "2023-08-31T13:33:53.518Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"outro teste2\",\n  \"id_principio_ativo\": 2,\n  \"id_laboratorio\": 2,\n  \"registro\": \"12345\",\n  \"ean\": \"123\",\n  \"apresentacao\": \"teste\",\n  \"id_classe_terapeutica\": 15,\n  \"quantidade\": 10000,\n  \"vencimento\": \"2026-05-31\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "eac4042c-1283-4126-90a2-4806cd1ba6c9",
+            "colId": "abdcb566-c821-4166-8bc3-7ab5075b4f2a",
+            "containerId": "2fa67ef0-863f-48cd-9e58-3f939a74972f",
+            "name": "Update",
+            "url": "localhost:5000/laboratorios/3",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-08-31T12:17:46.052Z",
+            "modified": "2023-08-31T12:19:20.685Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Outro\",\n  \"cnpj\": \"00.923.140/0001-32\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "8e1bc614-21a9-4b4d-a987-41a218e88939",
+            "colId": "abdcb566-c821-4166-8bc3-7ab5075b4f2a",
+            "containerId": "2e5a9ae3-e6d9-449b-8483-a5fc712e55fa",
+            "name": "Update",
+            "url": "localhost:5000/pa/2",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-08-31T12:27:31.966Z",
+            "modified": "2023-08-31T12:29:30.261Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Outro2\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "e6146e57-4310-45a0-a5d6-01872c43599d",
+            "colId": "abdcb566-c821-4166-8bc3-7ab5075b4f2a",
+            "containerId": "7ddd35dc-8402-4e0b-9cd1-08f3bca91307",
+            "name": "Update",
+            "url": "localhost:5000/medicamentos/4",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-08-31T12:37:16.349Z",
+            "modified": "2023-08-31T12:52:01.769Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nome\": \"Outro2\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "3553d9a9-b922-4dae-8f91-23264d8af3f3",
+            "colId": "abdcb566-c821-4166-8bc3-7ab5075b4f2a",
+            "containerId": "2fa67ef0-863f-48cd-9e58-3f939a74972f",
+            "name": "Delete",
+            "url": "localhost:5000/laboratorios/3",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-08-31T12:20:16.581Z",
+            "modified": "2023-08-31T12:20:40.764Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "3ef2ca67-b125-4105-b289-b989571de9a0",
+            "colId": "abdcb566-c821-4166-8bc3-7ab5075b4f2a",
+            "containerId": "2e5a9ae3-e6d9-449b-8483-a5fc712e55fa",
+            "name": "Delete",
+            "url": "localhost:5000/pa/2",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-08-31T12:27:31.967Z",
+            "modified": "2023-08-31T12:30:05.397Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE"
+            },
+            "tests": []
+        },
+        {
+            "_id": "b87235ee-2845-453c-aeb2-54afcfbdc6a9",
+            "colId": "abdcb566-c821-4166-8bc3-7ab5075b4f2a",
+            "containerId": "7ddd35dc-8402-4e0b-9cd1-08f3bca91307",
+            "name": "Delete",
+            "url": "localhost:5000/medicamentos/3",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-08-31T12:37:16.350Z",
+            "modified": "2023-08-31T12:54:02.299Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE"
+            },
+            "tests": []
+        }
+    ]
+}
