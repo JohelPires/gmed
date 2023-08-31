@@ -1,20 +1,18 @@
 import React from 'react'
-import { Col, Container, Row } from 'react-bootstrap'
+import { Badge, Button, ButtonGroup, Stack } from 'react-bootstrap'
 
 function Med({ item }) {
     return (
-        <Container className='border-bottom'>
-            <Row style={{ fontSize: '9px' }}>
-                <Col md={10}>Nome:</Col>
-                {/* <Col md={6}>Laboratório:</Col> */}
-                <Col md={2}></Col>
-            </Row>
-            <Row style={{ fontSize: '13px' }}>
-                <Col md={8}>{item.nome}</Col>
-                {/* <Col>{item.laboratorio}</Col> */}
-                <Col className='text-left'>possivel tag</Col>
-            </Row>
-        </Container>
+        <Stack gap={3} className='border-bottom pb-2' direction='horizontal'>
+            <h6>{item.nome}</h6>
+            <Badge bg='warning'>estoque baixo</Badge>
+            <Badge bg='danger'>vencimento próximo</Badge>
+            <ButtonGroup size='sm' className='ms-auto' aria-label='Basic example'>
+                <Button variant='outline-secondary'>Visualizar</Button>
+                <Button variant='outline-secondary'>Editar</Button>
+                <Button variant='outline-danger'>Excluir</Button>
+            </ButtonGroup>
+        </Stack>
     )
 }
 

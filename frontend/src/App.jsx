@@ -15,7 +15,7 @@ function App() {
     return (
         <div className='App'>
             <Container fluid>
-                <Row className='navbar main-shadow mb-4'>
+                <Row className='navbar main-shadow mb-5'>
                     <Col>
                         <Navbar isAuth={isAuth} setIsAuth={setIsAuth} />
                         {/* {isAuth && <ControlBar isAuth={isAuth} reload={reload} setReload={setReload} />} */}

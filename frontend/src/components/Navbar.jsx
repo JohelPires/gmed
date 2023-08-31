@@ -13,8 +13,8 @@ function Navbar({ isAuth, setIsAuth }) {
     }
 
     return (
-        <Container className='pt-1 pb-1'>
-            <Stack className='navbar' gap={3} direction='horizontal'>
+        <Container className='p-5 pt-1 pb-1' fluid>
+            <Stack gap={3} direction='horizontal'>
                 {isAuth ? (
                     <>
                         <Link to={'/'}>
