@@ -29,7 +29,8 @@ function add(req, res) {
             res.status(200).json(result)
         })
         .catch((err) => {
-            res.status(400).json(err)
+            // if (err.errors)
+            res.status(400).json('Informe nome e cnpj')
         })
 }
 
@@ -44,6 +45,7 @@ function findId(req, res) {
         })
 }
 
+// TESTADO: OK
 function update(req, res) {
     const { id } = req.params
     Laboratorio.update(req.body, {
@@ -82,10 +84,11 @@ function update(req, res) {
 //         })
 // }
 
+// TESTADO: OK
 function deleta(req, res) {
     const { id } = req.params
     Laboratorio.update(
-        { deleted: true },
+        { deletado: true },
         {
             where: {
                 id: parseInt(id),
@@ -94,7 +97,7 @@ function deleta(req, res) {
     )
         .then((result) => {
             if (result[0]) {
-                res.status(200).json('Laboratorio apagada.')
+                res.status(200).json('Laboratorio apagado.')
             } else {
                 res.status(404).json('não encontrado.')
             }
