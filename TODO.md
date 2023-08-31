@@ -1,10 +1,15 @@
 # To do (backend):
 
 -   [x] Popular a tabela de classe terapeutica
--   [ ] listar medicamentos deve fazer os inner join e mostrar nomes em vez de números
+-   [x] listar medicamentos deve fazer os inner join e mostrar nomes em vez de números
 -   [ ] Endpoints:
-    -   [ ] CRUD medicamentos
+    -   [x] CRUD medicamentos
     -   [x] CRUD laboratorios
     -   [x] CRUD principios ativos
-    -   [ ] get classes terapeuticas
+    -   [x] get classes terapeuticas
     -   [ ] endpoints de dashboard
+-   [ ] registro e ean devem ser unicos
+
+## se sobrar tempo:
+
+-   [ ] CRUD classes terapeuticas

@@ -2,8 +2,10 @@
 // const sequelize = require('../database/db')
 
 // const Usuario = require('../database/models/usuario') //(sequelize, DataTypes)
+const Classeterapeutica = require('../database/models/classeterapeutica')
 const Laboratorio = require('../database/models/laboratorio')
 const Medicamentos = require('../database/models/medicamentos') //(sequelize, DataTypes)
+const Principioativo = require('../database/models/principioativo')
 const { updateSaldo } = require('./UsuarioController')
 
 // TESTADO: OK
@@ -13,10 +15,24 @@ function listAll(req, res) {
             // id_usuario: req.userId,
             deletado: false,
         },
-        include: Laboratorio,
+        include: [Laboratorio, Principioativo, Classeterapeutica],
     })
         .then((result) => {
-            res.status(201).json(result)
+            const obj = result.map((item) => {
+                return {
+                    id: item.id,
+                    nome: item.nome,
+                    principioativo: item.principioativo.nome,
+                    laboratorio: item.laboratorio.nome,
+                    registro: item.registro,
+                    ean: item.ean,
+                    apresentacao: item.apresentacao,
+                    classeterapeutica: item.classeterapeutica.nome,
+                    quantidade: item.quantidade,
+                    vencimento: item.vencimento,
+                }
+            })
+            res.status(201).json(obj)
         })
         .catch((err) => {
             res.status(404).json(err)
@@ -35,6 +51,7 @@ function listAll(req, res) {
 //     vencimento,
 // }
 
+// TESTADO: OK
 function add(req, res) {
     const medicamento = req.body
 
@@ -43,7 +60,9 @@ function add(req, res) {
             res.status(200).json(result)
         })
         .catch((err) => {
-            res.status(400).json(err)
+            res.status(400).json(
+                'Informe nome, id_principio_ativo, id_laboratorio, registro, ean, apresentacao, id_classe_terapeutica, quantidade, vencimento'
+            )
         })
 }
 
@@ -67,7 +86,7 @@ function update(req, res) {
     })
         .then((result) => {
             if (result[0]) {
-                res.status(200).json('Medicamentos atualizada.')
+                res.status(200).json('Medicamento atualizado.')
             } else {
                 res.status(404).json('não encontrado.')
             }
@@ -99,7 +118,7 @@ function update(req, res) {
 function deleta(req, res) {
     const { id } = req.params
     Medicamentos.update(
-        { deleted: true },
+        { deletado: true },
         {
             where: {
                 id: parseInt(id),
@@ -108,7 +127,7 @@ function deleta(req, res) {
     )
         .then((result) => {
             if (result[0]) {
-                res.status(200).json('Medicamentos apagada.')
+                res.status(200).json('Medicamento apagado.')
             } else {
                 res.status(404).json('não encontrado.')
             }
