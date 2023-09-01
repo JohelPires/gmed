@@ -9,7 +9,20 @@ import { BsFilter } from 'react-icons/bs'
 import Med from './Med'
 import AddModal from './AddModal'
 
-function Medicamentos({ isAuth, reload, setReload, setMeds, meds, setDadosMes, dadosMes, mesAtual, setMesAtual }) {
+function Medicamentos({
+    ct,
+    labs,
+    pa,
+    isAuth,
+    reload,
+    setReload,
+    setMeds,
+    meds,
+    setDadosMes,
+    dadosMes,
+    mesAtual,
+    setMesAtual,
+}) {
     const [loading, setLoading] = useState(true)
     const [msg, setMsg] = useState('')
     const [modalShow, setModalShow] = useState(false)
@@ -19,10 +32,7 @@ function Medicamentos({ isAuth, reload, setReload, setMeds, meds, setDadosMes, d
         axios
             .get('http://localhost:5000/medicamentos', { headers: { Authorization: `Bearer ${isAuth.accessToken}` } })
             .then((data) => {
-                console.log(data.data)
-
                 setMeds(data.data)
-                console.log('===========')
                 setLoading(false)
                 setMsg('Sem dados.')
             })
@@ -66,7 +76,15 @@ function Medicamentos({ isAuth, reload, setReload, setMeds, meds, setDadosMes, d
                 <p>{msg}</p>
             )}
 
-            <AddModal setReload={setReload} isAuth={isAuth} show={modalShow} onHide={() => setModalShow(false)} />
+            <AddModal
+                ct={ct}
+                labs={labs}
+                pa={pa}
+                setReload={setReload}
+                isAuth={isAuth}
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+            />
         </Stack>
     )
 }
