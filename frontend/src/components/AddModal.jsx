@@ -5,12 +5,20 @@ import axios from 'axios'
 import { useForm } from 'react-hook-form'
 
 function AddModal(props) {
+    // const [novoMedicamento, setNovoMedicamento] = useState({
+    //     nome: 'data.nome',
+    //     registro: 'ata.registro',
+
+    //     apresentacao: null,
+    //     quantidade: null,
+    //     vencimento: null,
+    // })
     const {
         register,
         handleSubmit,
         // watch,
         formState: { errors },
-    } = useForm()
+    } = useForm({ resetOptions: { keepDirtyValues: true } })
 
     function onSubmit(data) {
         // e.preventDefault()
@@ -64,7 +72,7 @@ function AddModal(props) {
                     <Stack direction='horizontal' gap={1}>
                         <Form.Group className='mb-3 w-75'>
                             <Form.Label>Nome</Form.Label>
-                            <Form.Control type='text' {...register('nome', { required: true })} />
+                            <Form.Control type='text' {...register('nome', { required: true })} defaultValue={''} />
                         </Form.Group>
                         <Form.Group className='mb-3'>
                             <Form.Label>Registro</Form.Label>
@@ -75,6 +83,7 @@ function AddModal(props) {
                         <Form.Group className='mb-3 w-50'>
                             <Form.Label>Laboratório</Form.Label>
                             <Form.Select
+                                defaultValue={0}
                                 aria-label='Default select example'
                                 {...register('id_laboratorio', { required: true })}
                             >

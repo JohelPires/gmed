@@ -2,10 +2,26 @@ import React, { useState } from 'react'
 import { Badge, Button, ButtonGroup, Stack } from 'react-bootstrap'
 import ViewModal from './ViewModal'
 import UpdateModal from './UpdateModal'
+import axios from 'axios'
 
 function Med({ item, ct, labs, pa, isAuth, setReload }) {
     const [viewModalShow, setViewModalShow] = useState(false)
     const [updateModalShow, setUpdateModalShow] = useState(false)
+
+    function handleDelete() {
+        if (window.confirm('Tem certeza que quer deletar esse medicamento?')) {
+            axios
+                .delete(`http://localhost:5000/medicamentos/${item.id}`, {
+                    headers: { Authorization: `Bearer ${isAuth.accessToken}` },
+                })
+                .then((data) => {
+                    console.log(data)
+                    setReload((prev) => prev + 1)
+                    // props.onHide()
+                })
+                .catch((err) => console.log(err))
+        }
+    }
 
     return (
         <Stack gap={3} className='border-bottom pb-2' direction='horizontal'>
@@ -21,7 +37,9 @@ function Med({ item, ct, labs, pa, isAuth, setReload }) {
                 <Button variant='outline-secondary' onClick={() => setUpdateModalShow(true)}>
                     Editar
                 </Button>
-                <Button variant='outline-danger'>Excluir</Button>
+                <Button variant='outline-danger' onClick={handleDelete}>
+                    Excluir
+                </Button>
             </ButtonGroup>
             <UpdateModal
                 med={item}

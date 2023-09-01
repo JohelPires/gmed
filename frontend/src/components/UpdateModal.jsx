@@ -54,7 +54,7 @@ function UpdateModal(props) {
     function handleDelete() {
         if (window.confirm('Tem certeza que quer deletar esse medicamento?')) {
             axios
-                .delete(`http://localhost:5000/trans/${props.item.id}`, {
+                .delete(`http://localhost:5000/medicamentos/${props.med.id}`, {
                     headers: { Authorization: `Bearer ${props.isAuth.accessToken}` },
                 })
                 .then((data) => {
@@ -161,7 +161,7 @@ function UpdateModal(props) {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant='danger' onClick={handleDelete}>
-                        Excluir esta transação
+                        Excluir medicamento
                     </Button>
                     <Button variant='secondary' onClick={props.onHide}>
                         Cancelar
