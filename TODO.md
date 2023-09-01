@@ -25,7 +25,12 @@
 -   [x] carregar classes terapeuticas
 -   [x] carregar principios ativos
 -   [x] carregar laboratórios
--   [ ] botao visualizar
--   [ ] botao editar
--   [ ] botao excluir
+-   [x] botao/modal visualizar
+-   [ ] botao/modal editar
+-   [ ] botao/modal ou caixa de diálogo excluir
+-   [ ] um botao editar dentro do modal de visualizar
 -   [ ] validação de campos do 'adicionar medicamento'
+-   [ ] alterações no banco são notificadas ao usuário usando bootstrap toasts
+-   [ ] clicando no nome do medicamento abre a visualização
+-   [ ] clicando no nome do laboratório/ct/pa abre a lista de medicamentos filtrada
+-   [ ] icones dos botoes

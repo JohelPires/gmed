@@ -9,20 +9,7 @@ import { BsFilter } from 'react-icons/bs'
 import Med from './Med'
 import AddModal from './AddModal'
 
-function Medicamentos({
-    ct,
-    labs,
-    pa,
-    isAuth,
-    reload,
-    setReload,
-    setMeds,
-    meds,
-    setDadosMes,
-    dadosMes,
-    mesAtual,
-    setMesAtual,
-}) {
+function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }) {
     const [loading, setLoading] = useState(true)
     const [msg, setMsg] = useState('')
     const [modalShow, setModalShow] = useState(false)
