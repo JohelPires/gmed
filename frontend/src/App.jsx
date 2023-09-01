@@ -12,6 +12,15 @@ import Sobre from './telas/Sobre'
 function App() {
     const [isAuth, setIsAuth] = useState('')
     const [reload, setReload] = useState(0)
+    // const [contextValue, setContextValue] = useState('Valor inicial do contexto');
+
+    // useEffect(() => {
+    //   // Atualizar o valor do contexto quando a variável triggerUpdate mudar
+    //   if (triggerUpdate) {
+    //     setContextValue('Novo valor do contexto após a mudança');
+    //   }
+    // }, [triggerUpdate]);
+
     return (
         <div className='App'>
             <Container fluid>

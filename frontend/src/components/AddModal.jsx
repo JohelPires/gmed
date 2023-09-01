@@ -110,20 +110,21 @@ function AddModal(props) {
                         </Form.Group>
                     </Stack>
                     <Stack direction='horizontal' gap={1}>
-                        <Form.Group className='mb-3 w-50'>
+                        <Form.Group className='mb-3 w-75'>
                             <Form.Label>Apresentação</Form.Label>
                             <Form.Control
                                 as='textarea'
+                                rows={4}
                                 aria-label='Default select example'
                                 {...register('apresentacao', { required: true })}
                             ></Form.Control>
                         </Form.Group>
                         <Stack>
-                            <Form.Group className='mb-3 w-50'>
+                            <Form.Group className='mb-1'>
                                 <Form.Label>Quantidade</Form.Label>
                                 <Form.Control type='number' {...register('quantidade', { required: true })} />
                             </Form.Group>
-                            <Form.Group className='mb-3 w-50'>
+                            <Form.Group className='mb-1'>
                                 <Form.Label>Vencimento</Form.Label>
                                 <Form.Control type='date' {...register('vencimento', { required: true })} />
                             </Form.Group>
