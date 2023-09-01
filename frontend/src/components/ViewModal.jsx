@@ -3,7 +3,7 @@ import { Button, Modal, Stack } from 'react-bootstrap'
 
 function ViewModal(props) {
     return (
-        <Modal {...props} size='lg' aria-labelledby='contained-modal-title-vcenter' centered>
+        <Modal {...props} size='lg' aria-labelledby='contained-modal-title-vcenter' centered animation={false}>
             <Modal.Header closeButton>
                 <Modal.Title id='contained-modal-title-vcenter'>Visualizar medicamento</Modal.Title>
             </Modal.Header>

@@ -21,7 +21,7 @@
 
 -   [ ] bulk create principios ativos separados por vírgula
 -   [x] lista de classes terapeuticas
--   [ ] lógica das badges
+-   [x] lógica das badges
 -   [x] carregar classes terapeuticas
 -   [x] carregar principios ativos
 -   [x] carregar laboratórios

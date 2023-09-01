@@ -59,6 +59,7 @@ const Medicamentos = sequelize.define(
         },
         vencimento: {
             type: DataTypes.DATEONLY,
+            allowNull: false,
         },
         deletado: {
             type: DataTypes.BOOLEAN,

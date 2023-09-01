@@ -54,7 +54,7 @@ function AddModal(props) {
     // props.ct.map((item) => console.log(item.nome))
 
     return (
-        <Modal {...props} size='lg' aria-labelledby='contained-modal-title-vcenter' centered>
+        <Modal {...props} size='lg' aria-labelledby='contained-modal-title-vcenter' centered animation={false}>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Modal.Header closeButton>
                     <Modal.Title id='contained-modal-title-vcenter'>Cadastrar medicamento</Modal.Title>

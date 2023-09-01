@@ -57,7 +57,7 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }
                 <Spinner animation='border' variant='primary' />
             ) : meds.length > 0 ? (
                 meds.map((item) => {
-                    return <Med item={item} />
+                    return <Med item={item} ct={ct} labs={labs} pa={pa} isAuth={isAuth} setReload={setReload} />
                 })
             ) : (
                 <p>{msg}</p>
