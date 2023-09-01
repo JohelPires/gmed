@@ -4,9 +4,9 @@ import { Button, ButtonGroup, Stack } from 'react-bootstrap'
 
 function Lab({ item, isAuth, setReload }) {
     function handleDelete() {
-        if (window.confirm('Tem certeza que quer deletar esse medicamento?')) {
+        if (window.confirm('Tem certeza que quer deletar esse laboratório?')) {
             axios
-                .delete(`http://localhost:5000/medicamentos/${item.id}`, {
+                .delete(`http://localhost:5000/laboratorios/${item.id}`, {
                     headers: { Authorization: `Bearer ${isAuth.accessToken}` },
                 })
                 .then((data) => {
