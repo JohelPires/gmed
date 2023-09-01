@@ -52,16 +52,17 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }
                     {/* <h4>Nome:</h4> */}
                 </Button>
             </Stack>
-
-            {loading ? (
-                <Spinner animation='border' variant='primary' />
-            ) : meds.length > 0 ? (
-                meds.map((item) => {
-                    return <Med item={item} ct={ct} labs={labs} pa={pa} isAuth={isAuth} setReload={setReload} />
-                })
-            ) : (
-                <p>{msg}</p>
-            )}
+            <Stack style={{ overflow: 'auto', height: '600px' }}>
+                {loading ? (
+                    <Spinner animation='border' variant='primary' />
+                ) : meds.length > 0 ? (
+                    meds.map((item) => {
+                        return <Med item={item} ct={ct} labs={labs} pa={pa} isAuth={isAuth} setReload={setReload} />
+                    })
+                ) : (
+                    <p>{msg}</p>
+                )}
+            </Stack>
 
             <AddModal
                 ct={ct}
