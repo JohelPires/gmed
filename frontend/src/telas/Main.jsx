@@ -5,6 +5,9 @@ import BarStats from '../components/BarStats'
 import Categories from '../components/Categories'
 import Medicamentos from '../components/Medicamentos'
 import axios from 'axios'
+import Laboratorios from '../components/Laboratorios'
+import PrincipioAtivo from '../components/PrincipioAtivo'
+import ClasseTerapeutica from '../components/ClasseTerapeutica'
 
 function Main({ isAuth, reload, setReload }) {
     const [meds, setMeds] = useState([])
@@ -56,16 +59,16 @@ function Main({ isAuth, reload, setReload }) {
                         />
                     </Tab>
                     <Tab eventKey='labs' title='Laboratórios'>
-                        <Medicamentos
-                            setMeds={setMeds}
-                            meds={meds}
+                        <Laboratorios
+                            labs={labs}
+                            setLabs={setLabs}
                             isAuth={isAuth}
                             reload={reload}
                             setReload={setReload}
                         />
                     </Tab>
                     <Tab eventKey='pa' title='Princípio Ativo'>
-                        <Medicamentos
+                        <PrincipioAtivo
                             setMeds={setMeds}
                             meds={meds}
                             isAuth={isAuth}
@@ -74,7 +77,7 @@ function Main({ isAuth, reload, setReload }) {
                         />
                     </Tab>
                     <Tab eventKey='ct' title='Classes Terapêuticas'>
-                        <Medicamentos
+                        <ClasseTerapeutica
                             setMeds={setMeds}
                             meds={meds}
                             isAuth={isAuth}

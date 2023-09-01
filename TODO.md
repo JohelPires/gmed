@@ -2,6 +2,7 @@
 
 ## Backend:
 
+-   [ ] sistema anti-deletamento causa problemas se a pessoa tentar inserir o mesmo medicamento que foi deletado
 -   [x] Popular a tabela de classe terapeutica
 -   [x] listar medicamentos deve fazer os inner join e mostrar nomes em vez de números
 -   [ ] Endpoints:
@@ -20,6 +21,7 @@
 ## Front-end:
 
 -   [ ] bulk create principios ativos separados por vírgula
+-   [ ] procurar medicamento
 -   [x] lista de classes terapeuticas
 -   [x] lógica das badges
 -   [x] carregar classes terapeuticas
