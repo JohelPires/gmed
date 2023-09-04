@@ -8,6 +8,8 @@ import axios from 'axios'
 import Laboratorios from '../components/Laboratorios'
 import PrincipioAtivo from '../components/PrincipioAtivo'
 import ClasseTerapeutica from '../components/ClasseTerapeutica'
+import Info from '../components/Info'
+import BarStatsMedPorLab from '../components/BarStatsMedPorLab'
 
 function Main({ isAuth, reload, setReload }) {
     const [meds, setMeds] = useState([])
@@ -82,8 +84,10 @@ function Main({ isAuth, reload, setReload }) {
                 </Tabs>
             </Col>
             <Col md={4}>
-                {/* <BarStats dados={meds} /> */}
-                {/* <Categories dados={meds} dadosMes={dadosMes} mesAtual={mesAtual} /> */}
+                <Info meds={meds} labs={labs} reload={reload} />
+                <BarStats meds={meds} />
+                <BarStatsMedPorLab meds={meds} />
+                {/* <Categories dados={meds} /> */}
             </Col>
         </Row>
     )

@@ -24,8 +24,8 @@
 
 -   [ ] bulk create principios ativos separados por vírgula
 -   [x] procurar medicamento
--   [ ] busca avançada
--   [ ] filtrar por laboratorio, pa, ct
+-   [-] busca avançada
+-   [x] filtrar por laboratorio, pa, ct
 -   [x] lista de classes terapeuticas
 -   [x] lógica das badges
 -   [x] carregar classes terapeuticas
@@ -33,7 +33,7 @@
 -   [x] carregar laboratórios
 -   [x] botao/modal visualizar
 -   [x] botao/modal editar
--   [ ] botao/modal ou caixa de diálogo excluir
+-   [x] botao/modal ou caixa de diálogo excluir
 -   [ ] um botao editar dentro do modal de visualizar
 -   [ ] validação de campos do 'adicionar medicamento'
 -   [ ] validação de campos do 'editar medicamento'
