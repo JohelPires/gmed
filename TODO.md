@@ -13,7 +13,7 @@
     -   [ ] endpoints de dashboard
 -   [x] registro deve ser unico
 -   [ ] opção excluir usuario
--   [ ] cnpj e nome do laboratorio devem ser únicos
+-   [x] cnpj e nome do laboratorio devem ser únicos
 
 ## se sobrar tempo:
 

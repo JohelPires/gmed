@@ -25,6 +25,7 @@ const Laboratorio = sequelize.define(
         nome: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
         },
         cnpj: {
             type: DataTypes.STRING,
