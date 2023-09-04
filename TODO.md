@@ -18,6 +18,7 @@
 ## se sobrar tempo:
 
 -   [ ] CRUD classes terapeuticas
+-   [ ] sistema de recuperação de dados deletados usando o 'paranoid' do sequelize
 
 ## Front-end:
 

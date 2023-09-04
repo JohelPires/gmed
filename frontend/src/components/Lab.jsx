@@ -1,8 +1,11 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, ButtonGroup, Stack } from 'react-bootstrap'
+import AddLabModal from './AddLabModal'
 
 function Lab({ item, isAuth, setReload }) {
+    const [updateModalShow, setUpdateModalShow] = useState(false)
+
     function handleDelete() {
         if (window.confirm('Tem certeza que quer deletar esse laboratório?')) {
             axios
@@ -24,24 +27,22 @@ function Lab({ item, isAuth, setReload }) {
                 <small>CNPJ: {item.cnpj}</small>
             </Stack>
             <ButtonGroup size='sm' className='ms-auto' aria-label='Basic example'>
-                {/* <Button variant='outline-secondary' onClick={() => setUpdateModalShow(true)}>
+                <Button variant='outline-secondary' onClick={() => setUpdateModalShow(true)}>
                     Editar
-                </Button> */}
+                </Button>
                 <Button variant='outline-danger' onClick={handleDelete}>
                     Excluir
                 </Button>
             </ButtonGroup>
-            {/* <UpdateModal
-        med={item}
-        ct={ct}
-        labs={labs}
-        pa={pa}
-        isAuth={isAuth}
-        setReload={setReload}
-        show={updateModalShow}
-        onHide={() => setUpdateModalShow(false)}
-    />
-    <ViewModal med={item} show={viewModalShow} onHide={() => setViewModalShow(false)} /> */}
+            <AddLabModal
+                editMode={true}
+                lab={item}
+                isAuth={isAuth}
+                setReload={setReload}
+                show={updateModalShow}
+                onHide={() => setUpdateModalShow(false)}
+            />
+            {/* <ViewModal med={item} show={viewModalShow} onHide={() => setViewModalShow(false)} /> */}
         </Stack>
     )
 }

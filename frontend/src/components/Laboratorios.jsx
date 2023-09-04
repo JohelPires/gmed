@@ -60,6 +60,7 @@ function Laboratorios({ labs, setLabs, isAuth, reload, setReload }) {
             )}
 
             <AddLabModal
+                editMode={false}
                 isAuth={isAuth}
                 show={labModalShow}
                 setReload={setReload}

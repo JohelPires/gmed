@@ -18,7 +18,7 @@ function AddModal(props) {
         handleSubmit,
         // watch,
         formState: { errors },
-    } = useForm({ resetOptions: { keepDirtyValues: true } })
+    } = useForm({ shouldUnregister: true })
 
     function onSubmit(data) {
         // e.preventDefault()

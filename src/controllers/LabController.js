@@ -65,38 +65,15 @@ function update(req, res) {
         })
 }
 
-// function deleta(req, res) {
-//     const { id } = req.params
-//     Laboratorio.destroy({
-//         where: {
-//             id: parseInt(id),
-//         },
-//     })
-//         .then((result) => {
-//             if (result) {
-//                 res.status(200).json('Laboratorio deletada com sucesso.')
-//             } else {
-//                 res.status(404).json('não encontrado.')
-//             }
-//         })
-//         .catch((err) => {
-//             res.status(400).json(err)
-//         })
-// }
-
-// TESTADO: OK
 function deleta(req, res) {
     const { id } = req.params
-    Laboratorio.update(
-        { deletado: true },
-        {
-            where: {
-                id: parseInt(id),
-            },
-        }
-    )
+    Laboratorio.destroy({
+        where: {
+            id: parseInt(id),
+        },
+    })
         .then((result) => {
-            if (result[0]) {
+            if (result) {
                 res.status(200).json('Laboratorio apagado.')
             } else {
                 res.status(404).json('não encontrado.')
@@ -106,5 +83,28 @@ function deleta(req, res) {
             res.status(400).json(err)
         })
 }
+
+// TESTADO: OK
+// function deleta(req, res) {
+//     const { id } = req.params
+//     Laboratorio.update(
+//         { deletado: true },
+//         {
+//             where: {
+//                 id: parseInt(id),
+//             },
+//         }
+//     )
+//         .then((result) => {
+//             if (result[0]) {
+//                 res.status(200).json('Laboratorio apagado.')
+//             } else {
+//                 res.status(404).json('não encontrado.')
+//             }
+//         })
+//         .catch((err) => {
+//             res.status(400).json(err)
+//         })
+// }
 
 module.exports = { listAll, add, findId, update, deleta }
