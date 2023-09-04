@@ -29,6 +29,7 @@ const Laboratorio = sequelize.define(
         cnpj: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
         },
         deletado: {
             type: DataTypes.BOOLEAN,

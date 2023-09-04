@@ -2,10 +2,12 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Button, Form, Spinner, Stack } from 'react-bootstrap'
 import Lab from './Lab'
+import AddLabModal from './AddLabModal'
 
 function Laboratorios({ labs, setLabs, isAuth, reload, setReload }) {
     const [loading, setLoading] = useState(true)
     const [msg, setMsg] = useState('')
+    const [labModalShow, setLabModalShow] = useState(false)
 
     useEffect(() => {
         setLoading(true)
@@ -25,7 +27,9 @@ function Laboratorios({ labs, setLabs, isAuth, reload, setReload }) {
     return (
         <Stack className='p-3'>
             <Stack gap={3} direction='horizontal' className='control-bar p-3 round'>
-                <Button variant='outline-light'>Cadastrar Laboratório</Button>
+                <Button variant='outline-light' onClick={() => setLabModalShow(true)}>
+                    Cadastrar Laboratório
+                </Button>
 
                 <Form.Control
                     className='w-50'
@@ -55,6 +59,12 @@ function Laboratorios({ labs, setLabs, isAuth, reload, setReload }) {
                 <p>{msg}</p>
             )}
 
+            <AddLabModal
+                isAuth={isAuth}
+                show={labModalShow}
+                setReload={setReload}
+                onHide={() => setLabModalShow(false)}
+            />
             {/* <AddModal
                 ct={ct}
                 labs={labs}
