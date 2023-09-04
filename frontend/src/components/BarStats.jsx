@@ -20,7 +20,7 @@ const options = {
 
 function BarStats({ meds }) {
     const data = {
-        labels: ['2023', '2024', '2025'],
+        labels: ['2023', '2024', '2025', '2026', '2027'],
         datasets: [
             // {
             //     label: 'Despesas',
@@ -29,7 +29,7 @@ function BarStats({ meds }) {
             // },
             {
                 label: 'Quantidade',
-                data: [3, 4, 5],
+                data: [3, 4, 5, 2, 3],
                 backgroundColor: '#49ABED',
             },
         ],
