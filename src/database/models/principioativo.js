@@ -25,6 +25,7 @@ const Principioativo = sequelize.define(
         nome: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true,
         },
         deletado: {
             type: DataTypes.BOOLEAN,

@@ -68,13 +68,7 @@ function Main({ isAuth, reload, setReload }) {
                         />
                     </Tab>
                     <Tab eventKey='pa' title='Princípio Ativo'>
-                        <PrincipioAtivo
-                            setMeds={setMeds}
-                            meds={meds}
-                            isAuth={isAuth}
-                            reload={reload}
-                            setReload={setReload}
-                        />
+                        <PrincipioAtivo setPa={setPa} pa={pa} isAuth={isAuth} reload={reload} setReload={setReload} />
                     </Tab>
                     <Tab eventKey='ct' title='Classes Terapêuticas'>
                         <ClasseTerapeutica
