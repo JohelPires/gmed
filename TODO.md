@@ -37,6 +37,7 @@
 -   [ ] um botao editar dentro do modal de visualizar
 -   [ ] validação de campos do 'adicionar medicamento'
 -   [ ] validação de campos do 'editar medicamento'
+-   [ ] validação de campos do 'laboratório'
 -   [ ] alterações no banco são notificadas ao usuário usando bootstrap toasts
 -   [x] clicando no nome do medicamento abre a visualização
 -   [ ] clicando no nome do laboratório/ct/pa abre a lista de medicamentos filtrada
