@@ -13,6 +13,8 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }
     const [loading, setLoading] = useState(true)
     const [msg, setMsg] = useState('')
     const [modalShow, setModalShow] = useState(false)
+    const [procurar, setProcurar] = useState('')
+    const [dadoFiltrado, setDadoFiltrado] = useState([])
 
     useEffect(() => {
         setLoading(true)
@@ -20,6 +22,10 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }
             .get('http://localhost:5000/medicamentos', { headers: { Authorization: `Bearer ${isAuth.accessToken}` } })
             .then((data) => {
                 setMeds(data.data)
+                setDadoFiltrado(data.data)
+                // setDadoFiltrado(data.data.filter((item) => item.nome.toLowerCase().startsWith('outro')))
+                // console.log(dadoFiltrado)
+                console.log(data.data)
                 setLoading(false)
                 setMsg('Sem dados.')
             })
@@ -28,6 +34,11 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }
                 console.log(err)
             })
     }, [reload])
+
+    function handleProcurar(e) {
+        const filtra = meds.filter((item) => item.nome.toLowerCase().startsWith(e.target.value.toLowerCase()))
+        setDadoFiltrado(filtra)
+    }
 
     return (
         <Stack className='p-3'>
@@ -41,6 +52,8 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }
                     placeholder='Procurar medicamento'
                     aria-label='medicamento'
                     aria-describedby='basic-addon1'
+                    // value={procurar}
+                    onChange={handleProcurar}
                 />
             </Stack>
             <Stack direction='horizontal' className='transaction_month'>
@@ -55,8 +68,8 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }
             <Stack style={{ overflow: 'auto', height: '600px' }}>
                 {loading ? (
                     <Spinner animation='border' variant='primary' />
-                ) : meds.length > 0 ? (
-                    meds.map((item) => {
+                ) : dadoFiltrado.length > 0 ? (
+                    dadoFiltrado.map((item) => {
                         return <Med item={item} ct={ct} labs={labs} pa={pa} isAuth={isAuth} setReload={setReload} />
                     })
                 ) : (
