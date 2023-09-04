@@ -23,9 +23,9 @@
 ## Front-end:
 
 -   [ ] bulk create principios ativos separados por vírgula
--   [ ] procurar medicamento
+-   [x] procurar medicamento
 -   [ ] busca avançada
--   [ ] filtrar
+-   [ ] filtrar por laboratorio, pa, ct
 -   [x] lista de classes terapeuticas
 -   [x] lógica das badges
 -   [x] carregar classes terapeuticas
@@ -42,3 +42,4 @@
 -   [ ] clicando no nome do laboratório/ct/pa abre a lista de medicamentos filtrada
 -   [ ] icones dos botoes
 -   [ ] verificar se banco está sendo acessado duas vezes em todo reload
+-   [ ] handling erro ao deletar um laboratório com medicamentos cadastrados

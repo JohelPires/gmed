@@ -70,7 +70,7 @@ function Main({ isAuth, reload, setReload }) {
                     <Tab eventKey='pa' title='Princípio Ativo'>
                         <PrincipioAtivo setPa={setPa} pa={pa} isAuth={isAuth} reload={reload} setReload={setReload} />
                     </Tab>
-                    <Tab eventKey='ct' title='Classes Terapêuticas'>
+                    {/* <Tab eventKey='ct' title='Classes Terapêuticas'>
                         <ClasseTerapeutica
                             // setCt={setCt}
                             ct={ct}
@@ -78,7 +78,7 @@ function Main({ isAuth, reload, setReload }) {
                             reload={reload}
                             setReload={setReload}
                         />
-                    </Tab>
+                    </Tab> */}
                 </Tabs>
             </Col>
             <Col md={4}>

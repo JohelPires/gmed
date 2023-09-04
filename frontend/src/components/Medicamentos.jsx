@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Container, Dropdown, Form, InputGroup, Spinner, Stack } from 'react-bootstrap'
+import { Button, Container, Dropdown, Form, InputGroup, Spinner, Stack, ToggleButton } from 'react-bootstrap'
 // import testData from '../data/testData'
 import TransItem from './TransItem'
 import axios from 'axios'
@@ -15,6 +15,10 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }
     const [modalShow, setModalShow] = useState(false)
     const [procurar, setProcurar] = useState('')
     const [dadoFiltrado, setDadoFiltrado] = useState([])
+    const [checked, setChecked] = useState(false)
+    const [filtroPorLab, setFiltroPorLab] = useState(0)
+    const [filtroPorPa, setFiltroPorPa] = useState(0)
+    const [filtroPorCt, setFiltroPorCt] = useState(0)
 
     useEffect(() => {
         setLoading(true)
@@ -35,26 +39,95 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }
             })
     }, [reload])
 
-    function handleProcurar(e) {
-        const filtra = meds.filter((item) => item.nome.toLowerCase().startsWith(e.target.value.toLowerCase()))
-        setDadoFiltrado(filtra)
-    }
+    // function handleProcurar(e) {
+    //     const filtra = meds.filter((item) => item.nome.toLowerCase().startsWith(e.target.value.toLowerCase()))
+    //     setDadoFiltrado(filtra)
+    // }
+
+    // function handleFiltrarPorLab(e) {
+    //     console.log(e.target.value)
+    //     setDadoFiltrado((prev) => prev.filter((item) => item.id_laboratorio == e.target.value))
+    // }
+
+    useEffect(() => {
+        setDadoFiltrado(meds)
+        console.log(filtroPorLab)
+        filtroPorLab > 0 && setDadoFiltrado((prev) => prev.filter((item) => item.id_laboratorio == filtroPorLab))
+        filtroPorPa > 0 && setDadoFiltrado((prev) => prev.filter((item) => item.id_principio_ativo == filtroPorPa))
+        filtroPorCt > 0 && setDadoFiltrado((prev) => prev.filter((item) => item.id_classe_terapeutica == filtroPorCt))
+        procurar &&
+            setDadoFiltrado((prev) => prev.filter((item) => item.nome.toLowerCase().startsWith(procurar.toLowerCase())))
+    }, [filtroPorLab, filtroPorPa, filtroPorCt, procurar])
 
     return (
         <Stack className='p-3'>
-            <Stack gap={3} direction='horizontal' className='control-bar p-3 round'>
-                <Button variant='outline-light' onClick={() => setModalShow(true)}>
-                    Cadastrar medicamento
-                </Button>
+            <Stack gap={3} className='control-bar p-3 round'>
+                <Stack gap={3} direction='horizontal'>
+                    <Button variant='outline-light' onClick={() => setModalShow(true)}>
+                        Cadastrar medicamento
+                    </Button>
 
-                <Form.Control
-                    className='w-50'
-                    placeholder='Procurar medicamento'
-                    aria-label='medicamento'
-                    aria-describedby='basic-addon1'
-                    // value={procurar}
-                    onChange={handleProcurar}
-                />
+                    <Form.Control
+                        className='w-50'
+                        placeholder='Procurar medicamento'
+                        aria-label='medicamento'
+                        aria-describedby='basic-addon1'
+                        value={procurar}
+                        onChange={(e) => setProcurar(e.target.value)}
+                    />
+
+                    <ToggleButton
+                        id='toggle-check'
+                        type='checkbox'
+                        variant='outline-light'
+                        checked={checked}
+                        value='1'
+                        onChange={(e) => setChecked(e.currentTarget.checked)}
+                    >
+                        Filtrar
+                    </ToggleButton>
+                </Stack>
+                {checked && (
+                    <Stack gap={2}>
+                        <Form.Select
+                            defaultValue={0}
+                            aria-label='Default select example'
+                            onChange={(e) => setFiltroPorLab(e.target.value)}
+                        >
+                            <option value={0}>Filtrar por laboratório...</option>
+                            {labs &&
+                                labs.map((item) => {
+                                    return <option value={item.id}>{item.nome}</option>
+                                })}
+                        </Form.Select>
+                        <Form.Select
+                            defaultValue={0}
+                            aria-label='Default select example'
+                            onChange={(e) => setFiltroPorPa(e.target.value)}
+                        >
+                            <option value={0}>Filtrar por princípio ativo...</option>
+                            {pa &&
+                                pa.map((item) => {
+                                    return <option value={item.id}>{item.nome}</option>
+                                })}
+                        </Form.Select>
+                        <Form.Select
+                            defaultValue={0}
+                            aria-label='Default select example'
+                            onChange={(e) => setFiltroPorCt(e.target.value)}
+                        >
+                            <option>Filtrar por classe terapeutica...</option>
+                            {ct &&
+                                ct.map((item) => {
+                                    return (
+                                        <option value={item.id}>
+                                            {item.codigo} - {item.nome}
+                                        </option>
+                                    )
+                                })}
+                        </Form.Select>
+                    </Stack>
+                )}
             </Stack>
             <Stack direction='horizontal' className='transaction_month'>
                 <Button
