@@ -39,3 +39,4 @@
 -   [x] clicando no nome do medicamento abre a visualização
 -   [ ] clicando no nome do laboratório/ct/pa abre a lista de medicamentos filtrada
 -   [ ] icones dos botoes
+-   [ ] verificar se banco está sendo acessado duas vezes em todo reload
