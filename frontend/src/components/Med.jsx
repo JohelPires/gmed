@@ -25,12 +25,12 @@ function Med({ item, ct, labs, pa, isAuth, setReload }) {
 
     return (
         <Stack gap={3} className='border-bottom pb-2' direction='horizontal'>
-            {/* <div className='ms-auto'></div> */}
-            {item.quantidade < 1000 && <Badge bg='warning'>estoque baixo</Badge>}
-            {item.vencimento.slice(0, 4) == new Date().getFullYear() && <Badge bg='danger'>vencimento próximo</Badge>}
             <h6 style={{ cursor: 'pointer' }} onClick={() => setViewModalShow(true)}>
                 {item.nome}
             </h6>
+            {/* <div className='ms-auto'></div> */}
+            {item.quantidade < 1000 && <Badge bg='warning'>estoque baixo</Badge>}
+            {item.vencimento.slice(0, 4) == new Date().getFullYear() && <Badge bg='danger'>vencimento próximo</Badge>}
             <ButtonGroup size='sm' className='ms-auto' aria-label='Basic example'>
                 <Button variant='outline-secondary' onClick={() => setViewModalShow(true)}>
                     Visualizar
