@@ -46,7 +46,7 @@ function BarStats({ meds }) {
             //     backgroundColor: '#E2B13D',
             // },
             {
-                label: 'quantidade',
+                label: 'quantidade de medicamentos',
                 data: quant,
                 backgroundColor: '#3dcabc',
 
@@ -71,7 +71,7 @@ function BarStats({ meds }) {
         <Container className='bg-white round main-shadow'>
             <Stack className='p-3'>
                 <div className='transaction_month'>
-                    <h5>Medicamentos a vencer</h5>
+                    <h5>Ano de vencimento</h5>
                 </div>
                 <Bar options={options} data={data} />
             </Stack>

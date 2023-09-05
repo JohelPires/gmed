@@ -18,7 +18,11 @@ function Navbar({ isAuth, setIsAuth }) {
                 {isAuth ? (
                     <>
                         <Link to={'/'}>
-                            <h2>GMed</h2>
+                            <Stack>
+                                {/* <h2 style={{ fontWeight: 'bolder', letterSpacing: '2px' }}>GMed</h2> */}
+                                <h2 className='fw-bold m-0'>GMed</h2>
+                                <h6 className='m-0'>Sistema de Gestão de Medicamentos</h6>
+                            </Stack>
                         </Link>
                         {/* <Link className='ms-auto' to={'/'}>
                             <h6 className='ms-auto mt-1'>Início</h6>

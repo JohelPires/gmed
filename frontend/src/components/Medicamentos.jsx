@@ -63,7 +63,7 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }
         <Stack className='p-3'>
             <Stack gap={3} className='control-bar p-3 round'>
                 <Stack gap={3} direction='horizontal'>
-                    <Button variant='outline-light' onClick={() => setModalShow(true)}>
+                    <Button variant='light' onClick={() => setModalShow(true)}>
                         Cadastrar medicamento
                     </Button>
 

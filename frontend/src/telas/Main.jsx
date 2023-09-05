@@ -84,7 +84,7 @@ function Main({ isAuth, reload, setReload }) {
                 </Tabs>
             </Col>
             <Col md={4}>
-                <Info meds={meds} labs={labs} reload={reload} />
+                <Info meds={meds} labs={labs} pa={pa} reload={reload} />
                 <BarStats meds={meds} />
                 <BarStatsMedPorLab meds={meds} />
                 {/* <Categories dados={meds} /> */}

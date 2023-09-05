@@ -22,6 +22,7 @@
 
 ## Front-end:
 
+-   [ ] filtro deve listar apenas existentes
 -   [ ] bulk create principios ativos separados por vírgula
 -   [x] procurar medicamento
 -   [-] busca avançada
