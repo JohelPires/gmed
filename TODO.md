@@ -1,5 +1,11 @@
 # To do
 
+## prioridades:
+
+-   [ ] toasts
+-   [ ] validações de campos
+-   [ ] handling erros da api
+
 ## Backend:
 
 -   [x] sistema anti-deletamento causa problemas se a pessoa tentar inserir o mesmo medicamento que foi deletado
