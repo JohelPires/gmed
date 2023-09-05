@@ -44,10 +44,13 @@
 -   [ ] icones dos botoes
 -   [ ] verificar se banco está sendo acessado duas vezes em todo reload
 -   [ ] handling erro ao deletar um laboratório com medicamentos cadastrados
+-   [ ] tag de medicamento em falta
+-   [ ] talvez legendas para as tags
 
 ## Dashboard
 
 -   [x] grafico de medicamentos por laboratorio
+-   [ ] grafico de quantidade de medicamentos por laboratório
 -   [ ] limitar o grafico de medicamentos por laboratorio para os 9 maiores
 -   [ ] grafico de vencimento
 -   [ ] grafico de medicamentos por principio ativo
