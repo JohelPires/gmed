@@ -52,5 +52,5 @@
 -   [x] grafico de medicamentos por laboratorio
 -   [ ] grafico de quantidade de medicamentos por laboratório
 -   [ ] limitar o grafico de medicamentos por laboratorio para os 9 maiores
--   [ ] grafico de vencimento
+-   [x] grafico de vencimento
 -   [ ] grafico de medicamentos por principio ativo

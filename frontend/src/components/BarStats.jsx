@@ -19,8 +19,26 @@ const options = {
 }
 
 function BarStats({ meds }) {
+    const [labels, setLabels] = useState([])
+    const [quant, setQuant] = useState([])
+    useEffect(() => {
+        const medsVencimento = {}
+        for (const obj of meds) {
+            // console.log(obj)
+            const valor = obj.vencimento.slice(0, 4)
+            // console.log(valor)
+            medsVencimento[valor] = (medsVencimento[valor] || 0) + 1
+        }
+        console.log(medsVencimento)
+
+        setLabels(Object.keys(medsVencimento))
+        setQuant(Object.values(medsVencimento))
+    }, [meds])
+
+    console.log(labels, quant)
+
     const data = {
-        labels: ['2023', '2024', '2025', '2026', '2027'],
+        labels: labels,
         datasets: [
             // {
             //     label: 'Despesas',
@@ -28,9 +46,24 @@ function BarStats({ meds }) {
             //     backgroundColor: '#E2B13D',
             // },
             {
-                label: 'Quantidade',
-                data: [3, 4, 5, 2, 3],
-                backgroundColor: '#49ABED',
+                label: 'quantidade',
+                data: quant,
+                backgroundColor: '#3dcabc',
+
+                // backgroundColor: [
+                //     '#00d4ff',
+                //     '#17d0e6',
+                //     '#29cdd2',
+                //     '#3dcabc',
+                //     '#4dc7aa',
+                //     '#5fc496',
+                //     '#73c07f',
+                //     '#83bd6d',
+                //     '#9ab954',
+                //     '#acb640',
+                //     '#beb32c',
+                //     '#c9b120',
+                // ],
             },
         ],
     }
@@ -38,7 +71,7 @@ function BarStats({ meds }) {
         <Container className='bg-white round main-shadow'>
             <Stack className='p-3'>
                 <div className='transaction_month'>
-                    <h3>Data de vencimento</h3>
+                    <h5>Medicamentos a vencer</h5>
                 </div>
                 <Bar options={options} data={data} />
             </Stack>

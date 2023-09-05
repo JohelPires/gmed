@@ -7,10 +7,10 @@ const Laboratorio = require('../database/models/laboratorio') //(sequelize, Data
 // TESTADO: OK
 function listAll(req, res) {
     Laboratorio.findAll({
-        where: {
-            // id_usuario: req.userId,
-            deletado: false,
-        },
+        // where: {
+        //     // id_usuario: req.userId,
+        //     deletado: false,
+        // },
     })
         .then((result) => {
             res.status(201).json(result)

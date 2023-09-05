@@ -7,10 +7,10 @@ const Principioativo = require('../database/models/principioativo') //(sequelize
 // TESTADO: OK
 function listAll(req, res) {
     Principioativo.findAll({
-        where: {
-            // id_usuario: req.userId,
-            deletado: false,
-        },
+        // where: {
+        //     // id_usuario: req.userId,
+        //     deletado: false,
+        // },
     })
         .then((result) => {
             res.status(201).json(result)

@@ -138,7 +138,8 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }
                     {/* <h4>Nome:</h4> */}
                 </Button>
             </Stack>
-            <Stack style={{ overflow: 'auto', height: '600px' }}>
+            {/* <Stack style={{ overflow: 'auto', height: '600px' }}> */}
+            <Stack>
                 {loading ? (
                     <Spinner animation='border' variant='primary' />
                 ) : dadoFiltrado.length > 0 ? (

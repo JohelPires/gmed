@@ -25,17 +25,17 @@ const Laboratorio = sequelize.define(
         nome: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
+            // unique: true,
         },
         cnpj: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
         },
-        deletado: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false,
-        },
+        // deletado: {
+        //     type: DataTypes.BOOLEAN,
+        //     defaultValue: false,
+        // },
     },
     { freezeTableName: true }
 )

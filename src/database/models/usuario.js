@@ -28,8 +28,8 @@ const Usuario = sequelize.define(
     },
     { freezeTableName: true }
 )
-Usuario.associate = function (models) {
-    Usuario.hasMany(models.Tarefa, { as: 'employes' })
-}
+// Usuario.associate = function (models) {
+//     Usuario.hasMany(models.Tarefa, { as: 'employes' })
+// }
 
 module.exports = Usuario

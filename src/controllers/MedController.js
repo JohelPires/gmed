@@ -11,10 +11,10 @@ const { updateSaldo } = require('./UsuarioController')
 // TESTADO: OK
 function listAll(req, res) {
     Medicamentos.findAll({
-        where: {
-            // id_usuario: req.userId,
-            deletado: false,
-        },
+        // where: {
+        //     // id_usuario: req.userId,
+        //     deletado: false,
+        // },
         include: [Laboratorio, Principioativo, Classeterapeutica],
     })
         .then((result) => {

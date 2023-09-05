@@ -27,10 +27,10 @@ const Principioativo = sequelize.define(
             allowNull: false,
             unique: true,
         },
-        deletado: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false,
-        },
+        // deletado: {
+        //     type: DataTypes.BOOLEAN,
+        //     defaultValue: false,
+        // },
     },
     { freezeTableName: true }
 )
