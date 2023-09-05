@@ -6,19 +6,39 @@ import { Bar } from 'react-chartjs-2'
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 function BarStatsMedPorLab({ meds }) {
+    // console.log(meds)
+    const [noveLabs, setNoveLabs] = useState([])
+    const [quant, setQuant] = useState([])
+
+    useEffect(() => {
+        const medsPorLab = {}
+        for (const obj of meds) {
+            // console.log(obj)
+            const valor = obj.laboratorio
+            // console.log(valor)
+            medsPorLab[valor] = (medsPorLab[valor] || 0) + 1
+        }
+        console.log(medsPorLab)
+
+        setNoveLabs(Object.keys(medsPorLab))
+        setQuant(Object.values(medsPorLab))
+    }, [meds])
+    console.log(noveLabs, quant)
+
+    // const noveLabs = [
+    //     'BRISTOL-MYERS...',
+    //     'BRISTOL-MYERS SQUIBB FARMACEUTICA LTDA',
+    //     '2BRISTOL-MYERS SQUIBB FARMACEUTICA LTDA025',
+    //     '2BRISTOL-MYERS SQUIBB FARMACEUTICA LTDA025',
+    //     '2BRISTOL-MYERS SQUIBB FARMACEUTICA LTDA025',
+    //     '2BRISTOL-MYERS SQUIBB FARMACEUTICA LTDA025',
+    //     '2BRISTOL-MYERS SQUIBB FARMACEUTICA LTDA025',
+    //     '2BRISTOL-MYERS SQUIBB FARMACEUTICA LTDA025',
+    //     '2BRISTOL-MYERS SQUIBB FARMACEUTICA LTDA025',
+    //     '2BRISTOL-MYERS SQUIBB FARMACEUTICA LTDA025',
+    // ]
     const data = {
-        labels: [
-            'BRISTOL-MYERS...',
-            'BRISTOL-MYERS SQUIBB FARMACEUTICA LTDA',
-            '2BRISTOL-MYERS SQUIBB FARMACEUTICA LTDA025',
-            '2BRISTOL-MYERS SQUIBB FARMACEUTICA LTDA025',
-            '2BRISTOL-MYERS SQUIBB FARMACEUTICA LTDA025',
-            '2BRISTOL-MYERS SQUIBB FARMACEUTICA LTDA025',
-            '2BRISTOL-MYERS SQUIBB FARMACEUTICA LTDA025',
-            '2BRISTOL-MYERS SQUIBB FARMACEUTICA LTDA025',
-            '2BRISTOL-MYERS SQUIBB FARMACEUTICA LTDA025',
-            '2BRISTOL-MYERS SQUIBB FARMACEUTICA LTDA025',
-        ],
+        labels: noveLabs,
         datasets: [
             // {
             //     label: 'Despesas',
@@ -27,7 +47,7 @@ function BarStatsMedPorLab({ meds }) {
             // },
             {
                 label: 'Quantidade',
-                data: [3, 4, 5, 6, 5, 4, 2, 7, 4, 2],
+                data: quant,
                 backgroundColor: '#49ABED',
             },
         ],
@@ -48,7 +68,7 @@ function BarStatsMedPorLab({ meds }) {
                 ticks: {
                     // Include a dollar sign in the ticks
                     callback: function (value, index, values) {
-                        return 'teste'
+                        return `${noveLabs[index].slice(0, 9)}...`
                     },
                 },
             },
