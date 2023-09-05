@@ -5,6 +5,8 @@
 -   [ ] toasts
 -   [ ] validações de campos
 -   [ ] handling erros da api
+-   [ ] limpar codigo
+-   [ ] fazer o deploy
 
 ## Backend:
 
