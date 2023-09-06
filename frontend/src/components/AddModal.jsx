@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Form, InputGroup, Modal, Stack } from 'react-bootstrap'
+import { Alert, Button, Form, InputGroup, Modal, Stack } from 'react-bootstrap'
 import { despesas, receitas } from '../data/categorias'
 import axios from 'axios'
 import { useForm } from 'react-hook-form'
@@ -13,6 +13,7 @@ function AddModal(props) {
     //     quantidade: null,
     //     vencimento: null,
     // })
+    const [erro, setErro] = useState(null)
     const {
         register,
         handleSubmit,
@@ -42,7 +43,7 @@ function AddModal(props) {
                 props.setReload((prev) => prev + 1)
                 props.onHide()
             })
-            .catch((err) => console.log(err))
+            .catch((err) => setErro(err.response.data))
     }
 
     // O ENDPOINT PEDE ESSE FORMATO:
@@ -68,15 +69,28 @@ function AddModal(props) {
                     <Modal.Title id='contained-modal-title-vcenter'>Cadastrar medicamento</Modal.Title>
                 </Modal.Header>
                 <Modal.Body style={{ background: '#F0F0F0' }}>
-                    {errors.valor && <span style={{ color: 'red' }}>Digite um valor diferente de zero</span>}
+                    {/* {errors.valor && <span style={{ color: 'red' }}>Digite um valor diferente de zero</span>} */}
+                    {erro &&
+                        erro.map((item) => {
+                            return (
+                                <p style={{ color: 'red' }}>
+                                    <small variant='danger'>{item}</small>
+                                </p>
+                            )
+                        })}
                     <Stack direction='horizontal' gap={1}>
                         <Form.Group className='mb-3 w-75'>
                             <Form.Label>Nome</Form.Label>
-                            <Form.Control type='text' {...register('nome', { required: true })} defaultValue={''} />
+                            <Form.Control
+                                required
+                                type='text'
+                                {...register('nome', { required: true })}
+                                defaultValue={''}
+                            />
                         </Form.Group>
                         <Form.Group className='mb-3'>
                             <Form.Label>Registro</Form.Label>
-                            <Form.Control type='text' {...register('registro', { required: true })} />
+                            <Form.Control required type='text' {...register('registro', { required: true })} />
                         </Form.Group>
                     </Stack>{' '}
                     <Stack direction='horizontal' gap={1}>
@@ -113,6 +127,7 @@ function AddModal(props) {
                             <Form.Label>Classe terapêutica</Form.Label>
                             <Form.Select
                                 aria-label='Default select example'
+                                required
                                 {...register('id_classe_terapeutica', { required: true })}
                             >
                                 <option>Selecione...</option>
@@ -134,7 +149,7 @@ function AddModal(props) {
                                 as='textarea'
                                 rows={4}
                                 aria-label='Default select example'
-                                {...register('apresentacao', { required: true })}
+                                {...register('apresentacao')}
                             ></Form.Control>
                         </Form.Group>
                         <Stack>

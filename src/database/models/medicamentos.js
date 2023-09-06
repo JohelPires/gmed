@@ -51,6 +51,7 @@ const Medicamentos = sequelize.define(
         },
         id_classe_terapeutica: {
             type: DataTypes.INTEGER,
+            allowNull: false,
         },
         quantidade: {
             type: DataTypes.INTEGER,
