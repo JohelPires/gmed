@@ -8,7 +8,7 @@
 -   [x] handling erros da api
 -   [ ] limpar codigo
 -   [x] filtro deve listar apenas existentes
--   [ ] filtrar pelas tags
+-   [x] filtrar pelas tags
 -   [ ] tela sobre
 -   [ ] fazer o deploy
 
@@ -46,13 +46,13 @@
 -   [x] botao/modal visualizar
 -   [x] botao/modal editar
 -   [x] botao/modal ou caixa de diálogo excluir
--   [ ] um botao editar dentro do modal de visualizar
+-   [-] um botao editar dentro do modal de visualizar
 -   [x] validação de campos do 'adicionar medicamento'
 -   [ ] validação de campos do 'editar medicamento'
 -   [x] validação de campos do 'laboratório'
--   [ ] alterações no banco são notificadas ao usuário usando bootstrap toasts
+-   [x] alterações no banco são notificadas ao usuário usando bootstrap toasts
 -   [x] clicando no nome do medicamento abre a visualização
--   [ ] clicando no nome do laboratório/ct/pa abre a lista de medicamentos filtrada
+-   [-] clicando no nome do laboratório/ct/pa abre a lista de medicamentos filtrada
 -   [ ] icones dos botoes
 -   [x] verificar se banco está sendo acessado duas vezes em todo reload
 -   [ ] handling erro ao deletar um laboratório com medicamentos cadastrados
