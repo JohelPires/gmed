@@ -18,20 +18,20 @@ function Info({ meds, reload, labs, pa }) {
             </div>
             <Stack className='p-3'>
                 <Stack direction='horizontal'>
-                    <h5>Medicamentos Cadastrados: </h5>
-                    <h3 className='ms-auto'>{meds && meds.length}</h3>
+                    <h6>Medicamentos Cadastrados: </h6>
+                    <h5 className='ms-auto'>{meds && meds.length}</h5>
                 </Stack>
                 <Stack direction='horizontal'>
-                    <h5>Total de medicamentos: </h5>
-                    <h3 className='ms-auto'>{total}</h3>
+                    <h6>Quantidade total de medicamentos: </h6>
+                    <h5 className='ms-auto'>{total}</h5>
                 </Stack>
                 <Stack direction='horizontal'>
-                    <h5>Laboratórios cadastrados: </h5>
-                    <h3 className='ms-auto'>{labs && labs.length}</h3>
+                    <h6>Laboratórios cadastrados: </h6>
+                    <h5 className='ms-auto'>{labs && labs.length}</h5>
                 </Stack>
                 <Stack direction='horizontal'>
-                    <h5>Princípios ativos registrados: </h5>
-                    <h3 className='ms-auto'>{pa && pa.length}</h3>
+                    <h6>Princípios ativos registrados: </h6>
+                    <h5 className='ms-auto'>{pa && pa.length}</h5>
                 </Stack>
             </Stack>
         </Container>

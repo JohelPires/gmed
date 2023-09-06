@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Col, Row, Tab, Tabs } from 'react-bootstrap'
-import Transactions from '../components/Transactions'
+import { Col, Row, Tab, Tabs, Toast, ToastContainer } from 'react-bootstrap'
 import BarStats from '../components/BarStats'
-import Categories from '../components/Categories'
 import Medicamentos from '../components/Medicamentos'
 import axios from 'axios'
 import Laboratorios from '../components/Laboratorios'
@@ -10,12 +8,14 @@ import PrincipioAtivo from '../components/PrincipioAtivo'
 import ClasseTerapeutica from '../components/ClasseTerapeutica'
 import Info from '../components/Info'
 import BarStatsMedPorLab from '../components/BarStatsMedPorLab'
+import DonutLabs from '../components/DonutLabs'
 
 function Main({ isAuth, reload, setReload }) {
     const [meds, setMeds] = useState([])
     const [ct, setCt] = useState([]) // CLASSES TERAPEUTICAS
     const [labs, setLabs] = useState([]) // LABORATORIOS
     const [pa, setPa] = useState([]) // PRINCIPIOS ATIVOS
+    const [toast, setToast] = useState({ show: false, msg: '', title: '' })
 
     useEffect(() => {
         axios
@@ -58,6 +58,7 @@ function Main({ isAuth, reload, setReload }) {
                             isAuth={isAuth}
                             reload={reload}
                             setReload={setReload}
+                            setToast={setToast}
                         />
                     </Tab>
                     <Tab eventKey='labs' title='Laboratórios'>
@@ -87,8 +88,20 @@ function Main({ isAuth, reload, setReload }) {
                 <Info meds={meds} labs={labs} pa={pa} reload={reload} />
                 <BarStats meds={meds} />
                 <BarStatsMedPorLab meds={meds} />
+                <DonutLabs meds={meds} />
                 {/* <Categories dados={meds} /> */}
             </Col>
+
+            <ToastContainer style={{ position: 'fixed', top: '10px', left: '10px' }}>
+                <Toast onClose={() => setToast({ ...toast, show: false })} show={toast.show} delay={5000} autohide>
+                    <Toast.Header>
+                        <img src='holder.js/20x20?text=%20' className='rounded me-2' alt='' />
+                        <strong className='me-auto'>Bootstrap</strong>
+                        <small>11 mins ago</small>
+                    </Toast.Header>
+                    <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
+                </Toast>
+            </ToastContainer>
         </Row>
     )
 }

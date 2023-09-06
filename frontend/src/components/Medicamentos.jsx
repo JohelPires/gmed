@@ -9,7 +9,7 @@ import { BsFilter } from 'react-icons/bs'
 import Med from './Med'
 import AddModal from './AddModal'
 
-function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }) {
+function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, setToast }) {
     const [loading, setLoading] = useState(true)
     const [msg, setMsg] = useState('')
     const [modalShow, setModalShow] = useState(false)
@@ -54,7 +54,7 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }
 
     useEffect(() => {
         setDadoFiltrado(meds)
-        console.log(filtroPorLab)
+        // console.log(filtroPorLab)
         filtroPorLab > 0 && setDadoFiltrado((prev) => prev.filter((item) => item.id_laboratorio == filtroPorLab))
         filtroPorPa > 0 && setDadoFiltrado((prev) => prev.filter((item) => item.id_principio_ativo == filtroPorPa))
         filtroPorCt > 0 && setDadoFiltrado((prev) => prev.filter((item) => item.id_classe_terapeutica == filtroPorCt))
@@ -191,6 +191,7 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }
                 isAuth={isAuth}
                 show={modalShow}
                 onHide={() => setModalShow(false)}
+                setToast={setToast}
             />
         </Stack>
     )

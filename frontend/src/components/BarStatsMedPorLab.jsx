@@ -18,12 +18,12 @@ function BarStatsMedPorLab({ meds }) {
             // console.log(valor)
             medsPorLab[valor] = (medsPorLab[valor] || 0) + 1
         }
-        console.log(medsPorLab)
+        // console.log(medsPorLab)
 
         setNoveLabs(Object.keys(medsPorLab))
         setQuant(Object.values(medsPorLab))
     }, [meds])
-    console.log(noveLabs, quant)
+    // console.log(noveLabs, quant)
 
     // const noveLabs = [
     //     'BRISTOL-MYERS...',
@@ -42,7 +42,7 @@ function BarStatsMedPorLab({ meds }) {
         datasets: [
             // {
             //     label: 'Despesas',
-            //     data: [4, 5, 6],
+            //     data: [40000, 50000, 60000],
             //     backgroundColor: '#E2B13D',
             // },
             {
@@ -78,7 +78,7 @@ function BarStatsMedPorLab({ meds }) {
         <Container className='bg-white round main-shadow'>
             <Stack className='p-3'>
                 <div className='transaction_month'>
-                    <h5>Medicamentos por laboratório</h5>
+                    <h5>Medicamentos cadastrados por laboratório</h5>
                 </div>
                 <Bar options={options} data={data} />
             </Stack>

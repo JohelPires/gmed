@@ -46,7 +46,7 @@ function BarStats({ meds }) {
             //     backgroundColor: '#E2B13D',
             // },
             {
-                label: 'quantidade de medicamentos',
+                label: 'Medicamentos cadastrados',
                 data: quant,
                 backgroundColor: '#3dcabc',
 

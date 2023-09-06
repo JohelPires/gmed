@@ -16,47 +16,30 @@ const options = {
     },
 }
 
-function Categories({ dadosMes, mesAtual }) {
-    const [dadosCategoria, setDadosCategoria] = useState([])
-    const [labelsCategoria, setLabelsCategoria] = useState([])
+function DonutLabs({ meds }) {
+    const [totMedsPerLab, setTotMedsPerLab] = useState({})
+
     useEffect(() => {
-        const despesasMes = dadosMes.filter((item) => item.valor < 0)
+        const result = {}
 
-        // Create an object to store the sums for each category
-        const somaPorCategoria = {}
-
-        console.log(despesasMes)
-
-        // Iterate through the array and calculate the sums for each category
-        despesasMes.forEach((object) => {
-            const categoryId = object.id_categoria
-            const value = object.valor
-
-            // If the category already exists in the somaPorCategoria object, add the value to the existing sum
-            if (somaPorCategoria.hasOwnProperty(categoryId)) {
-                somaPorCategoria[categoryId] += value * -1
+        meds.forEach((med) => {
+            const { laboratorio, quantidade } = med
+            if (!result[laboratorio]) {
+                result[laboratorio] = quantidade
             } else {
-                // If the category does not exist in the somaPorCategoria object, initialize it with the value
-                somaPorCategoria[categoryId] = value * -1
+                result[laboratorio] += quantidade
             }
         })
 
-        // console.log('soma por categoria: ', somaPorCategoria)
-        setDadosCategoria(Object.values(somaPorCategoria))
-        const keys = Object.keys(somaPorCategoria)
-        keys.map((key, i) => {
-            keys[i] = despesas[key]
-        })
-        // console.log(keys)
-        setLabelsCategoria(keys)
-    }, [dadosMes])
+        setTotMedsPerLab(result)
+    }, [meds])
 
     const data = {
-        labels: labelsCategoria,
+        labels: Object.keys(totMedsPerLab),
         datasets: [
             {
                 label: 'Despesas',
-                data: dadosCategoria,
+                data: Object.values(totMedsPerLab),
                 backgroundColor: [
                     'rgb(4, 191, 191)',
                     'rgb(52, 152, 219)',
@@ -83,10 +66,10 @@ function Categories({ dadosMes, mesAtual }) {
         <Container className='bg-white round main-shadow'>
             <Stack className='p-3'>
                 <div className='transaction_month'>
-                    <h3>Despesas por categoria - {meses[mesAtual - 1]}</h3>
+                    <h5>Quantidades por laboratório</h5>
                 </div>
                 <div className='donut'>
-                    {dadosMes.length > 0 ? (
+                    {meds.length > 0 ? (
                         <Doughnut style={{ maxHeight: '200px' }} data={data} options={options} />
                     ) : (
                         'Sem dados.'
@@ -97,4 +80,4 @@ function Categories({ dadosMes, mesAtual }) {
     )
 }
 
-export default Categories
+export default DonutLabs
