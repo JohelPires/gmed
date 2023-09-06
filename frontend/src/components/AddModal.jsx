@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { Alert, Button, Form, InputGroup, Modal, Stack, Toast, ToastContainer } from 'react-bootstrap'
-import { despesas, receitas } from '../data/categorias'
+import { Button, Form, Modal, Stack } from 'react-bootstrap'
 import axios from 'axios'
 import { useForm } from 'react-hook-form'
 
@@ -13,7 +12,6 @@ function AddModal(props) {
     //     quantidade: null,
     //     vencimento: null,
     // })
-    const [show, setShow] = useState(false)
     const [erro, setErro] = useState(null)
     const {
         register,
@@ -41,7 +39,7 @@ function AddModal(props) {
             })
             .then((data) => {
                 console.log('Medicamento adicionado.')
-                setShow(true)
+                props.setToast({ msg: 'Medicamento adicionado.', show: true, title: 'Notificação' })
                 props.setReload((prev) => prev + 1)
                 props.onHide()
             })
@@ -169,12 +167,6 @@ function AddModal(props) {
                 <Modal.Footer>
                     <Button onClick={props.onHide} variant='secondary'>
                         Cancelar
-                    </Button>
-                    <Button
-                        onClick={() => props.setToast({ msg: 'teste', show: true, title: 'teste' })}
-                        variant='secondary'
-                    >
-                        toast teste
                     </Button>
                     <Button type='submit'>Adicionar</Button>
                 </Modal.Footer>

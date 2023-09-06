@@ -92,14 +92,19 @@ function Main({ isAuth, reload, setReload }) {
                 {/* <Categories dados={meds} /> */}
             </Col>
 
-            <ToastContainer style={{ position: 'fixed', top: '10px', left: '10px' }}>
-                <Toast onClose={() => setToast({ ...toast, show: false })} show={toast.show} delay={5000} autohide>
+            <ToastContainer style={{ position: 'fixed', bottom: '10px', left: '10px' }}>
+                <Toast
+                    bg='dark'
+                    onClose={() => setToast({ ...toast, show: false })}
+                    show={toast.show}
+                    delay={5000}
+                    autohide
+                >
                     <Toast.Header>
-                        <img src='holder.js/20x20?text=%20' className='rounded me-2' alt='' />
-                        <strong className='me-auto'>Bootstrap</strong>
-                        <small>11 mins ago</small>
+                        <strong className='me-auto'>{toast.title}</strong>
+                        <small>agora</small>
                     </Toast.Header>
-                    <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
+                    <Toast.Body className='text-white'>{toast.msg}</Toast.Body>
                 </Toast>
             </ToastContainer>
         </Row>
