@@ -19,6 +19,9 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }
     const [filtroPorLab, setFiltroPorLab] = useState(0)
     const [filtroPorPa, setFiltroPorPa] = useState(0)
     const [filtroPorCt, setFiltroPorCt] = useState(0)
+    const uniqueLaboratoryIds = new Set()
+    const uniquePA = new Set()
+    const uniqueCT = new Set()
 
     useEffect(() => {
         setLoading(true)
@@ -29,7 +32,7 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }
                 setDadoFiltrado(data.data)
                 // setDadoFiltrado(data.data.filter((item) => item.nome.toLowerCase().startsWith('outro')))
                 // console.log(dadoFiltrado)
-                console.log(data.data)
+                // console.log(data.data)
                 setLoading(false)
                 setMsg('Sem dados.')
             })
@@ -95,9 +98,18 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }
                             onChange={(e) => setFiltroPorLab(e.target.value)}
                         >
                             <option value={0}>Filtrar por laboratório...</option>
-                            {labs &&
+                            {/* {labs &&
                                 labs.map((item) => {
                                     return <option value={item.id}>{item.nome}</option>
+                                })} */}
+                            {meds &&
+                                meds.map((item) => {
+                                    if (!uniqueLaboratoryIds.has(item.id_laboratorio)) {
+                                        // Check if the ID is unique
+                                        uniqueLaboratoryIds.add(item.id_laboratorio) // Add the ID to the Set if it's unique
+                                        return <option value={item.id_laboratorio}>{item.laboratorio}</option>
+                                    }
+                                    return null // Return null for repeated IDs to skip rendering duplicate options
                                 })}
                         </Form.Select>
                         <Form.Select
@@ -106,9 +118,18 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }
                             onChange={(e) => setFiltroPorPa(e.target.value)}
                         >
                             <option value={0}>Filtrar por princípio ativo...</option>
-                            {pa &&
+                            {/* {pa &&
                                 pa.map((item) => {
                                     return <option value={item.id}>{item.nome}</option>
+                                })} */}
+                            {meds &&
+                                meds.map((item) => {
+                                    if (!uniquePA.has(item.id_principio_ativo)) {
+                                        // Check if the ID is unique
+                                        uniquePA.add(item.id_principio_ativo) // Add the ID to the Set if it's unique
+                                        return <option value={item.id_principio_ativo}>{item.principioativo}</option>
+                                    }
+                                    return null // Return null for repeated IDs to skip rendering duplicate options
                                 })}
                         </Form.Select>
                         <Form.Select
@@ -117,13 +138,24 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds }
                             onChange={(e) => setFiltroPorCt(e.target.value)}
                         >
                             <option>Filtrar por classe terapeutica...</option>
-                            {ct &&
+                            {/* {ct &&
                                 ct.map((item) => {
                                     return (
                                         <option value={item.id}>
                                             {item.codigo} - {item.nome}
                                         </option>
                                     )
+                                })} */}
+                            {meds &&
+                                meds.map((item) => {
+                                    if (!uniqueCT.has(item.id_classe_terapeutica)) {
+                                        // Check if the ID is unique
+                                        uniqueCT.add(item.id_classe_terapeutica) // Add the ID to the Set if it's unique
+                                        return (
+                                            <option value={item.id_classe_terapeutica}>{item.classeterapeutica}</option>
+                                        )
+                                    }
+                                    return null // Return null for repeated IDs to skip rendering duplicate options
                                 })}
                         </Form.Select>
                     </Stack>

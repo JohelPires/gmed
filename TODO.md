@@ -3,10 +3,11 @@
 ## prioridades:
 
 -   [ ] toasts
--   [ ] validações de campos
--   [ ] handling erros da api
+-   [x] validações de campos
+-   [ ] melhorar mensagens de erro
+-   [x] handling erros da api
 -   [ ] limpar codigo
--   [ ] filtro deve listar apenas existentes
+-   [x] filtro deve listar apenas existentes
 -   [ ] fazer o deploy
 
 ## Backend:

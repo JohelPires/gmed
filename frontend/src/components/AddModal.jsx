@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Alert, Button, Form, InputGroup, Modal, Stack } from 'react-bootstrap'
+import { Alert, Button, Form, InputGroup, Modal, Stack, Toast, ToastContainer } from 'react-bootstrap'
 import { despesas, receitas } from '../data/categorias'
 import axios from 'axios'
 import { useForm } from 'react-hook-form'
@@ -13,6 +13,7 @@ function AddModal(props) {
     //     quantidade: null,
     //     vencimento: null,
     // })
+    const [show, setShow] = useState(false)
     const [erro, setErro] = useState(null)
     const {
         register,
@@ -40,6 +41,7 @@ function AddModal(props) {
             })
             .then((data) => {
                 console.log('Medicamento adicionado.')
+                setShow(true)
                 props.setReload((prev) => prev + 1)
                 props.onHide()
             })
@@ -168,9 +170,22 @@ function AddModal(props) {
                     <Button onClick={props.onHide} variant='secondary'>
                         Cancelar
                     </Button>
+                    <Button onClick={() => setShow(true)} variant='secondary'>
+                        toast teste
+                    </Button>
                     <Button type='submit'>Adicionar</Button>
                 </Modal.Footer>
             </Form>
+            <ToastContainer style={{ position: 'fixed', top: '10px', left: '10px' }}>
+                <Toast onClose={() => setShow(false)} show={show} delay={3000} autohide>
+                    <Toast.Header>
+                        <img src='holder.js/20x20?text=%20' className='rounded me-2' alt='' />
+                        <strong className='me-auto'>Bootstrap</strong>
+                        <small>11 mins ago</small>
+                    </Toast.Header>
+                    <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
+                </Toast>
+            </ToastContainer>
         </Modal>
     )
 }
