@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Form, InputGroup, Modal, Stack } from 'react-bootstrap'
-import { despesas, receitas } from '../data/categorias'
+
 import axios from 'axios'
 import { useForm } from 'react-hook-form'
 

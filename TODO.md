@@ -9,6 +9,7 @@
 -   [ ] limpar codigo
 -   [x] filtro deve listar apenas existentes
 -   [ ] filtrar pelas tags
+-   [ ] tela sobre
 -   [ ] fazer o deploy
 
 ## Backend:

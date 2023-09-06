@@ -7,7 +7,7 @@ function Info({ meds, reload, labs, pa }) {
     useEffect(() => {
         setTotal(0)
         meds.map((item) => {
-            console.log(item.quantidade)
+            // console.log(item.quantidade)
             setTotal((prev) => prev + item.quantidade)
         })
     }, [reload, meds])

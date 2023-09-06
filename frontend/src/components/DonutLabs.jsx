@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Container, Stack } from 'react-bootstrap'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
-import { despesas } from '../data/categorias'
-import meses from '../data/meses'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 

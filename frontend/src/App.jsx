@@ -1,6 +1,6 @@
 import './App.css'
 import Navbar from './components/Navbar'
-import ControlBar from './components/ControlBar'
+
 import { Col, Container, Row } from 'react-bootstrap'
 import Main from './telas/Main'
 import { useState } from 'react'
