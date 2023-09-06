@@ -27,7 +27,7 @@ function Laboratorios({ labs, setLabs, isAuth, reload, setReload }) {
     return (
         <Stack className='p-3'>
             <Stack gap={3} direction='horizontal' className='control-bar p-3 round'>
-                <Button variant='outline-light' onClick={() => setLabModalShow(true)}>
+                <Button variant='light' onClick={() => setLabModalShow(true)}>
                     Cadastrar Laboratório
                 </Button>
 

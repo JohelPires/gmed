@@ -6,6 +6,7 @@
 -   [ ] validações de campos
 -   [ ] handling erros da api
 -   [ ] limpar codigo
+-   [ ] filtro deve listar apenas existentes
 -   [ ] fazer o deploy
 
 ## Backend:
@@ -30,7 +31,6 @@
 
 ## Front-end:
 
--   [ ] filtro deve listar apenas existentes
 -   [ ] bulk create principios ativos separados por vírgula
 -   [x] procurar medicamento
 -   [-] busca avançada
