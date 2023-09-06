@@ -54,7 +54,7 @@
 -   [x] clicando no nome do medicamento abre a visualização
 -   [ ] clicando no nome do laboratório/ct/pa abre a lista de medicamentos filtrada
 -   [ ] icones dos botoes
--   [ ] verificar se banco está sendo acessado duas vezes em todo reload
+-   [x] verificar se banco está sendo acessado duas vezes em todo reload
 -   [ ] handling erro ao deletar um laboratório com medicamentos cadastrados
 -   [ ] tag de medicamento em falta
 -   [ ] talvez legendas para as tags

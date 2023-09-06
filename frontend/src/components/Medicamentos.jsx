@@ -17,6 +17,8 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
     const [filtroPorLab, setFiltroPorLab] = useState(0)
     const [filtroPorPa, setFiltroPorPa] = useState(0)
     const [filtroPorCt, setFiltroPorCt] = useState(0)
+    const [filtroEstoque, setFiltroEstoque] = useState(false)
+    const [filtroVencimento, setFiltroVencimento] = useState(false)
     const uniqueLaboratoryIds = new Set()
     const uniquePA = new Set()
     const uniqueCT = new Set()
@@ -56,15 +58,19 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
         filtroPorLab > 0 && setDadoFiltrado((prev) => prev.filter((item) => item.id_laboratorio == filtroPorLab))
         filtroPorPa > 0 && setDadoFiltrado((prev) => prev.filter((item) => item.id_principio_ativo == filtroPorPa))
         filtroPorCt > 0 && setDadoFiltrado((prev) => prev.filter((item) => item.id_classe_terapeutica == filtroPorCt))
+        filtroEstoque && setDadoFiltrado((prev) => prev.filter((item) => item.quantidade < 1000))
+        // console.log(meds[0].vencimento.slice(0, 4))
+        filtroVencimento &&
+            setDadoFiltrado((prev) => prev.filter((item) => parseInt(item.vencimento.slice(0, 4)) === 2023))
         procurar &&
             setDadoFiltrado((prev) => prev.filter((item) => item.nome.toLowerCase().startsWith(procurar.toLowerCase())))
-    }, [filtroPorLab, filtroPorPa, filtroPorCt, procurar])
+    }, [filtroPorLab, filtroPorPa, filtroPorCt, filtroEstoque, filtroVencimento, procurar])
 
     return (
         <Stack className='p-3'>
             <Stack gap={3} className='control-bar p-3 round'>
                 <Stack gap={3} direction='horizontal'>
-                    <Button variant='light' onClick={() => setModalShow(true)}>
+                    <Button className='w-25' variant='light' onClick={() => setModalShow(true)}>
                         Cadastrar medicamento
                     </Button>
 
@@ -78,6 +84,7 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
                     />
 
                     <ToggleButton
+                        className='w-25'
                         id='toggle-check'
                         type='checkbox'
                         variant='outline-light'
@@ -156,6 +163,22 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
                                     return null // Return null for repeated IDs to skip rendering duplicate options
                                 })}
                         </Form.Select>
+                        <Stack gap={4} direction='horizontal'>
+                            <Form.Check
+                                className='text-white'
+                                type='checkbox'
+                                label='estoque baixo'
+                                id='estoque'
+                                onChange={(e) => setFiltroEstoque(e.target.checked)}
+                            />
+                            <Form.Check
+                                className='text-white'
+                                type='checkbox'
+                                label='vencimento próximo'
+                                id='vencimento'
+                                onChange={(e) => setFiltroVencimento(e.target.checked)}
+                            />
+                        </Stack>
                     </Stack>
                 )}
             </Stack>

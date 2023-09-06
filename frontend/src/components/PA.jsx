@@ -7,7 +7,7 @@ function PA({ item, isAuth, setReload, setToast }) {
     const [modalShow, setModalShow] = useState(false)
 
     function handleDelete() {
-        if (window.confirm('Tem certeza que quer deletar esse laboratório?')) {
+        if (window.confirm('Tem certeza que quer deletar esse princípio ativo?')) {
             axios
                 .delete(`http://localhost:5000/pa/${item.id}`, {
                     headers: { Authorization: `Bearer ${isAuth.accessToken}` },
@@ -18,7 +18,18 @@ function PA({ item, isAuth, setReload, setToast }) {
                     setReload((prev) => prev + 1)
                     // props.onHide()
                 })
-                .catch((err) => console.log(err))
+                .catch((err) => {
+                    console.log(err)
+
+                    if (err.response.data.name === 'SequelizeForeignKeyConstraintError') {
+                        console.log(
+                            'Atenção: Não é possível deletar um princípio ativo se houver um medicamento desse princípio ativo cadastrado.'
+                        )
+                        window.alert(
+                            'Atenção: Não é possível deletar um princípio ativo se houver um medicamento desse princípio ativo cadastrado.'
+                        )
+                    }
+                })
         }
     }
     return (

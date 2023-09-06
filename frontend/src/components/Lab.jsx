@@ -18,7 +18,17 @@ function Lab({ item, isAuth, setReload, setToast }) {
                     setReload((prev) => prev + 1)
                     // props.onHide()
                 })
-                .catch((err) => console.log(err))
+                .catch((err) => {
+                    console.log(err)
+                    if (err.response.data.name === 'SequelizeForeignKeyConstraintError') {
+                        console.log(
+                            'Atenção: Não é possível deletar um laboratório se houver um medicamento desse laboratório cadastrado.'
+                        )
+                        window.alert(
+                            'Atenção: Não é possível deletar um laboratório se houver um medicamento desse laboratório cadastrado.'
+                        )
+                    }
+                })
         }
     }
     return (

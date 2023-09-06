@@ -56,7 +56,6 @@ function AddPAModal(props) {
                 })
         }
     }
-    console.log(erro)
     return (
         <Modal {...props} size='md' aria-labelledby='contained-modal-title-vcenter' centered animation={false}>
             <Form onSubmit={handleSubmit(onSubmit)}>
