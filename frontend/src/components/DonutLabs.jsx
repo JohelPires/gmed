@@ -29,14 +29,28 @@ function DonutLabs({ meds }) {
             }
         })
 
-        setTotMedsPerLab(result)
+        // Convert the original object to an array of key-value pairs
+        const keyValueArray = Object.entries(result)
+
+        // Sort the array in descending order based on quantity values
+        keyValueArray.sort((a, b) => b[1] - a[1])
+
+        // Slice the first 9 elements from the sorted array
+        const top9Labs = keyValueArray.slice(0, 5)
+
+        // Convert the sliced array back into an object
+        const resultObject = Object.fromEntries(top9Labs)
+
+        // console.log(resultObject)
+
+        setTotMedsPerLab(resultObject)
     }, [meds])
 
     const data = {
         labels: Object.keys(totMedsPerLab),
         datasets: [
             {
-                label: 'Despesas',
+                label: 'Quantidade por laboratório',
                 data: Object.values(totMedsPerLab),
                 backgroundColor: [
                     'rgb(4, 191, 191)',

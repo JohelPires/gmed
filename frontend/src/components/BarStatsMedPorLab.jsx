@@ -18,10 +18,24 @@ function BarStatsMedPorLab({ meds }) {
             // console.log(valor)
             medsPorLab[valor] = (medsPorLab[valor] || 0) + 1
         }
-        // console.log(medsPorLab)
 
-        setNoveLabs(Object.keys(medsPorLab))
-        setQuant(Object.values(medsPorLab))
+        // Convert the original object to an array of key-value pairs
+        const keyValueArray = Object.entries(medsPorLab)
+
+        // Sort the array in descending order based on quantity values
+        keyValueArray.sort((a, b) => b[1] - a[1])
+
+        // Slice the first 9 elements from the sorted array
+        const top9Labs = keyValueArray.slice(0, 15)
+
+        // Convert the sliced array back into an object
+        const resultObject = Object.fromEntries(top9Labs)
+
+        // console.log(resultObject)
+        console.log(resultObject)
+
+        setNoveLabs(Object.keys(resultObject))
+        setQuant(Object.values(resultObject))
     }, [meds])
     // console.log(noveLabs, quant)
 
