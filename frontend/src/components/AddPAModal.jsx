@@ -1,9 +1,10 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Form, Modal, Stack } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 
 function AddPAModal(props) {
+    const [erro, setErro] = useState(null)
     const {
         register,
         handleSubmit,
@@ -34,8 +35,8 @@ function AddPAModal(props) {
                     props.onHide()
                 })
                 .catch((err) => {
-                    console.log(err)
-                    props.setReload((prev) => prev + 1)
+                    setErro(err)
+                    // props.setReload((prev) => prev + 1)
                 })
         } else {
             axios
@@ -48,11 +49,12 @@ function AddPAModal(props) {
                     props.onHide()
                 })
                 .catch((err) => {
-                    console.log(err)
-                    props.setReload((prev) => prev + 1)
+                    setErro(err.response.data.errors)
+                    // props.setReload((prev) => prev + 1)
                 })
         }
     }
+    console.log(erro)
     return (
         <Modal {...props} size='md' aria-labelledby='contained-modal-title-vcenter' centered animation={false}>
             <Form onSubmit={handleSubmit(onSubmit)}>
@@ -61,10 +63,18 @@ function AddPAModal(props) {
                 </Modal.Header>
                 <Modal.Body style={{ background: '#F0F0F0' }}>
                     {/* {errors.valor && <span style={{ color: 'red' }}>Digite um valor diferente de zero</span>} */}
+                    {erro &&
+                        erro.map((item) => {
+                            return (
+                                <p style={{ color: 'red' }}>
+                                    <small variant='danger'>{item.message}</small>
+                                </p>
+                            )
+                        })}
                     <Stack gap={1}>
                         <Form.Group className='mb-3'>
                             <Form.Label>Nome</Form.Label>
-                            <Form.Control type='text' {...register('nome', { required: true })} />
+                            <Form.Control required type='text' {...register('nome', { required: true })} />
                         </Form.Group>
                     </Stack>{' '}
                 </Modal.Body>
