@@ -14,8 +14,8 @@ router.get('/', UsuarioController.listAll)
 
 router.get('/:id', UsuarioController.findId)
 
-router.put('/:id', UsuarioController.update)
+router.put('/:id', authMiddleware, UsuarioController.update)
 
-router.delete('/:id', UsuarioController.deleta)
+router.delete('/:id', authMiddleware, UsuarioController.deleta)
 
 module.exports = router

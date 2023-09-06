@@ -10,6 +10,9 @@
 -   [x] filtro deve listar apenas existentes
 -   [x] filtrar pelas tags
 -   [ ] tela sobre
+-   [ ] testar criação de usuarios, login, etc
+-   [ ] tela perfil
+    -   [ ] opção excluir usuário
 -   [ ] fazer o deploy
 
 ## Backend:
