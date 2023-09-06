@@ -31,6 +31,7 @@ function AddPAModal(props) {
                 })
                 .then((data) => {
                     console.log('Princípio ativo atualizado.')
+                    props.setToast({ msg: 'Princípio ativo atualizado.', show: true, title: 'Notificação' })
                     props.setReload((prev) => prev + 1)
                     props.onHide()
                 })
@@ -45,6 +46,7 @@ function AddPAModal(props) {
                 })
                 .then((data) => {
                     console.log('Princípio ativo adicionado.')
+                    props.setToast({ msg: 'Princípio ativo adicionado.', show: true, title: 'Notificação' })
                     props.setReload((prev) => prev + 1)
                     props.onHide()
                 })

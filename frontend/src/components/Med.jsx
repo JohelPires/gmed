@@ -4,7 +4,7 @@ import ViewModal from './ViewModal'
 import UpdateModal from './UpdateModal'
 import axios from 'axios'
 
-function Med({ item, ct, labs, pa, isAuth, setReload }) {
+function Med({ item, ct, labs, pa, isAuth, setReload, setToast }) {
     const [viewModalShow, setViewModalShow] = useState(false)
     const [updateModalShow, setUpdateModalShow] = useState(false)
 
@@ -16,6 +16,7 @@ function Med({ item, ct, labs, pa, isAuth, setReload }) {
                 })
                 .then((data) => {
                     console.log(data)
+                    setToast({ msg: 'Medicamento excluído.', show: true, title: 'Notificação' })
                     setReload((prev) => prev + 1)
                     // props.onHide()
                 })
@@ -51,6 +52,7 @@ function Med({ item, ct, labs, pa, isAuth, setReload }) {
                 setReload={setReload}
                 show={updateModalShow}
                 onHide={() => setUpdateModalShow(false)}
+                setToast={setToast}
             />
             <ViewModal med={item} show={viewModalShow} onHide={() => setViewModalShow(false)} />
         </Stack>

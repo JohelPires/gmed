@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Button, ButtonGroup, Stack } from 'react-bootstrap'
 import AddLabModal from './AddLabModal'
 
-function Lab({ item, isAuth, setReload }) {
+function Lab({ item, isAuth, setReload, setToast }) {
     const [updateModalShow, setUpdateModalShow] = useState(false)
 
     function handleDelete() {
@@ -14,6 +14,7 @@ function Lab({ item, isAuth, setReload }) {
                 })
                 .then((data) => {
                     console.log(data)
+                    setToast({ msg: 'Laboratório excluído.', show: true, title: 'Notificação' })
                     setReload((prev) => prev + 1)
                     // props.onHide()
                 })

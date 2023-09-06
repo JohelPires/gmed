@@ -4,10 +4,12 @@ import AddPAModal from './AddPAModal'
 import { Button, Form, Spinner, Stack } from 'react-bootstrap'
 import axios from 'axios'
 
-function PrincipioAtivo({ pa, setPa, isAuth, reload, setReload }) {
+function PrincipioAtivo({ pa, setPa, isAuth, reload, setReload, setToast }) {
     const [loading, setLoading] = useState(true)
     const [msg, setMsg] = useState('')
     const [paModalShow, setPaModalShow] = useState(false)
+    const [dadoFiltrado, setDadoFiltrado] = useState([])
+    const [procurar, setProcurar] = useState('')
 
     useEffect(() => {
         setLoading(true)
@@ -15,6 +17,7 @@ function PrincipioAtivo({ pa, setPa, isAuth, reload, setReload }) {
             .get('http://localhost:5000/pa', { headers: { Authorization: `Bearer ${isAuth.accessToken}` } })
             .then((data) => {
                 setPa(data.data)
+                setDadoFiltrado(data.data)
                 setLoading(false)
                 setMsg('Sem dados.')
             })
@@ -23,6 +26,16 @@ function PrincipioAtivo({ pa, setPa, isAuth, reload, setReload }) {
                 console.log(err)
             })
     }, [reload])
+
+    useEffect(() => {
+        setDadoFiltrado(pa)
+        // console.log(filtroPorLab)
+        // filtroPorLab > 0 && setDadoFiltrado((prev) => prev.filter((item) => item.id_laboratorio == filtroPorLab))
+        // filtroPorPa > 0 && setDadoFiltrado((prev) => prev.filter((item) => item.id_principio_ativo == filtroPorPa))
+        // filtroPorCt > 0 && setDadoFiltrado((prev) => prev.filter((item) => item.id_classe_terapeutica == filtroPorCt))
+        procurar &&
+            setDadoFiltrado((prev) => prev.filter((item) => item.nome.toLowerCase().startsWith(procurar.toLowerCase())))
+    }, [procurar])
 
     return (
         <Stack className='p-3'>
@@ -36,6 +49,8 @@ function PrincipioAtivo({ pa, setPa, isAuth, reload, setReload }) {
                     placeholder='Procurar princípio ativo'
                     aria-label='medicamento'
                     aria-describedby='basic-addon1'
+                    value={procurar}
+                    onChange={(e) => setProcurar(e.target.value)}
                 />
             </Stack>
             <Stack direction='horizontal' className='transaction_month'>
@@ -50,9 +65,9 @@ function PrincipioAtivo({ pa, setPa, isAuth, reload, setReload }) {
 
             {loading ? (
                 <Spinner animation='border' variant='primary' />
-            ) : pa.length > 0 ? (
-                pa.map((item) => {
-                    return <PA item={item} isAuth={isAuth} setReload={setReload} />
+            ) : dadoFiltrado.length > 0 ? (
+                dadoFiltrado.map((item) => {
+                    return <PA item={item} isAuth={isAuth} setReload={setReload} setToast={setToast} />
                     // return item.nome
                 })
             ) : (
@@ -65,6 +80,7 @@ function PrincipioAtivo({ pa, setPa, isAuth, reload, setReload }) {
                 show={paModalShow}
                 setReload={setReload}
                 onHide={() => setPaModalShow(false)}
+                setToast={setToast}
             />
             {/* <AddModal
                 ct={ct}

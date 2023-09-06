@@ -39,6 +39,7 @@ function AddLabModal(props) {
                     })
                     .then((data) => {
                         console.log('Laboratorio atualizado.')
+                        props.setToast({ msg: 'Laboratório atualizado.', show: true, title: 'Notificação' })
                         props.setReload((prev) => prev + 1)
                         props.onHide()
                     })
@@ -53,6 +54,7 @@ function AddLabModal(props) {
                     })
                     .then((data) => {
                         console.log('Laboratorio adicionado.')
+                        props.setToast({ msg: 'Laboratório adicionado.', show: true, title: 'Notificação' })
                         props.setReload((prev) => prev + 1)
                         setLab({})
                         props.onHide()

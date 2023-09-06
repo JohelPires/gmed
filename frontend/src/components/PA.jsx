@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Button, ButtonGroup, Stack } from 'react-bootstrap'
 import AddPAModal from './AddPAModal'
 
-function PA({ item, isAuth, setReload }) {
+function PA({ item, isAuth, setReload, setToast }) {
     const [modalShow, setModalShow] = useState(false)
 
     function handleDelete() {
@@ -14,6 +14,7 @@ function PA({ item, isAuth, setReload }) {
                 })
                 .then((data) => {
                     console.log(data)
+                    setToast({ msg: 'Princípio ativo excluído.', show: true, title: 'Notificação' })
                     setReload((prev) => prev + 1)
                     // props.onHide()
                 })

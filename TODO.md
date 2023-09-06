@@ -2,7 +2,7 @@
 
 ## prioridades:
 
--   [ ] toasts
+-   [x] toasts
 -   [x] validações de campos
 -   [ ] melhorar mensagens de erro
 -   [x] handling erros da api

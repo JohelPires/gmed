@@ -43,6 +43,7 @@ function UpdateModal(props) {
             })
             .then((data) => {
                 console.log('Medicamento Atualizado.')
+                props.setToast({ msg: 'Medicamento atualizado.', show: true, title: 'Notificação' })
                 props.setReload((prev) => prev + 1)
                 props.onHide()
             })

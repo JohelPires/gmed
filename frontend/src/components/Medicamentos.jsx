@@ -174,7 +174,17 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
                     <Spinner animation='border' variant='primary' />
                 ) : dadoFiltrado.length > 0 ? (
                     dadoFiltrado.map((item) => {
-                        return <Med item={item} ct={ct} labs={labs} pa={pa} isAuth={isAuth} setReload={setReload} />
+                        return (
+                            <Med
+                                item={item}
+                                ct={ct}
+                                labs={labs}
+                                pa={pa}
+                                isAuth={isAuth}
+                                setReload={setReload}
+                                setToast={setToast}
+                            />
+                        )
                     })
                 ) : (
                     <p>{msg}</p>
