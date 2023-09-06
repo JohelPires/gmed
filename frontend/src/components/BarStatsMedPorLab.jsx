@@ -32,7 +32,6 @@ function BarStatsMedPorLab({ meds }) {
         const resultObject = Object.fromEntries(top9Labs)
 
         // console.log(resultObject)
-        console.log(resultObject)
 
         setNoveLabs(Object.keys(resultObject))
         setQuant(Object.values(resultObject))

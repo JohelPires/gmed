@@ -67,7 +67,7 @@ function PrincipioAtivo({ pa, setPa, isAuth, reload, setReload, setToast }) {
                 <Spinner animation='border' variant='primary' />
             ) : dadoFiltrado.length > 0 ? (
                 dadoFiltrado.map((item) => {
-                    return <PA item={item} isAuth={isAuth} setReload={setReload} setToast={setToast} />
+                    return <PA key={item.id} item={item} isAuth={isAuth} setReload={setReload} setToast={setToast} />
                     // return item.nome
                 })
             ) : (

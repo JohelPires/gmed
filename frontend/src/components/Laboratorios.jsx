@@ -67,7 +67,7 @@ function Laboratorios({ labs, setLabs, isAuth, reload, setReload, setToast }) {
                 <Spinner animation='border' variant='primary' />
             ) : dadoFiltrado.length > 0 ? (
                 dadoFiltrado.map((item) => {
-                    return <Lab item={item} isAuth={isAuth} setReload={setReload} setToast={setToast} />
+                    return <Lab key={item.id} item={item} isAuth={isAuth} setReload={setReload} setToast={setToast} />
                     // return item.nome
                 })
             ) : (

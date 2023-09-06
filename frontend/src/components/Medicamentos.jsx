@@ -128,7 +128,11 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
                                     if (!uniqueLaboratoryIds.has(item.id_laboratorio)) {
                                         // Check if the ID is unique
                                         uniqueLaboratoryIds.add(item.id_laboratorio) // Add the ID to the Set if it's unique
-                                        return <option value={item.id_laboratorio}>{item.laboratorio}</option>
+                                        return (
+                                            <option key={item.id} value={item.id_laboratorio}>
+                                                {item.laboratorio}
+                                            </option>
+                                        )
                                     }
                                     return null // Return null for repeated IDs to skip rendering duplicate options
                                 })}
@@ -148,7 +152,11 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
                                     if (!uniquePA.has(item.id_principio_ativo)) {
                                         // Check if the ID is unique
                                         uniquePA.add(item.id_principio_ativo) // Add the ID to the Set if it's unique
-                                        return <option value={item.id_principio_ativo}>{item.principioativo}</option>
+                                        return (
+                                            <option key={item.id} value={item.id_principio_ativo}>
+                                                {item.principioativo}
+                                            </option>
+                                        )
                                     }
                                     return null // Return null for repeated IDs to skip rendering duplicate options
                                 })}
@@ -173,7 +181,9 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
                                         // Check if the ID is unique
                                         uniqueCT.add(item.id_classe_terapeutica) // Add the ID to the Set if it's unique
                                         return (
-                                            <option value={item.id_classe_terapeutica}>{item.classeterapeutica}</option>
+                                            <option key={item.id} value={item.id_classe_terapeutica}>
+                                                {item.classeterapeutica}
+                                            </option>
                                         )
                                     }
                                     return null // Return null for repeated IDs to skip rendering duplicate options
@@ -215,7 +225,7 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
                                             // Check if the ID is unique
                                             uniqueAno.add(item.vencimento.slice(0, 4)) // Add the ID to the Set if it's unique
                                             return (
-                                                <option value={item.vencimento.slice(0, 4)}>
+                                                <option key={item.id} value={item.vencimento.slice(0, 4)}>
                                                     {item.vencimento.slice(0, 4)}
                                                 </option>
                                             )
@@ -244,6 +254,7 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
                     dadoFiltrado.map((item) => {
                         return (
                             <Med
+                                key={item.id}
                                 item={item}
                                 ct={ct}
                                 labs={labs}

@@ -29,13 +29,13 @@ function BarStats({ meds }) {
             // console.log(valor)
             medsVencimento[valor] = (medsVencimento[valor] || 0) + 1
         }
-        console.log(medsVencimento)
+        // console.log(medsVencimento)
 
         setLabels(Object.keys(medsVencimento))
         setQuant(Object.values(medsVencimento))
     }, [meds])
 
-    console.log(labels, quant)
+    // console.log(labels, quant)
 
     const data = {
         labels: labels,

@@ -48,7 +48,7 @@ function ClasseTerapeutica({ ct, setCt, isAuth, reload, setReload }) {
 
             {ct.length > 0 ? (
                 ct.map((item) => {
-                    return <CT item={item} isAuth={isAuth} setReload={setReload} />
+                    return <CT key={item.id} item={item} isAuth={isAuth} setReload={setReload} />
                     // return item.nome
                 })
             ) : (

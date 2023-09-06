@@ -73,7 +73,7 @@ function AddModal(props) {
                     {erro &&
                         erro.map((item) => {
                             return (
-                                <p style={{ color: 'red' }}>
+                                <p key={item} style={{ color: 'red' }}>
                                     <small variant='danger'>{item}</small>
                                 </p>
                             )
@@ -104,7 +104,11 @@ function AddModal(props) {
                                 <option>Selecione...</option>
                                 {props.labs &&
                                     props.labs.map((item) => {
-                                        return <option value={item.id}>{item.nome}</option>
+                                        return (
+                                            <option key={item.id} value={item.id}>
+                                                {item.nome}
+                                            </option>
+                                        )
                                     })}
                             </Form.Select>
                         </Form.Group>{' '}
@@ -117,7 +121,11 @@ function AddModal(props) {
                                 <option>Selecione...</option>
                                 {props.pa &&
                                     props.pa.map((item) => {
-                                        return <option value={item.id}>{item.nome}</option>
+                                        return (
+                                            <option key={item.id} value={item.id}>
+                                                {item.nome}
+                                            </option>
+                                        )
                                     })}
                             </Form.Select>
                         </Form.Group>
@@ -134,7 +142,7 @@ function AddModal(props) {
                                 {props.ct &&
                                     props.ct.map((item) => {
                                         return (
-                                            <option value={item.id}>
+                                            <option key={item.id} value={item.id}>
                                                 {item.codigo} - {item.nome}
                                             </option>
                                         )

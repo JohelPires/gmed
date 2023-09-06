@@ -95,7 +95,11 @@ function UpdateModal(props) {
                                 <option>Selecione...</option>
                                 {props.labs &&
                                     props.labs.map((item) => {
-                                        return <option value={item.id}>{item.nome}</option>
+                                        return (
+                                            <option key={item.id} value={item.id}>
+                                                {item.nome}
+                                            </option>
+                                        )
                                     })}
                             </Form.Select>
                         </Form.Group>{' '}
@@ -109,7 +113,11 @@ function UpdateModal(props) {
                                 <option>Selecione...</option>
                                 {props.pa &&
                                     props.pa.map((item) => {
-                                        return <option value={item.id}>{item.nome}</option>
+                                        return (
+                                            <option key={item.id} value={item.id}>
+                                                {item.nome}
+                                            </option>
+                                        )
                                     })}
                             </Form.Select>
                         </Form.Group>
@@ -126,7 +134,7 @@ function UpdateModal(props) {
                                 {props.ct &&
                                     props.ct.map((item) => {
                                         return (
-                                            <option value={item.id}>
+                                            <option key={item.id} value={item.id}>
                                                 {item.codigo} - {item.nome}
                                             </option>
                                         )

@@ -14,7 +14,7 @@ function Login({ isAuth, setIsAuth }) {
 
     useEffect(() => {
         const AuthLocal = JSON.parse(window.localStorage.getItem('Auth'))
-        console.log('LocalStorage Auth: ', AuthLocal)
+        // console.log('LocalStorage Auth: ', AuthLocal)
         if (AuthLocal) {
             setIsAuth(AuthLocal)
             navigate('/')
@@ -44,7 +44,7 @@ function Login({ isAuth, setIsAuth }) {
                 })
         } catch (error) {
             console.log(error)
-            console.log('teste')
+            // console.log('teste')
         }
     }
 

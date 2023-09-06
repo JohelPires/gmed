@@ -67,7 +67,7 @@ function AddPAModal(props) {
                     {erro &&
                         erro.map((item) => {
                             return (
-                                <p style={{ color: 'red' }}>
+                                <p key={item} style={{ color: 'red' }}>
                                     <small variant='danger'>{item.message}</small>
                                 </p>
                             )
