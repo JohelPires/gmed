@@ -19,9 +19,11 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
     const [filtroPorCt, setFiltroPorCt] = useState(0)
     const [filtroEstoque, setFiltroEstoque] = useState(false)
     const [filtroVencimento, setFiltroVencimento] = useState(false)
+    const [filtroAnoVencimento, setFiltroAnoVencimento] = useState(0)
     const uniqueLaboratoryIds = new Set()
     const uniquePA = new Set()
     const uniqueCT = new Set()
+    const uniqueAno = new Set()
 
     useEffect(() => {
         setLoading(true)
@@ -58,13 +60,27 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
         filtroPorLab > 0 && setDadoFiltrado((prev) => prev.filter((item) => item.id_laboratorio == filtroPorLab))
         filtroPorPa > 0 && setDadoFiltrado((prev) => prev.filter((item) => item.id_principio_ativo == filtroPorPa))
         filtroPorCt > 0 && setDadoFiltrado((prev) => prev.filter((item) => item.id_classe_terapeutica == filtroPorCt))
+        filtroAnoVencimento > 0 &&
+            setDadoFiltrado((prev) =>
+                prev.filter((item) => parseInt(item.vencimento.slice(0, 4)) === parseInt(filtroAnoVencimento))
+            )
         filtroEstoque && setDadoFiltrado((prev) => prev.filter((item) => item.quantidade < 1000))
         // console.log(meds[0].vencimento.slice(0, 4))
         filtroVencimento &&
             setDadoFiltrado((prev) => prev.filter((item) => parseInt(item.vencimento.slice(0, 4)) === 2023))
         procurar &&
             setDadoFiltrado((prev) => prev.filter((item) => item.nome.toLowerCase().startsWith(procurar.toLowerCase())))
-    }, [filtroPorLab, filtroPorPa, filtroPorCt, filtroEstoque, filtroVencimento, procurar])
+    }, [filtroPorLab, filtroPorPa, filtroPorCt, filtroEstoque, filtroVencimento, filtroAnoVencimento, procurar])
+
+    useEffect(() => {
+        if (!checked) {
+            setFiltroPorLab(0)
+            setFiltroPorPa(0)
+            setFiltroPorCt(0)
+            setFiltroEstoque(false)
+            setFiltroVencimento(false)
+        }
+    }, [checked])
 
     return (
         <Stack className='p-3'>
@@ -178,6 +194,35 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
                                 id='vencimento'
                                 onChange={(e) => setFiltroVencimento(e.target.checked)}
                             />
+                            <Form.Select
+                                className='w-50 ms-auto'
+                                // defaultValue={0}
+                                aria-label='Default select example'
+                                onChange={(e) => setFiltroAnoVencimento(e.target.value)}
+                            >
+                                <option>Filtrar por ano de vencimento...</option>
+                                {/* {ct &&
+                                ct.map((item) => {
+                                    return (
+                                        <option value={item.id}>
+                                            {item.codigo} - {item.nome}
+                                        </option>
+                                    )
+                                })} */}
+                                {meds &&
+                                    meds.map((item) => {
+                                        if (!uniqueAno.has(item.vencimento.slice(0, 4))) {
+                                            // Check if the ID is unique
+                                            uniqueAno.add(item.vencimento.slice(0, 4)) // Add the ID to the Set if it's unique
+                                            return (
+                                                <option value={item.vencimento.slice(0, 4)}>
+                                                    {item.vencimento.slice(0, 4)}
+                                                </option>
+                                            )
+                                        }
+                                        return null // Return null for repeated IDs to skip rendering duplicate options
+                                    })}
+                            </Form.Select>
                         </Stack>
                     </Stack>
                 )}
