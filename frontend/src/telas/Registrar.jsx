@@ -15,10 +15,13 @@ function Registrar({ setIsAuth }) {
             axios
                 .post('http://localhost:5000/usuario/registrar', novousuario)
                 .then((data) => {
-                    console.log(data.response)
+                    console.log(data)
                     navigate('/login')
                 })
-                .catch((err) => console.log(err))
+                .catch((err) => {
+                    console.log(err)
+                    setErro('Houve um erro.')
+                })
         }
     }
 
@@ -38,6 +41,15 @@ function Registrar({ setIsAuth }) {
                                 placeholder='Nome'
                                 required
                                 onChange={(e) => setNovousuario({ ...novousuario, nome: e.target.value })}
+                            />
+                        </FloatingLabel>
+                        <FloatingLabel controlId='floatingMatricula' label='Matrícula' className='mb-3 mt-4'>
+                            <Form.Control
+                                size='sm'
+                                type='text'
+                                placeholder='Matrícula'
+                                required
+                                onChange={(e) => setNovousuario({ ...novousuario, matricula: e.target.value })}
                             />
                         </FloatingLabel>
                         <FloatingLabel controlId='floatingEmail' label='E-mail' className='mb-3 mt-4'>

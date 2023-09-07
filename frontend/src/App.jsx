@@ -8,6 +8,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import Login from './telas/Login'
 import Registrar from './telas/Registrar'
 import Sobre from './telas/Sobre'
+import Perfil from './telas/Perfil'
 
 function App() {
     const [isAuth, setIsAuth] = useState('')
@@ -46,6 +47,7 @@ function App() {
                             <Route path='login' element={<Login isAuth={isAuth} setIsAuth={setIsAuth} />} />
                             <Route path='registrar' element={<Registrar isAuth={isAuth} setIsAuth={setIsAuth} />} />
                             <Route path='sobre' element={<Sobre />} />
+                            <Route path='perfil' element={<Perfil isAuth={isAuth} setIsAuth={setIsAuth} />} />
                         </Routes>
                     </Col>
                 </Row>

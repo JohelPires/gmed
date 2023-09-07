@@ -36,8 +36,8 @@ function Login({ isAuth, setIsAuth }) {
                 })
                 .catch((err) => {
                     if (err.response.data.erro) {
-                        // setErro(err.response.data.erro)
-                        setErro('Houve um erro.')
+                        console.log(err.response.data.erro)
+                        setErro(err.response.data.erro)
                     } else {
                         setErro('Não foi possível contactar o servidor. Tente novamente mais tarde.')
                     }

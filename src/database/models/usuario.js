@@ -24,12 +24,11 @@ const Usuario = sequelize.define(
         },
         matricula: {
             type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
         },
     },
     { freezeTableName: true }
 )
-// Usuario.associate = function (models) {
-//     Usuario.hasMany(models.Tarefa, { as: 'employes' })
-// }
 
 module.exports = Usuario

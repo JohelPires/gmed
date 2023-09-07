@@ -12,6 +12,8 @@
 -   [ ] tela sobre
 -   [ ] testar criação de usuarios, login, etc
 -   [ ] tela perfil
+    -   [ ] opção alterar senha
+    -   [ ] matricula deve ser required e unique
     -   [ ] opção excluir usuário
 -   [ ] fazer o deploy
 

@@ -41,7 +41,9 @@ function Navbar({ isAuth, setIsAuth }) {
                             }
                         >
                             <Dropdown.Item eventKey='1'>Configurações</Dropdown.Item>
-                            <Dropdown.Item eventKey='2'>Perfil</Dropdown.Item>
+                            <Dropdown.Item onClick={() => navigate('/perfil')} eventKey='2'>
+                                Perfil
+                            </Dropdown.Item>
                             <Dropdown.Divider />
                             <Dropdown.Item onClick={logOut} eventKey='3'>
                                 Sair

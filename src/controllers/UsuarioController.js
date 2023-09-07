@@ -50,17 +50,17 @@ async function login(req, res) {
 }
 
 async function addUsuario(req, res) {
-    const { nome, email, senha } = req.body
+    const { nome, email, senha, matricula } = req.body
 
-    if (!email || !senha) {
+    if (!email || !senha || !matricula) {
         return res.status(400).json({
-            error: 'Email e senha são obrigatórios!',
+            error: 'Email, senha e matrícula são obrigatórios!',
         })
     }
 
     const hashedSenha = await bcrypt.hash(senha, SALT)
 
-    const usuario = { nome, email, senha: hashedSenha }
+    const usuario = { nome, email, senha: hashedSenha, matricula }
 
     Usuario.create(usuario)
         .then((result) => {
@@ -68,7 +68,7 @@ async function addUsuario(req, res) {
             res.status(200).json({ result, token: accessToken })
         })
         .catch((err) => {
-            res.json(err)
+            res.status(401).json(err)
         })
 }
 
@@ -117,43 +117,4 @@ function deleta(req, res) {
         })
 }
 
-function getSaldo(req, res) {
-    const id = req.userId
-    sequelize
-        .query(`SELECT SUM(valor) FROM transacao WHERE id_usuario=${id} AND deleted=false`)
-        .then((data) => {
-            res.status(200).json(data[0][0].sum)
-        })
-        .catch((err) => {
-            res.status(400).json(err)
-        })
-}
-
-function updateSaldo(id, valor) {
-    let saldo
-    Usuario.findByPk(id)
-        .then((result) => {
-            saldo = result.dataValues.saldo
-            saldo = saldo + parseFloat(valor)
-            Usuario.update(
-                { saldo: saldo },
-                {
-                    where: {
-                        id: parseInt(id),
-                    },
-                }
-            )
-                .then((result) => {
-                    console.log('==== SALDO ATUALIZADO ====')
-                    console.log(result)
-                })
-                .catch((err) => {
-                    console.log(err)
-                })
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-}
-
-module.exports = { listAll, addUsuario, findId, update, deleta, login, updateSaldo, getSaldo }
+module.exports = { listAll, addUsuario, findId, update, deleta, login }
