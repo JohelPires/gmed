@@ -5,6 +5,8 @@ import { Link, useNavigate } from 'react-router-dom'
 
 function Perfil({ isAuth, setIsAuth }) {
     const [senhas, setSenhas] = useState({ senha: '', novasenha: '', confirmasenha: '' })
+    const [edit, setEdit] = useState(false)
+    const [nome, setNome] = useState(isAuth.usuario.nome)
 
     const navigate = useNavigate()
     useEffect(() => {
@@ -49,6 +51,29 @@ function Perfil({ isAuth, setIsAuth }) {
         }
     }
 
+    function handleAlterarNome() {
+        console.log(nome)
+        if (window.confirm('Tem certeza que quer alterar seu nome?')) {
+            axios
+                .put(
+                    `http://localhost:5000/usuario/${isAuth.usuario.id}`,
+                    { nome: nome },
+                    {
+                        headers: { Authorization: `Bearer ${isAuth.accessToken}` },
+                    }
+                )
+                .then((data) => {
+                    console.log(data)
+                    setIsAuth('')
+                    window.localStorage.clear()
+                    navigate('/login')
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+    }
+
     return (
         <Container fluid>
             <Row>
@@ -64,14 +89,32 @@ function Perfil({ isAuth, setIsAuth }) {
                 <Col className='bg-white round main-shadow p-5' md={8}>
                     <Link to={'/'}>Voltar</Link>
                     <h3 className='mb-3'>Perfil</h3>
-                    <Stack direction='horizontal' gap={3}>
-                        <h6>Nome: {isAuth.usuario.nome}</h6>
-                        <Button variant='outline-secondary' size='sm'>
-                            editar
-                        </Button>
-                    </Stack>
-                    <h6>Matrícula: {isAuth.usuario.matricula}</h6>
-                    <h6>Email: {isAuth.usuario.email}</h6>
+                    {!edit ? (
+                        <Stack direction='horizontal' gap={3} className='mb-2'>
+                            <h5 className='m-0'>Nome: {isAuth.usuario.nome}</h5>
+                            <Button onClick={(e) => setEdit(true)} variant='outline-secondary' size='sm'>
+                                editar
+                            </Button>
+                        </Stack>
+                    ) : (
+                        <Stack direction='horizontal' gap={3} className='mb-2'>
+                            <Form.Label>Nome</Form.Label>
+                            <Form.Control
+                                className='w-25'
+                                type='text'
+                                value={nome}
+                                onChange={(e) => setNome(e.target.value)}
+                            />
+                            <Button onClick={(e) => setEdit(false)} variant='outline-secondary' size='sm'>
+                                Cancelar
+                            </Button>
+                            <Button onClick={(e) => handleAlterarNome(e.target.value)} variant='primary' size='sm'>
+                                Confirmar
+                            </Button>
+                        </Stack>
+                    )}
+                    <h5>Matrícula: {isAuth.usuario.matricula}</h5>
+                    <h5>Email: {isAuth.usuario.email}</h5>
                     <Stack className='w-50'>
                         <Form
                             onSubmit={(e) => handleAlterarSenha(e)}
