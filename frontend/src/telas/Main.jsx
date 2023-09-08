@@ -46,7 +46,7 @@ function Main({ isAuth, reload, setReload }) {
 
     return (
         <Row className='p-5 pt-0 pb-0'>
-            <Col className='bg-white round main-shadow' md={8}>
+            <Col className='bg-white round main-shadow' lg={8} md={12}>
                 <Tabs defaultActiveKey='med' id='fill-tab-example' className='mb-3 mt-3 fs-5' fill>
                     <Tab eventKey='med' title='Medicamentos'>
                         <Medicamentos

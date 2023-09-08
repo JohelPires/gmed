@@ -3,6 +3,7 @@ import { Badge, Button, ButtonGroup, Stack } from 'react-bootstrap'
 import ViewModal from './ViewModal'
 import UpdateModal from './UpdateModal'
 import axios from 'axios'
+import { FaEdit, FaEye, FaTrashAlt } from 'react-icons/fa'
 
 function Med({ item, ct, labs, pa, isAuth, setReload, setToast }) {
     const [viewModalShow, setViewModalShow] = useState(false)
@@ -34,13 +35,13 @@ function Med({ item, ct, labs, pa, isAuth, setReload, setToast }) {
             {item.vencimento.slice(0, 4) == new Date().getFullYear() && <Badge bg='danger'>vencimento próximo</Badge>}
             <ButtonGroup size='sm' aria-label='Basic example'>
                 <Button variant='outline-secondary' onClick={() => setViewModalShow(true)}>
-                    Visualizar
+                    <FaEye /> Visualizar
                 </Button>
                 <Button variant='outline-secondary' onClick={() => setUpdateModalShow(true)}>
-                    Editar
+                    <FaEdit /> Editar
                 </Button>
                 <Button variant='outline-danger' onClick={handleDelete}>
-                    Excluir
+                    <FaTrashAlt /> Excluir
                 </Button>
             </ButtonGroup>
             <UpdateModal

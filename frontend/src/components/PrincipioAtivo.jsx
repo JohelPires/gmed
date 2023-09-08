@@ -3,6 +3,7 @@ import PA from './PA'
 import AddPAModal from './AddPAModal'
 import { Button, Form, Spinner, Stack } from 'react-bootstrap'
 import axios from 'axios'
+import { FaPlus } from 'react-icons/fa'
 
 function PrincipioAtivo({ pa, setPa, isAuth, reload, setReload, setToast }) {
     const [loading, setLoading] = useState(true)
@@ -40,7 +41,7 @@ function PrincipioAtivo({ pa, setPa, isAuth, reload, setReload, setToast }) {
     return (
         <Stack className='p-3'>
             <Stack gap={3} direction='horizontal' className='control-bar p-3 round'>
-                <Button variant='outline-light' onClick={() => setPaModalShow(true)}>
+                <Button variant='light' onClick={() => setPaModalShow(true)}>
                     Cadastrar Princípio Ativo
                 </Button>
 

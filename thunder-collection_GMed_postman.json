@@ -1,0 +1,598 @@
+{
+    "info": {
+        "_postman_id": "5fc00f6c-49a2-459b-8f5a-19e32d54d7d5",
+        "name": "GMed",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Usuarios",
+            "item": [
+                {
+                    "name": "Login",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "localhost:5000/usuario/login",
+                            "path": [
+                                "usuario",
+                                "login"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"email\": \"johelpires@gmail.com\",\n  \"senha\": \"321\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Registrar",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "localhost:5000/usuario/registrar",
+                            "path": [
+                                "usuario",
+                                "registrar"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"nome\": \"Johel 2\",\n  \"email\": \"johel2@gmail.com\",\n  \"senha\": \"123\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Listar",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:5000/usuario/",
+                            "path": [
+                                "usuario"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"nome\": \"Johel123\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Editar",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "localhost:5000/usuario/7",
+                            "path": [
+                                "usuario",
+                                "7"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"nome\": \"Johel123\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjk0MTk1ODYwfQ.fr0b_49HC5Fgj-94d1wf9ZXXGMZXDpCh7SVCcJl3pZE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Editar Senha",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "localhost:5000/usuario/pwd/11",
+                            "path": [
+                                "usuario",
+                                "pwd",
+                                "11"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"senha\": \"321\",\n  \"novasenha\": \"123\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Listar Copy",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:5000/usuario/",
+                            "path": [
+                                "usuario"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"nome\": \"Johel123\"\n}"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Laboratorios",
+            "item": [
+                {
+                    "name": "Listar",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:5000/laboratorios",
+                            "path": [
+                                "laboratorios"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Adicionar",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "localhost:5000/laboratorios",
+                            "path": [
+                                "laboratorios"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"nome\": \"EMS SIGMA PHARMA LTDA\",\n  \"cnpj\": \"00.923.140/0001-31\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "localhost:5000/laboratorios/3",
+                            "path": [
+                                "laboratorios",
+                                "3"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"nome\": \"Outro\",\n  \"cnpj\": \"00.923.140/0001-32\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "localhost:5000/laboratorios/3",
+                            "path": [
+                                "laboratorios",
+                                "3"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Principios Ativos",
+            "item": [
+                {
+                    "name": "Listar",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:5000/pa",
+                            "path": [
+                                "pa"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Adicionar",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "localhost:5000/pa",
+                            "path": [
+                                "pa"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"nome\": \"Teste\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "localhost:5000/pa/2",
+                            "path": [
+                                "pa",
+                                "2"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"nome\": \"Outro2\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "localhost:5000/pa/2",
+                            "path": [
+                                "pa",
+                                "2"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Classes Terapeuticas",
+            "item": [
+                {
+                    "name": "Listar",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:5000/ct",
+                            "path": [
+                                "ct"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Medicamentos",
+            "item": [
+                {
+                    "name": "Listar",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:5000/medicamentos",
+                            "path": [
+                                "medicamentos"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Adicionar",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "localhost:5000/medicamentos",
+                            "path": [
+                                "medicamentos"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"nome\": \"outro teste2\",\n  \"id_principio_ativo\": 2,\n  \"id_laboratorio\": 2,\n  \"registro\": \"12345\",\n  \"ean\": \"123\",\n  \"apresentacao\": \"teste\",\n  \"id_classe_terapeutica\": 15,\n  \"quantidade\": 10000,\n  \"vencimento\": \"2026-05-31\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "localhost:5000/medicamentos/4",
+                            "path": [
+                                "medicamentos",
+                                "4"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"nome\": \"Outro2\"\n}"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "localhost:5000/medicamentos/3",
+                            "path": [
+                                "medicamentos",
+                                "3"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "5000"
+                        },
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "token",
+                                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjkzNDc5MTcyfQ.5_N7lZeUth0g8OCo4Ka4YP3f7Q0nDpwuWMKqFj5rsKE",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

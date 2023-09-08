@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Button, Container, Dropdown, Form, InputGroup, Spinner, Stack, ToggleButton } from 'react-bootstrap'
 // import testData from '../data/testData'
 import axios from 'axios'
-import { FaCheckSquare, FaChevronLeft, FaChevronRight, FaSquare } from 'react-icons/fa'
+import { FaFilter, FaCheckSquare, FaChevronLeft, FaChevronRight, FaSquare, FaPlus } from 'react-icons/fa'
 import { BsFilter } from 'react-icons/bs'
 import Med from './Med'
 import AddModal from './AddModal'
@@ -108,7 +108,7 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
                         value='1'
                         onChange={(e) => setChecked(e.currentTarget.checked)}
                     >
-                        Filtrar
+                        <FaFilter /> Filtrar
                     </ToggleButton>
                 </Stack>
                 {checked && (

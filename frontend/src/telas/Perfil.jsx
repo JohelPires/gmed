@@ -66,7 +66,7 @@ function Perfil({ isAuth, setIsAuth }) {
                     console.log(data)
                     setIsAuth('')
                     window.localStorage.clear()
-                    navigate('/login')
+                    navigate('/')
                 })
                 .catch((err) => {
                     console.log(err)

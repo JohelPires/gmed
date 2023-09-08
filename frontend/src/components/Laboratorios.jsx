@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Button, Form, Spinner, Stack } from 'react-bootstrap'
 import Lab from './Lab'
 import AddLabModal from './AddLabModal'
+import { FaPlus } from 'react-icons/fa'
 
 function Laboratorios({ labs, setLabs, isAuth, reload, setReload, setToast }) {
     const [loading, setLoading] = useState(true)

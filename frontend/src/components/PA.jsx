@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { Button, ButtonGroup, Stack } from 'react-bootstrap'
 import AddPAModal from './AddPAModal'
+import { FaEdit, FaTrashAlt } from 'react-icons/fa'
 
 function PA({ item, isAuth, setReload, setToast }) {
     const [modalShow, setModalShow] = useState(false)
@@ -39,10 +40,10 @@ function PA({ item, isAuth, setReload, setToast }) {
             </Stack>
             <ButtonGroup size='sm' className='ms-auto' aria-label='Basic example'>
                 <Button variant='outline-secondary' onClick={() => setModalShow(true)}>
-                    Editar
+                    <FaEdit /> Editar
                 </Button>
                 <Button variant='outline-danger' onClick={handleDelete}>
-                    Excluir
+                    <FaTrashAlt /> Excluir
                 </Button>
             </ButtonGroup>
             <AddPAModal
