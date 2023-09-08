@@ -16,6 +16,8 @@ router.get('/:id', UsuarioController.findId)
 
 router.put('/:id', authMiddleware, UsuarioController.update)
 
+router.put('/pwd/:id', UsuarioController.updateSenha)
+
 router.delete('/:id', authMiddleware, UsuarioController.deleta)
 
 module.exports = router

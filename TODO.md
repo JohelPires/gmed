@@ -12,9 +12,10 @@
 -   [ ] tela sobre
 -   [ ] testar criação de usuarios, login, etc
 -   [ ] tela perfil
-    -   [ ] opção alterar senha
-    -   [ ] matricula deve ser required e unique
-    -   [ ] opção excluir usuário
+    -   [x] opção alterar senha
+    -   [x] matricula deve ser required e unique
+    -   [x] opção excluir usuário
+    -   [ ] alterar nome do usuário
 -   [ ] fazer o deploy
 
 ## Backend:
@@ -29,13 +30,13 @@
     -   [x] get classes terapeuticas
     -   [-] endpoints de dashboard
 -   [x] registro deve ser unico
--   [ ] opção excluir usuario
+-   [x] opção excluir usuario
 -   [x] cnpj e nome do laboratorio devem ser únicos
 
 ## se sobrar tempo:
 
--   [ ] CRUD classes terapeuticas
--   [ ] sistema de recuperação de dados deletados usando o 'paranoid' do sequelize
+-   [-] CRUD classes terapeuticas
+-   [-] sistema de recuperação de dados deletados usando o 'paranoid' do sequelize
 
 ## Front-end:
 
@@ -68,6 +69,6 @@
 
 -   [x] grafico de medicamentos por laboratorio
 -   [x] grafico de quantidade de medicamentos por laboratório
--   [ ] limitar o grafico de medicamentos por laboratorio para os 9 maiores
+-   [x] limitar o grafico de medicamentos por laboratorio para os 9 maiores
 -   [x] grafico de vencimento
 -   [ ] grafico de medicamentos por principio ativo

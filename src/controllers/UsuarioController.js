@@ -98,6 +98,50 @@ function update(req, res) {
         })
 }
 
+async function updateSenha(req, res) {
+    const { id } = req.params
+    const { senha, novasenha } = req.body
+
+    let usuario
+    if (id) {
+        usuario = await Usuario.findOne({ where: { id } })
+    } else {
+        return res.status(400).json({ erro: 'Houve um erro. Id inválido.' })
+    }
+    // console.log(usuario.id)
+    if (!usuario) {
+        return res.status(404).json({ erro: 'Usuario não encontrado.' })
+    }
+
+    // Verifica se a senha está correta
+    const verificaSenha = await bcrypt.compare(senha, usuario.senha)
+
+    if (!verificaSenha) {
+        return res.status(400).json({
+            erro: 'Senha incorreta.',
+        })
+    }
+
+    const hashedSenha = await bcrypt.hash(novasenha, SALT)
+
+    // const usuario = { nome, email, senha: hashedSenha, matricula }
+
+    Usuario.update(
+        { senha: hashedSenha },
+        {
+            where: {
+                id: parseInt(id),
+            },
+        }
+    )
+        .then((result) => {
+            res.status(200).json('Senha atualizada.')
+        })
+        .catch((err) => {
+            res.status(400).json(err)
+        })
+}
+
 function deleta(req, res) {
     const { id } = req.params
     Usuario.destroy({
@@ -117,4 +161,4 @@ function deleta(req, res) {
         })
 }
 
-module.exports = { listAll, addUsuario, findId, update, deleta, login }
+module.exports = { listAll, addUsuario, findId, update, deleta, login, updateSenha }
