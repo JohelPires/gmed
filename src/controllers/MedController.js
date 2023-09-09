@@ -6,15 +6,10 @@ const Classeterapeutica = require('../database/models/classeterapeutica')
 const Laboratorio = require('../database/models/laboratorio')
 const Medicamentos = require('../database/models/medicamentos') //(sequelize, DataTypes)
 const Principioativo = require('../database/models/principioativo')
-const { updateSaldo } = require('./UsuarioController')
 
 // TESTADO: OK
 function listAll(req, res) {
     Medicamentos.findAll({
-        // where: {
-        //     // id_usuario: req.userId,
-        //     deletado: false,
-        // },
         include: [Laboratorio, Principioativo, Classeterapeutica],
     })
         .then((result) => {

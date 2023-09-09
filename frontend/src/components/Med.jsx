@@ -35,13 +35,13 @@ function Med({ item, ct, labs, pa, isAuth, setReload, setToast }) {
             {item.vencimento.slice(0, 4) == new Date().getFullYear() && <Badge bg='danger'>vencimento próximo</Badge>}
             <ButtonGroup size='sm' aria-label='Basic example'>
                 <Button variant='outline-secondary' onClick={() => setViewModalShow(true)}>
-                    <FaEye /> Visualizar
+                    <FaEye /> <small>Visualizar</small>
                 </Button>
                 <Button variant='outline-secondary' onClick={() => setUpdateModalShow(true)}>
-                    <FaEdit /> Editar
+                    <FaEdit /> <small>Editar</small>
                 </Button>
                 <Button variant='outline-danger' onClick={handleDelete}>
-                    <FaTrashAlt /> Excluir
+                    <FaTrashAlt /> <small>Excluir</small>
                 </Button>
             </ButtonGroup>
             <UpdateModal

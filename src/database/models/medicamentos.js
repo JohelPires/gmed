@@ -62,10 +62,6 @@ const Medicamentos = sequelize.define(
             type: DataTypes.DATEONLY,
             allowNull: false,
         },
-        // deletado: {
-        //     type: DataTypes.BOOLEAN,
-        //     defaultValue: false,
-        // },
     },
     { freezeTableName: true }
 )
