@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Stack } from 'react-bootstrap'
+import { Container, Form, Stack } from 'react-bootstrap'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
 
@@ -16,6 +16,7 @@ const options = {
 
 function DonutLabs({ meds }) {
     const [totMedsPerLab, setTotMedsPerLab] = useState({})
+    const [top, setTop] = useState(5)
 
     useEffect(() => {
         const result = {}
@@ -36,7 +37,7 @@ function DonutLabs({ meds }) {
         keyValueArray.sort((a, b) => b[1] - a[1])
 
         // Slice the first 9 elements from the sorted array
-        const top9Labs = keyValueArray.slice(0, 5)
+        const top9Labs = keyValueArray.slice(0, top)
 
         // Convert the sliced array back into an object
         const resultObject = Object.fromEntries(top9Labs)
@@ -44,7 +45,7 @@ function DonutLabs({ meds }) {
         // console.log(resultObject)
 
         setTotMedsPerLab(resultObject)
-    }, [meds])
+    }, [meds, top])
 
     const data = {
         labels: Object.keys(totMedsPerLab),
@@ -75,14 +76,24 @@ function DonutLabs({ meds }) {
         ],
     }
     return (
-        <Container className='bg-white round main-shadow'>
+        <Container className='bg-white round sec-shadow'>
             <Stack className='p-3'>
                 <div className='transaction_month'>
-                    <h5>Quantidades por laboratório</h5>
+                    <Stack gap={2} direction='horizontal'>
+                        <h5>Quantidades por laboratório</h5>
+                        <h6 className='ms-auto'>Máximo de</h6>
+                        <Form.Control
+                            style={{ width: '80px' }}
+                            type='number'
+                            value={top}
+                            onChange={(e) => setTop(e.target.value)}
+                        />
+                        <h6>Laboratórios</h6>
+                    </Stack>
                 </div>
                 <div className='donut'>
                     {meds.length > 0 ? (
-                        <Doughnut style={{ maxHeight: '200px' }} data={data} options={options} />
+                        <Doughnut style={{ maxHeight: '400px' }} data={data} options={options} />
                     ) : (
                         'Sem dados.'
                     )}

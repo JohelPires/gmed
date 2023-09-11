@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Col, Row, Tab, Tabs, Toast, ToastContainer } from 'react-bootstrap'
+import { Col, Container, Row, Tab, Tabs, Toast, ToastContainer } from 'react-bootstrap'
 import BarStats from '../components/BarStats'
 import Medicamentos from '../components/Medicamentos'
 import axios from 'axios'
@@ -46,7 +46,7 @@ function Main({ isAuth, reload, setReload }) {
 
     return (
         <Row className='p-5 pt-0 pb-0'>
-            <Col className='bg-white round main-shadow' lg={8} md={12}>
+            <Col className='bg-white round main-shadow'>
                 <Tabs defaultActiveKey='med' id='fill-tab-example' className='mb-3 mt-3 fs-5' fill>
                     <Tab eventKey='med' title='Medicamentos'>
                         <Medicamentos
@@ -81,6 +81,24 @@ function Main({ isAuth, reload, setReload }) {
                             setToast={setToast}
                         />
                     </Tab>
+                    <Tab eventKey='dash' title='Dashboard'>
+                        <Container fluid>
+                            <Row className='mt-5'>
+                                <Col sm={12} md={4}>
+                                    <Info meds={meds} labs={labs} pa={pa} reload={reload} />
+                                    <BarStats meds={meds} />
+                                </Col>
+                                <Col sm={12} md={8}>
+                                    <BarStatsMedPorLab meds={meds} />
+                                    <DonutLabs meds={meds} />
+                                </Col>
+                            </Row>
+                            {/* <Row>
+                                <Col sm={12} md={8}>
+                                </Col>
+                            </Row> */}
+                        </Container>
+                    </Tab>
                     {/* <Tab eventKey='ct' title='Classes Terapêuticas'>
                         <ClasseTerapeutica
                             // setCt={setCt}
@@ -92,13 +110,12 @@ function Main({ isAuth, reload, setReload }) {
                     </Tab> */}
                 </Tabs>
             </Col>
-            <Col md={4}>
+            {/* <Col lg={4}>
                 <Info meds={meds} labs={labs} pa={pa} reload={reload} />
                 <BarStats meds={meds} />
                 <BarStatsMedPorLab meds={meds} />
                 <DonutLabs meds={meds} />
-                {/* <Categories dados={meds} /> */}
-            </Col>
+            </Col> */}
 
             <ToastContainer style={{ position: 'fixed', bottom: '10px', left: '10px' }}>
                 <Toast

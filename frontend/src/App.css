@@ -58,6 +58,9 @@
 .main-shadow {
     box-shadow: -5px 5px 40px rgba(0, 0, 0, 0.307);
 }
+.sec-shadow {
+    box-shadow: -5px 5px 40px rgba(0, 0, 0, 0.137);
+}
 
 .transaction_month {
     /* margin: 10px;
