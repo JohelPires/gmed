@@ -86,7 +86,7 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
         <Stack className='p-3'>
             <Stack gap={3} className='control-bar p-3 round'>
                 <Stack gap={3} direction='horizontal'>
-                    <Button className='w-25' variant='light' onClick={() => setModalShow(true)}>
+                    <Button variant='light' onClick={() => setModalShow(true)}>
                         Cadastrar medicamento
                     </Button>
 
@@ -100,7 +100,7 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
                     />
 
                     <ToggleButton
-                        className='w-25'
+                        className='ms-auto'
                         id='toggle-check'
                         type='checkbox'
                         variant='outline-light'
