@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Stack } from 'react-bootstrap'
+import { Container, Form, Stack } from 'react-bootstrap'
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 
@@ -21,6 +21,10 @@ const options = {
 function BarStats({ meds }) {
     const [labels, setLabels] = useState([])
     const [quant, setQuant] = useState([])
+
+    const [ini, setIni] = useState()
+    const [fin, setFin] = useState()
+
     useEffect(() => {
         const medsVencimento = {}
         for (const obj of meds) {
@@ -29,16 +33,25 @@ function BarStats({ meds }) {
             // console.log(valor)
             medsVencimento[valor] = (medsVencimento[valor] || 0) + 1
         }
-        // console.log(medsVencimento)
+        console.log(medsVencimento)
 
         setLabels(Object.keys(medsVencimento))
+        setIni(labels[0])
+        setFin(labels[labels.length - 1])
         setQuant(Object.values(medsVencimento))
     }, [meds])
 
     // console.log(labels, quant)
 
+    // console.log(ini, fin)
+    // console.log(labels.indexOf(ini), labels.indexOf(fin))
+    // console.log(quant[labels.indexOf(ini)], quant[labels.indexOf(fin)])
+
+    console.log(labels.slice(labels.indexOf(ini), labels.indexOf(fin) + 1))
+    console.log(quant.slice(labels.indexOf(ini), labels.indexOf(fin) + 1))
+
     const data = {
-        labels: labels,
+        labels: labels.slice(labels.indexOf(ini), labels.indexOf(fin) + 1),
         datasets: [
             // {
             //     label: 'Despesas',
@@ -47,7 +60,7 @@ function BarStats({ meds }) {
             // },
             {
                 label: 'Medicamentos cadastrados',
-                data: quant,
+                data: quant.slice(labels.indexOf(ini), labels.indexOf(fin) + 1),
                 backgroundColor: '#3dcabc',
 
                 // backgroundColor: [
@@ -68,10 +81,45 @@ function BarStats({ meds }) {
         ],
     }
     return (
-        <Container className='bg-white round main-shadow'>
+        <Container className='bg-white round sec-shadow'>
             <Stack className='p-3'>
                 <div className='transaction_month'>
+                    {/* <h5>Quantidades por laboratório</h5> */}
                     <h5>Ano de vencimento</h5>
+                    <Stack gap={2} direction='horizontal'>
+                        <h6>De</h6>
+                        <Form.Select
+                            aria-label='Default select example'
+                            value={ini}
+                            defaultValue={ini}
+                            onChange={(e) => setIni(e.target.value)}
+                        >
+                            {/* <option value={ini}>{ini}</option> */}
+                            {labels.map((item) => {
+                                return (
+                                    <option key={item} value={item}>
+                                        {item}
+                                    </option>
+                                )
+                            })}
+                        </Form.Select>
+                        <h6>a</h6>
+                        <Form.Select
+                            aria-label='Default select example2'
+                            value={fin}
+                            defaultValue={fin}
+                            onChange={(e) => setFin(e.target.value)}
+                        >
+                            <option value={fin}>{fin}</option>
+                            {labels.map((item, idx) => {
+                                return (
+                                    <option key={item} value={item}>
+                                        {item}
+                                    </option>
+                                )
+                            })}
+                        </Form.Select>
+                    </Stack>
                 </div>
                 <Bar options={options} data={data} />
             </Stack>

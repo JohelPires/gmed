@@ -83,14 +83,14 @@ function Main({ isAuth, reload, setReload }) {
                     </Tab>
                     <Tab eventKey='dash' title='Dashboard'>
                         <Container fluid>
-                            <Row>
+                            <Row className='mt-5'>
                                 <Col sm={12} md={4}>
                                     <Info meds={meds} labs={labs} pa={pa} reload={reload} />
                                     <BarStats meds={meds} />
                                 </Col>
                                 <Col sm={12} md={8}>
-                                    <DonutLabs meds={meds} />
                                     <BarStatsMedPorLab meds={meds} />
+                                    <DonutLabs meds={meds} />
                                 </Col>
                             </Row>
                             {/* <Row>

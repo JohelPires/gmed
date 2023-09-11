@@ -12,7 +12,7 @@ function Info({ meds, reload, labs, pa }) {
         })
     }, [reload, meds])
     return (
-        <Container className='p-4 bg-white round main-shadow'>
+        <Container className='p-4 bg-white round sec-shadow'>
             <div className='transaction_month '>
                 <h5>Informações</h5>
             </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Stack } from 'react-bootstrap'
+import { Container, Form, Stack } from 'react-bootstrap'
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 
@@ -9,6 +9,7 @@ function BarStatsMedPorLab({ meds }) {
     // console.log(meds)
     const [noveLabs, setNoveLabs] = useState([])
     const [quant, setQuant] = useState([])
+    const [top, setTop] = useState(12)
 
     useEffect(() => {
         const medsPorLab = {}
@@ -26,7 +27,7 @@ function BarStatsMedPorLab({ meds }) {
         keyValueArray.sort((a, b) => b[1] - a[1])
 
         // Slice the first 9 elements from the sorted array
-        const top9Labs = keyValueArray.slice(0, 15)
+        const top9Labs = keyValueArray.slice(0, top)
 
         // Convert the sliced array back into an object
         const resultObject = Object.fromEntries(top9Labs)
@@ -35,7 +36,7 @@ function BarStatsMedPorLab({ meds }) {
 
         setNoveLabs(Object.keys(resultObject))
         setQuant(Object.values(resultObject))
-    }, [meds])
+    }, [meds, top])
     // console.log(noveLabs, quant)
 
     // const noveLabs = [
@@ -88,10 +89,20 @@ function BarStatsMedPorLab({ meds }) {
         },
     }
     return (
-        <Container className='bg-white round main-shadow'>
+        <Container className='bg-white round sec-shadow'>
             <Stack className='p-3'>
                 <div className='transaction_month'>
-                    <h5>Medicamentos cadastrados por laboratório</h5>
+                    <Stack gap={2} direction='horizontal'>
+                        <h5 className='w-75'>Medicamentos cadastrados por laboratório</h5>
+                        <h6 className='ms-auto'>Máximo de</h6>
+                        <Form.Control
+                            style={{ width: '80px' }}
+                            type='number'
+                            value={top}
+                            onChange={(e) => setTop(e.target.value)}
+                        />
+                        <h6>Laboratórios</h6>
+                    </Stack>
                 </div>
                 <Bar options={options} data={data} />
             </Stack>
