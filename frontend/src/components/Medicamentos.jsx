@@ -219,6 +219,7 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
                                         </option>
                                     )
                                 })} */}
+
                                 {meds &&
                                     meds.map((item) => {
                                         if (!uniqueAno.has(item.vencimento.slice(0, 4))) {
@@ -248,6 +249,10 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
             </Stack>
             {/* <Stack style={{ overflow: 'auto', height: '600px' }}> */}
             <Stack>
+                <Stack gap={3} direction='horizontal' className='border-bottom mb-3'>
+                    <h5 className='w-25'>Nome</h5>
+                    <h5>Princípio Ativo</h5>
+                </Stack>
                 {loading ? (
                     <Spinner animation='border' variant='primary' />
                 ) : dadoFiltrado.length > 0 ? (

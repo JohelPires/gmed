@@ -44,8 +44,8 @@ function BarStats({ meds }) {
     // console.log(labels, quant)
 
     // console.log(ini, fin)
-    // console.log(labels.indexOf(ini), labels.indexOf(fin))
-    // console.log(quant[labels.indexOf(ini)], quant[labels.indexOf(fin)])
+    console.log(labels.indexOf(ini), labels.indexOf(fin))
+    console.log(quant[labels.indexOf(ini)], quant[labels.indexOf(fin)])
 
     console.log(labels.slice(labels.indexOf(ini), labels.indexOf(fin) + 1))
     console.log(quant.slice(labels.indexOf(ini), labels.indexOf(fin) + 1))
