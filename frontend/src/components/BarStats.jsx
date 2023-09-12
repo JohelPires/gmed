@@ -22,8 +22,8 @@ function BarStats({ meds }) {
     const [labels, setLabels] = useState([])
     const [quant, setQuant] = useState([])
 
-    const [ini, setIni] = useState()
-    const [fin, setFin] = useState()
+    const [ini, setIni] = useState(2023)
+    const [fin, setFin] = useState(2030)
 
     useEffect(() => {
         const medsVencimento = {}
@@ -91,7 +91,7 @@ function BarStats({ meds }) {
                         <Form.Select
                             aria-label='Default select example'
                             value={ini}
-                            defaultValue={ini}
+                            // defaultValue={ini}
                             onChange={(e) => setIni(e.target.value)}
                         >
                             {/* <option value={ini}>{ini}</option> */}
@@ -107,7 +107,7 @@ function BarStats({ meds }) {
                         <Form.Select
                             aria-label='Default select example2'
                             value={fin}
-                            defaultValue={fin}
+                            // defaultValue={fin}
                             onChange={(e) => setFin(e.target.value)}
                         >
                             <option value={fin}>{fin}</option>
