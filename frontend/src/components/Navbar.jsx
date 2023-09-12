@@ -3,7 +3,7 @@ import { Button, ButtonGroup, Container, Dropdown, DropdownButton, Stack } from 
 import { Link, useNavigate } from 'react-router-dom'
 import { FaUserAlt } from 'react-icons/fa'
 
-function Navbar({ isAuth, setIsAuth }) {
+function Navbar({ isAuth, setIsAuth, isSmallScreen }) {
     const navigate = useNavigate()
 
     function logOut() {
@@ -21,7 +21,7 @@ function Navbar({ isAuth, setIsAuth }) {
                             <Stack>
                                 {/* <h2 style={{ fontWeight: 'bolder', letterSpacing: '2px' }}>GMed</h2> */}
                                 <h2 className='fw-bold m-0'>GMed</h2>
-                                <h6 className='m-0'>Sistema de Gestão de Medicamentos</h6>
+                                {!isSmallScreen && <h6 className='m-0'>Sistema de Gestão de Medicamentos</h6>}
                             </Stack>
                         </Link>
                         {/* <Link className='ms-auto' to={'/'}>

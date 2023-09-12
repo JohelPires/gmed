@@ -5,7 +5,7 @@ import Lab from './Lab'
 import AddLabModal from './AddLabModal'
 import { FaPlus } from 'react-icons/fa'
 
-function Laboratorios({ labs, setLabs, isAuth, reload, setReload, setToast }) {
+function Laboratorios({ labs, setLabs, isAuth, reload, setReload, setToast, isSmallScreen }) {
     const [loading, setLoading] = useState(true)
     const [msg, setMsg] = useState('')
     const [labModalShow, setLabModalShow] = useState(false)
@@ -68,7 +68,16 @@ function Laboratorios({ labs, setLabs, isAuth, reload, setReload, setToast }) {
                 <Spinner animation='border' variant='primary' />
             ) : dadoFiltrado.length > 0 ? (
                 dadoFiltrado.map((item) => {
-                    return <Lab key={item.id} item={item} isAuth={isAuth} setReload={setReload} setToast={setToast} />
+                    return (
+                        <Lab
+                            key={item.id}
+                            item={item}
+                            isAuth={isAuth}
+                            setReload={setReload}
+                            setToast={setToast}
+                            isSmallScreen={isSmallScreen}
+                        />
+                    )
                     // return item.nome
                 })
             ) : (

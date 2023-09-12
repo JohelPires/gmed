@@ -3,7 +3,7 @@ import Navbar from './components/Navbar'
 
 import { Col, Container, Row } from 'react-bootstrap'
 import Main from './telas/Main'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Login from './telas/Login'
 import Registrar from './telas/Registrar'
@@ -13,6 +13,28 @@ import Perfil from './telas/Perfil'
 function App() {
     const [isAuth, setIsAuth] = useState('')
     const [reload, setReload] = useState(0)
+
+    const [isSmallScreen, setIsSmallScreen] = useState(false)
+
+    // Function to check the screen size and update state
+    function checkScreenSize() {
+        if (window.innerWidth < 768) {
+            setIsSmallScreen(true)
+        } else {
+            setIsSmallScreen(false)
+        }
+    }
+
+    // Add event listener on component mount to track screen size changes
+    useEffect(() => {
+        checkScreenSize()
+        window.addEventListener('resize', checkScreenSize)
+
+        // Clean up the event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', checkScreenSize)
+        }
+    }, [])
     // const [contextValue, setContextValue] = useState('Valor inicial do contexto');
 
     // useEffect(() => {
@@ -27,7 +49,7 @@ function App() {
             <Container fluid>
                 <Row className='navbar main-shadow mb-5'>
                     <Col>
-                        <Navbar isAuth={isAuth} setIsAuth={setIsAuth} />
+                        <Navbar isAuth={isAuth} setIsAuth={setIsAuth} isSmallScreen={isSmallScreen} />
                         {/* {isAuth && <ControlBar isAuth={isAuth} reload={reload} setReload={setReload} />} */}
                     </Col>
                 </Row>
@@ -38,7 +60,12 @@ function App() {
                                 path='/'
                                 element={
                                     isAuth ? (
-                                        <Main isAuth={isAuth} setReload={setReload} reload={reload} />
+                                        <Main
+                                            isAuth={isAuth}
+                                            setReload={setReload}
+                                            reload={reload}
+                                            isSmallScreen={isSmallScreen}
+                                        />
                                     ) : (
                                         <Navigate to={'/login'} />
                                     )

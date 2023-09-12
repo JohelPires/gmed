@@ -10,7 +10,7 @@ import Info from '../components/Info'
 import BarStatsMedPorLab from '../components/BarStatsMedPorLab'
 import DonutLabs from '../components/DonutLabs'
 
-function Main({ isAuth, reload, setReload }) {
+function Main({ isAuth, reload, setReload, isSmallScreen }) {
     const [meds, setMeds] = useState([])
     const [ct, setCt] = useState([]) // CLASSES TERAPEUTICAS
     const [labs, setLabs] = useState([]) // LABORATORIOS
@@ -45,7 +45,7 @@ function Main({ isAuth, reload, setReload }) {
     }, [reload])
 
     return (
-        <Row className='p-5 pt-0 pb-0'>
+        <Row className={isSmallScreen ? 'p-0' : 'p-5 pt-0 pb-0'}>
             <Col className='bg-white round main-shadow'>
                 <Tabs defaultActiveKey='med' id='fill-tab-example' className='mb-3 mt-3 fs-5' fill>
                     <Tab eventKey='med' title='Medicamentos'>
@@ -59,6 +59,7 @@ function Main({ isAuth, reload, setReload }) {
                             reload={reload}
                             setReload={setReload}
                             setToast={setToast}
+                            isSmallScreen={isSmallScreen}
                         />
                     </Tab>
                     <Tab eventKey='labs' title='Laboratórios'>
@@ -69,6 +70,7 @@ function Main({ isAuth, reload, setReload }) {
                             reload={reload}
                             setReload={setReload}
                             setToast={setToast}
+                            isSmallScreen={isSmallScreen}
                         />
                     </Tab>
                     <Tab eventKey='pa' title='Princípio Ativo'>
@@ -79,6 +81,7 @@ function Main({ isAuth, reload, setReload }) {
                             reload={reload}
                             setReload={setReload}
                             setToast={setToast}
+                            isSmallScreen={isSmallScreen}
                         />
                     </Tab>
                     <Tab eventKey='dash' title='Dashboard'>

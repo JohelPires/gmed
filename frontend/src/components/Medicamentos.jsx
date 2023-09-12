@@ -7,7 +7,7 @@ import { BsFilter } from 'react-icons/bs'
 import Med from './Med'
 import AddModal from './AddModal'
 
-function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, setToast }) {
+function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, setToast, isSmallScreen }) {
     const [loading, setLoading] = useState(true)
     const [msg, setMsg] = useState('')
     const [modalShow, setModalShow] = useState(false)
@@ -251,7 +251,7 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
             <Stack>
                 <Stack gap={3} direction='horizontal' className='border-bottom mb-3'>
                     <h5 className='w-25'>Nome</h5>
-                    <h5>Princípio Ativo</h5>
+                    {!isSmallScreen && <h5>Princípio Ativo</h5>}
                 </Stack>
                 {loading ? (
                     <Spinner animation='border' variant='primary' />
@@ -267,6 +267,7 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
                                 isAuth={isAuth}
                                 setReload={setReload}
                                 setToast={setToast}
+                                isSmallScreen={isSmallScreen}
                             />
                         )
                     })

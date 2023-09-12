@@ -5,7 +5,7 @@ import { Button, Form, Spinner, Stack } from 'react-bootstrap'
 import axios from 'axios'
 import { FaPlus } from 'react-icons/fa'
 
-function PrincipioAtivo({ pa, setPa, isAuth, reload, setReload, setToast }) {
+function PrincipioAtivo({ pa, setPa, isAuth, reload, setReload, setToast, isSmallScreen }) {
     const [loading, setLoading] = useState(true)
     const [msg, setMsg] = useState('')
     const [paModalShow, setPaModalShow] = useState(false)
@@ -68,7 +68,16 @@ function PrincipioAtivo({ pa, setPa, isAuth, reload, setReload, setToast }) {
                 <Spinner animation='border' variant='primary' />
             ) : dadoFiltrado.length > 0 ? (
                 dadoFiltrado.map((item) => {
-                    return <PA key={item.id} item={item} isAuth={isAuth} setReload={setReload} setToast={setToast} />
+                    return (
+                        <PA
+                            key={item.id}
+                            item={item}
+                            isAuth={isAuth}
+                            setReload={setReload}
+                            setToast={setToast}
+                            isSmallScreen={isSmallScreen}
+                        />
+                    )
                     // return item.nome
                 })
             ) : (

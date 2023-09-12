@@ -5,7 +5,7 @@ import UpdateModal from './UpdateModal'
 import axios from 'axios'
 import { FaEdit, FaEye, FaTrashAlt } from 'react-icons/fa'
 
-function Med({ item, ct, labs, pa, isAuth, setReload, setToast }) {
+function Med({ item, ct, labs, pa, isAuth, setReload, setToast, isSmallScreen }) {
     const [viewModalShow, setViewModalShow] = useState(false)
     const [updateModalShow, setUpdateModalShow] = useState(false)
 
@@ -30,21 +30,28 @@ function Med({ item, ct, labs, pa, isAuth, setReload, setToast }) {
             <h6 className='w-25' style={{ cursor: 'pointer' }} onClick={() => setViewModalShow(true)}>
                 {item.nome}
             </h6>
-            <h6 style={{ cursor: 'pointer' }} onClick={() => setViewModalShow(true)}>
-                {item.principioativo}
-            </h6>
+            {!isSmallScreen && (
+                <h6 style={{ cursor: 'pointer' }} onClick={() => setViewModalShow(true)}>
+                    {item.principioativo}
+                </h6>
+            )}
             <div className='ms-auto'></div>
-            {item.quantidade < 1000 && <Badge bg='warning'>estoque baixo</Badge>}
-            {item.vencimento.slice(0, 4) === new Date().getFullYear() && <Badge bg='danger'>vencimento próximo</Badge>}
+            {item.quantidade < 1000 && <Badge bg='warning'>{isSmallScreen ? 'eb' : 'estoque baixo'}</Badge>}
+            {item.vencimento.slice(0, 4) === new Date().getFullYear() && (
+                <Badge bg='danger'>{isSmallScreen ? 'vp' : 'vencimento próximo'}</Badge>
+            )}
             <ButtonGroup size='sm' aria-label='Basic example'>
                 <Button variant='outline-secondary' onClick={() => setViewModalShow(true)}>
-                    <FaEye /> <small>Visualizar</small>
+                    <FaEye />
+                    {!isSmallScreen && <small> Visualizar</small>}
                 </Button>
                 <Button variant='outline-secondary' onClick={() => setUpdateModalShow(true)}>
-                    <FaEdit /> <small>Editar</small>
+                    <FaEdit />
+                    {!isSmallScreen && <small> Editar</small>}
                 </Button>
                 <Button variant='outline-danger' onClick={handleDelete}>
-                    <FaTrashAlt /> <small>Excluir</small>
+                    <FaTrashAlt />
+                    {!isSmallScreen && <small> Excluir</small>}
                 </Button>
             </ButtonGroup>
             <UpdateModal

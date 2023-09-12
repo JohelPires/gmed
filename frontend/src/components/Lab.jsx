@@ -4,7 +4,7 @@ import { Button, ButtonGroup, Stack } from 'react-bootstrap'
 import AddLabModal from './AddLabModal'
 import { FaEdit, FaTrashAlt } from 'react-icons/fa'
 
-function Lab({ item, isAuth, setReload, setToast }) {
+function Lab({ item, isAuth, setReload, setToast, isSmallScreen }) {
     const [updateModalShow, setUpdateModalShow] = useState(false)
 
     function handleDelete() {
@@ -40,10 +40,12 @@ function Lab({ item, isAuth, setReload, setToast }) {
             </Stack>
             <ButtonGroup size='sm' className='ms-auto' aria-label='Basic example'>
                 <Button variant='outline-secondary' onClick={() => setUpdateModalShow(true)}>
-                    <FaEdit /> Editar
+                    <FaEdit />
+                    {!isSmallScreen && ' Editar'}
                 </Button>
                 <Button variant='outline-danger' onClick={handleDelete}>
-                    <FaTrashAlt /> Excluir
+                    <FaTrashAlt />
+                    {!isSmallScreen && '  Excluir'}
                 </Button>
             </ButtonGroup>
             <AddLabModal
