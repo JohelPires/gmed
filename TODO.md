@@ -17,6 +17,7 @@
     -   [x] opção excluir usuário
     -   [ ] alterar nome do usuário
 -   [ ] fazer o deploy
+-   [ ] mensagens de erro pra quando o banco está fora do ar
 
 ## Backend:
 
