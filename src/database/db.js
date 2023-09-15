@@ -13,6 +13,12 @@ const config = require('./config/config')
 
 // console.log(config.development)
 
-const sequelize = new Sequelize(config.development.url)
+let sequelize
+
+if (process.env.NODE_ENV === 'production') {
+    sequelize = new Sequelize(config.production.url)
+} else {
+    sequelize = new Sequelize(config.development.url)
+}
 
 module.exports = sequelize
