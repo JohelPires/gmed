@@ -22,8 +22,8 @@ function BarStats({ meds }) {
     const [labels, setLabels] = useState([])
     const [quant, setQuant] = useState([])
 
-    const [ini, setIni] = useState(2023)
-    const [fin, setFin] = useState(2030)
+    const [ini, setIni] = useState('2023')
+    const [fin, setFin] = useState('2028')
 
     useEffect(() => {
         const medsVencimento = {}
@@ -36,19 +36,19 @@ function BarStats({ meds }) {
         console.log(medsVencimento)
 
         setLabels(Object.keys(medsVencimento))
-        setIni(labels[0])
-        setFin(labels[labels.length - 1])
+        setIni('2023')
+        setFin('2028')
         setQuant(Object.values(medsVencimento))
     }, [meds])
 
-    // console.log(labels, quant)
+    console.log(labels, quant)
+    console.log(ini, fin)
 
-    // console.log(ini, fin)
-    console.log(labels.indexOf(ini), labels.indexOf(fin))
-    console.log(quant[labels.indexOf(ini)], quant[labels.indexOf(fin)])
+    // console.log(labels.indexOf(ini), labels.indexOf(fin))
+    // console.log(quant[labels.indexOf(ini)], quant[labels.indexOf(fin)])
 
-    console.log(labels.slice(labels.indexOf(ini), labels.indexOf(fin) + 1))
-    console.log(quant.slice(labels.indexOf(ini), labels.indexOf(fin) + 1))
+    // console.log(labels.slice(labels.indexOf(ini), labels.indexOf(fin) + 1))
+    // console.log(quant.slice(labels.indexOf(ini), labels.indexOf(fin) + 1))
 
     const data = {
         labels: labels.slice(labels.indexOf(ini), labels.indexOf(fin) + 1),
@@ -92,7 +92,10 @@ function BarStats({ meds }) {
                             aria-label='Default select example'
                             value={ini}
                             // defaultValue={ini}
-                            onChange={(e) => setIni(e.target.value)}
+                            onChange={(e) => {
+                                // console.log(e.target.value)
+                                setIni(e.target.value)
+                            }}
                         >
                             {/* <option value={ini}>{ini}</option> */}
                             {labels.map((item) => {
