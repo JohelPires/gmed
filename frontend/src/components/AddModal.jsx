@@ -34,7 +34,7 @@ function AddModal(props) {
         }
 
         axios
-            .post('http://localhost:5000/medicamentos', novoMedicamento, {
+            .post('https://gmed.onrender.com/medicamentos', novoMedicamento, {
                 headers: { Authorization: `Bearer ${props.isAuth.accessToken}` },
             })
             .then((data) => {

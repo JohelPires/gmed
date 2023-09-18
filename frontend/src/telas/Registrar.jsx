@@ -13,7 +13,7 @@ function Registrar({ setIsAuth }) {
         e.preventDefault()
         if (novousuario.senha === senha) {
             axios
-                .post('http://localhost:5000/usuario/registrar', novousuario)
+                .post('https://gmed.onrender.com/usuario/registrar', novousuario)
                 .then((data) => {
                     console.log(data)
                     navigate('/login')

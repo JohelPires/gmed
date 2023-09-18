@@ -16,7 +16,7 @@ function Perfil({ isAuth, setIsAuth }) {
     function deletaUsuario() {
         if (window.confirm('Tem certeza que quer deletar sua conta?')) {
             axios
-                .delete(`http://localhost:5000/usuario/${isAuth.usuario.id}`, {
+                .delete(`https://gmed.onrender.com/usuario/${isAuth.usuario.id}`, {
                     headers: { Authorization: `Bearer ${isAuth.accessToken}` },
                 })
                 .then((data) => {
@@ -36,7 +36,7 @@ function Perfil({ isAuth, setIsAuth }) {
         if (window.confirm('Tem certeza que quer alterar sua senha?')) {
             console.log(senhas)
             axios
-                .put(`http://localhost:5000/usuario/pwd/${isAuth.usuario.id}`, senhas, {
+                .put(`https://gmed.onrender.com/usuario/pwd/${isAuth.usuario.id}`, senhas, {
                     headers: { Authorization: `Bearer ${isAuth.accessToken}` },
                 })
                 .then((data) => {
@@ -56,7 +56,7 @@ function Perfil({ isAuth, setIsAuth }) {
         if (window.confirm('Tem certeza que quer alterar seu nome?')) {
             axios
                 .put(
-                    `http://localhost:5000/usuario/${isAuth.usuario.id}`,
+                    `https://gmed.onrender.com/usuario/${isAuth.usuario.id}`,
                     { nome: nome },
                     {
                         headers: { Authorization: `Bearer ${isAuth.accessToken}` },

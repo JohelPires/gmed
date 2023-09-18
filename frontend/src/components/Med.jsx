@@ -12,7 +12,7 @@ function Med({ item, ct, labs, pa, isAuth, setReload, setToast, isSmallScreen })
     function handleDelete() {
         if (window.confirm('Tem certeza que quer deletar esse medicamento?')) {
             axios
-                .delete(`http://localhost:5000/medicamentos/${item.id}`, {
+                .delete(`https://gmed.onrender.com/medicamentos/${item.id}`, {
                     headers: { Authorization: `Bearer ${isAuth.accessToken}` },
                 })
                 .then((data) => {

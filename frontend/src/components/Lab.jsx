@@ -10,7 +10,7 @@ function Lab({ item, isAuth, setReload, setToast, isSmallScreen }) {
     function handleDelete() {
         if (window.confirm('Tem certeza que quer deletar esse laboratório?')) {
             axios
-                .delete(`http://localhost:5000/laboratorios/${item.id}`, {
+                .delete(`https://gmed.onrender.com/laboratorios/${item.id}`, {
                     headers: { Authorization: `Bearer ${isAuth.accessToken}` },
                 })
                 .then((data) => {

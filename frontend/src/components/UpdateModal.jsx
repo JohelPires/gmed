@@ -38,7 +38,7 @@ function UpdateModal(props) {
 
         console.log(novoMedicamento)
         axios
-            .put(`http://localhost:5000/medicamentos/${props.med.id}`, novoMedicamento, {
+            .put(`https://gmed.onrender.com/medicamentos/${props.med.id}`, novoMedicamento, {
                 headers: { Authorization: `Bearer ${props.isAuth.accessToken}` },
             })
             .then((data) => {
@@ -55,7 +55,7 @@ function UpdateModal(props) {
     function handleDelete() {
         if (window.confirm('Tem certeza que quer deletar esse medicamento?')) {
             axios
-                .delete(`http://localhost:5000/medicamentos/${props.med.id}`, {
+                .delete(`https://gmed.onrender.com/medicamentos/${props.med.id}`, {
                     headers: { Authorization: `Bearer ${props.isAuth.accessToken}` },
                 })
                 .then((data) => {

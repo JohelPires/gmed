@@ -15,7 +15,7 @@ function PrincipioAtivo({ pa, setPa, isAuth, reload, setReload, setToast, isSmal
     useEffect(() => {
         setLoading(true)
         axios
-            .get('http://localhost:5000/pa', { headers: { Authorization: `Bearer ${isAuth.accessToken}` } })
+            .get('https://gmed.onrender.com/pa', { headers: { Authorization: `Bearer ${isAuth.accessToken}` } })
             .then((data) => {
                 setPa(data.data)
                 setDadoFiltrado(data.data)

@@ -10,7 +10,7 @@ function ClasseTerapeutica({ ct, setCt, isAuth, reload, setReload }) {
     // useEffect(() => {
     //     setLoading(true)
     //     axios
-    //         .get('http://localhost:5000/ct', { headers: { Authorization: `Bearer ${isAuth.accessToken}` } })
+    //         .get('https://gmed.onrender.com/ct', { headers: { Authorization: `Bearer ${isAuth.accessToken}` } })
     //         .then((data) => {
     //             setCt(data.data)
     //             setLoading(false)

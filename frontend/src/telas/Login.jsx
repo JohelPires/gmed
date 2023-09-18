@@ -25,7 +25,7 @@ function Login({ isAuth, setIsAuth }) {
         e.preventDefault()
         try {
             axios
-                .post('http://localhost:5000/usuario/login', user)
+                .post('https://gmed.onrender.com/usuario/login', user)
                 .then((data) => {
                     if (logged) {
                         window.localStorage.setItem('Auth', JSON.stringify(data.data))

@@ -10,7 +10,7 @@ function PA({ item, isAuth, setReload, setToast, isSmallScreen }) {
     function handleDelete() {
         if (window.confirm('Tem certeza que quer deletar esse princípio ativo?')) {
             axios
-                .delete(`http://localhost:5000/pa/${item.id}`, {
+                .delete(`https://gmed.onrender.com/pa/${item.id}`, {
                     headers: { Authorization: `Bearer ${isAuth.accessToken}` },
                 })
                 .then((data) => {

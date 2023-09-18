@@ -26,7 +26,7 @@ function AddPAModal(props) {
 
         if (props.editMode) {
             axios
-                .put(`http://localhost:5000/pa/${props.pa.id}`, novoPA, {
+                .put(`https://gmed.onrender.com/pa/${props.pa.id}`, novoPA, {
                     headers: { Authorization: `Bearer ${props.isAuth.accessToken}` },
                 })
                 .then((data) => {
@@ -41,7 +41,7 @@ function AddPAModal(props) {
                 })
         } else {
             axios
-                .post('http://localhost:5000/pa', novoPA, {
+                .post('https://gmed.onrender.com/pa', novoPA, {
                     headers: { Authorization: `Bearer ${props.isAuth.accessToken}` },
                 })
                 .then((data) => {

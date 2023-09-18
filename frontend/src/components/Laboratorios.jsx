@@ -15,7 +15,9 @@ function Laboratorios({ labs, setLabs, isAuth, reload, setReload, setToast, isSm
     useEffect(() => {
         setLoading(true)
         axios
-            .get('http://localhost:5000/laboratorios', { headers: { Authorization: `Bearer ${isAuth.accessToken}` } })
+            .get('https://gmed.onrender.com/laboratorios', {
+                headers: { Authorization: `Bearer ${isAuth.accessToken}` },
+            })
             .then((data) => {
                 setLabs(data.data)
                 setDadoFiltrado(data.data)

@@ -28,7 +28,9 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
     useEffect(() => {
         setLoading(true)
         axios
-            .get('http://localhost:5000/medicamentos', { headers: { Authorization: `Bearer ${isAuth.accessToken}` } })
+            .get('https://gmed.onrender.com/medicamentos', {
+                headers: { Authorization: `Bearer ${isAuth.accessToken}` },
+            })
             .then((data) => {
                 setMeds(data.data)
                 setDadoFiltrado(data.data)

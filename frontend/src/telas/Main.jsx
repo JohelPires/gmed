@@ -19,7 +19,7 @@ function Main({ isAuth, reload, setReload, isSmallScreen }) {
 
     useEffect(() => {
         axios
-            .get('http://localhost:5000/ct', { headers: { Authorization: `Bearer ${isAuth.accessToken}` } })
+            .get('https://gmed.onrender.com/ct', { headers: { Authorization: `Bearer ${isAuth.accessToken}` } })
             .then((data) => {
                 setCt(data.data)
             })
@@ -27,7 +27,9 @@ function Main({ isAuth, reload, setReload, isSmallScreen }) {
                 console.log(err)
             })
         axios
-            .get('http://localhost:5000/laboratorios', { headers: { Authorization: `Bearer ${isAuth.accessToken}` } })
+            .get('https://gmed.onrender.com/laboratorios', {
+                headers: { Authorization: `Bearer ${isAuth.accessToken}` },
+            })
             .then((data) => {
                 setLabs(data.data)
             })
@@ -35,7 +37,7 @@ function Main({ isAuth, reload, setReload, isSmallScreen }) {
                 console.log(err)
             })
         axios
-            .get('http://localhost:5000/pa', { headers: { Authorization: `Bearer ${isAuth.accessToken}` } })
+            .get('https://gmed.onrender.com/pa', { headers: { Authorization: `Bearer ${isAuth.accessToken}` } })
             .then((data) => {
                 setPa(data.data)
             })

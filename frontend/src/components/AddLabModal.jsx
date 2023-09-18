@@ -34,7 +34,7 @@ function AddLabModal(props) {
         } else {
             if (props.editMode) {
                 axios
-                    .put(`http://localhost:5000/laboratorios/${props.lab.id}`, lab, {
+                    .put(`https://gmed.onrender.com/aboratorios/${props.lab.id}`, lab, {
                         headers: { Authorization: `Bearer ${props.isAuth.accessToken}` },
                     })
                     .then((data) => {
@@ -49,7 +49,7 @@ function AddLabModal(props) {
                     })
             } else {
                 axios
-                    .post('http://localhost:5000/laboratorios', lab, {
+                    .post('https://gmed.onrender.com/laboratorios', lab, {
                         headers: { Authorization: `Bearer ${props.isAuth.accessToken}` },
                     })
                     .then((data) => {
