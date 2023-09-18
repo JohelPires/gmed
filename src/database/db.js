@@ -17,4 +17,9 @@ const sequelize = new Sequelize(
     'postgres://kkyicuqc:W5h4zwgdGD6rQZa-_U-KfKnhOhBeJxLB@silly.db.elephantsql.com/kkyicuqc'
 )
 
+// const sequelize = new Sequelize(
+//     'postgres://gmed:4CHc2naatlBTDVLQO4dMH8xYebhQgVkl@dpg-ck4adqnqj8ts73brtqbg-a.oregon-postgres.render.com/gmed',
+//     { ssl: true }
+// )
+
 module.exports = sequelize
