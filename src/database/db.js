@@ -6,13 +6,15 @@ const config = require('./config/config')
 //     host: 'localhost',
 // })
 
-const sequelize = new Sequelize('gmed', 'postgres', '123', {
-    dialect: 'postgres',
-    host: 'localhost',
-})
+// const sequelize = new Sequelize('gmed', 'postgres', '123', {
+//     dialect: 'postgres',
+//     host: 'localhost',
+// })
 
 // console.log(config.development)
 
-// const sequelize = new Sequelize(config.development.url)
+const sequelize = new Sequelize(
+    'postgres://kkyicuqc:W5h4zwgdGD6rQZa-_U-KfKnhOhBeJxLB@silly.db.elephantsql.com/kkyicuqc'
+)
 
 module.exports = sequelize
