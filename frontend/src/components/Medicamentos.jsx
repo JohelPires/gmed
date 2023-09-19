@@ -24,11 +24,13 @@ function Medicamentos({ ct, labs, pa, isAuth, reload, setReload, setMeds, meds, 
     const uniquePA = new Set()
     const uniqueCT = new Set()
     const uniqueAno = new Set()
+    // const url = 'https://gmed.onrender.com'
+    const url = 'http://localhost:5000'
 
     useEffect(() => {
         setLoading(true)
         axios
-            .get('https://gmed.onrender.com/medicamentos', {
+            .get(`${url}/medicamentos`, {
                 headers: { Authorization: `Bearer ${isAuth.accessToken}` },
             })
             .then((data) => {

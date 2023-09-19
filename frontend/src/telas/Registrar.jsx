@@ -8,12 +8,14 @@ function Registrar({ setIsAuth }) {
     const [senha, setSenha] = useState('')
     const navigate = useNavigate()
     const [erro, setErro] = useState('')
+    // const url = 'https://gmed.onrender.com'
+    const url = 'http://localhost:5000'
 
     function handleRegistrar(e) {
         e.preventDefault()
         if (novousuario.senha === senha) {
             axios
-                .post('https://gmed.onrender.com/usuario/registrar', novousuario)
+                .post(`${url}/usuario/registrar`, novousuario)
                 .then((data) => {
                     console.log(data)
                     navigate('/login')

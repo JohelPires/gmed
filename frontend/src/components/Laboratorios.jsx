@@ -11,11 +11,13 @@ function Laboratorios({ labs, setLabs, isAuth, reload, setReload, setToast, isSm
     const [labModalShow, setLabModalShow] = useState(false)
     const [dadoFiltrado, setDadoFiltrado] = useState([])
     const [procurar, setProcurar] = useState('')
+    // const url = 'https://gmed.onrender.com'
+    const url = 'http://localhost:5000'
 
     useEffect(() => {
         setLoading(true)
         axios
-            .get('https://gmed.onrender.com/laboratorios', {
+            .get(`${url}/laboratorios`, {
                 headers: { Authorization: `Bearer ${isAuth.accessToken}` },
             })
             .then((data) => {

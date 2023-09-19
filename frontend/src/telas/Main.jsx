@@ -16,10 +16,12 @@ function Main({ isAuth, reload, setReload, isSmallScreen }) {
     const [labs, setLabs] = useState([]) // LABORATORIOS
     const [pa, setPa] = useState([]) // PRINCIPIOS ATIVOS
     const [toast, setToast] = useState({ show: false, msg: '', title: '' })
+    // const url = 'https://gmed.onrender.com'
+    const url = 'http://localhost:5000'
 
     useEffect(() => {
         axios
-            .get('https://gmed.onrender.com/ct', { headers: { Authorization: `Bearer ${isAuth.accessToken}` } })
+            .get(`${url}/ct`, { headers: { Authorization: `Bearer ${isAuth.accessToken}` } })
             .then((data) => {
                 setCt(data.data)
             })
@@ -27,7 +29,7 @@ function Main({ isAuth, reload, setReload, isSmallScreen }) {
                 console.log(err)
             })
         axios
-            .get('https://gmed.onrender.com/laboratorios', {
+            .get(`${url}/laboratorios`, {
                 headers: { Authorization: `Bearer ${isAuth.accessToken}` },
             })
             .then((data) => {
@@ -37,7 +39,7 @@ function Main({ isAuth, reload, setReload, isSmallScreen }) {
                 console.log(err)
             })
         axios
-            .get('https://gmed.onrender.com/pa', { headers: { Authorization: `Bearer ${isAuth.accessToken}` } })
+            .get(`${url}/pa`, { headers: { Authorization: `Bearer ${isAuth.accessToken}` } })
             .then((data) => {
                 setPa(data.data)
             })

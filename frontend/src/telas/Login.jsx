@@ -11,6 +11,8 @@ function Login({ isAuth, setIsAuth }) {
     })
     const [erro, setErro] = useState('')
     const navigate = useNavigate()
+    // const url = 'https://gmed.onrender.com'
+    const url = 'http://localhost:5000'
 
     useEffect(() => {
         const AuthLocal = JSON.parse(window.localStorage.getItem('Auth'))
@@ -23,9 +25,10 @@ function Login({ isAuth, setIsAuth }) {
 
     function handleLogin(e) {
         e.preventDefault()
+
         try {
             axios
-                .post('https://gmed.onrender.com/usuario/login', user)
+                .post(`${url}/usuario/login`, user)
                 .then((data) => {
                     if (logged) {
                         window.localStorage.setItem('Auth', JSON.stringify(data.data))

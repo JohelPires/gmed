@@ -6,11 +6,13 @@ import { FaEdit, FaTrashAlt } from 'react-icons/fa'
 
 function PA({ item, isAuth, setReload, setToast, isSmallScreen }) {
     const [modalShow, setModalShow] = useState(false)
+    // const url = 'https://gmed.onrender.com'
+    const url = 'http://localhost:5000'
 
     function handleDelete() {
         if (window.confirm('Tem certeza que quer deletar esse princípio ativo?')) {
             axios
-                .delete(`https://gmed.onrender.com/pa/${item.id}`, {
+                .delete(`${url}/pa/${item.id}`, {
                     headers: { Authorization: `Bearer ${isAuth.accessToken}` },
                 })
                 .then((data) => {

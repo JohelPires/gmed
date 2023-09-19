@@ -6,11 +6,13 @@ import { FaEdit, FaTrashAlt } from 'react-icons/fa'
 
 function Lab({ item, isAuth, setReload, setToast, isSmallScreen }) {
     const [updateModalShow, setUpdateModalShow] = useState(false)
+    // const url = 'https://gmed.onrender.com'
+    const url = 'http://localhost:5000'
 
     function handleDelete() {
         if (window.confirm('Tem certeza que quer deletar esse laboratório?')) {
             axios
-                .delete(`https://gmed.onrender.com/laboratorios/${item.id}`, {
+                .delete(`${url}/laboratorios/${item.id}`, {
                     headers: { Authorization: `Bearer ${isAuth.accessToken}` },
                 })
                 .then((data) => {

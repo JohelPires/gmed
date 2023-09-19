@@ -20,13 +20,15 @@ function AddPAModal(props) {
 
     function onSubmit(data) {
         // e.preventDefault()
+        // const url = 'https://gmed.onrender.com'
+        const url = 'http://localhost:5000'
         const novoPA = {
             nome: data.nome,
         }
 
         if (props.editMode) {
             axios
-                .put(`https://gmed.onrender.com/pa/${props.pa.id}`, novoPA, {
+                .put(`${url}/pa/${props.pa.id}`, novoPA, {
                     headers: { Authorization: `Bearer ${props.isAuth.accessToken}` },
                 })
                 .then((data) => {
@@ -41,7 +43,7 @@ function AddPAModal(props) {
                 })
         } else {
             axios
-                .post('https://gmed.onrender.com/pa', novoPA, {
+                .post(`${url}/pa`, novoPA, {
                     headers: { Authorization: `Bearer ${props.isAuth.accessToken}` },
                 })
                 .then((data) => {

@@ -8,11 +8,13 @@ import { FaEdit, FaEye, FaTrashAlt } from 'react-icons/fa'
 function Med({ item, ct, labs, pa, isAuth, setReload, setToast, isSmallScreen }) {
     const [viewModalShow, setViewModalShow] = useState(false)
     const [updateModalShow, setUpdateModalShow] = useState(false)
+    // const url = 'https://gmed.onrender.com'
+    const url = 'http://localhost:5000'
 
     function handleDelete() {
         if (window.confirm('Tem certeza que quer deletar esse medicamento?')) {
             axios
-                .delete(`https://gmed.onrender.com/medicamentos/${item.id}`, {
+                .delete(`${url}/medicamentos/${item.id}`, {
                     headers: { Authorization: `Bearer ${isAuth.accessToken}` },
                 })
                 .then((data) => {

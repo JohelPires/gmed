@@ -7,6 +7,8 @@ function Perfil({ isAuth, setIsAuth }) {
     const [senhas, setSenhas] = useState({ senha: '', novasenha: '', confirmasenha: '' })
     const [edit, setEdit] = useState(false)
     const [nome, setNome] = useState(isAuth.usuario.nome)
+    // const url = 'https://gmed.onrender.com'
+    const url = 'http://localhost:5000'
 
     const navigate = useNavigate()
     useEffect(() => {
@@ -16,7 +18,7 @@ function Perfil({ isAuth, setIsAuth }) {
     function deletaUsuario() {
         if (window.confirm('Tem certeza que quer deletar sua conta?')) {
             axios
-                .delete(`https://gmed.onrender.com/usuario/${isAuth.usuario.id}`, {
+                .delete(`${url}/usuario/${isAuth.usuario.id}`, {
                     headers: { Authorization: `Bearer ${isAuth.accessToken}` },
                 })
                 .then((data) => {
@@ -36,7 +38,7 @@ function Perfil({ isAuth, setIsAuth }) {
         if (window.confirm('Tem certeza que quer alterar sua senha?')) {
             console.log(senhas)
             axios
-                .put(`https://gmed.onrender.com/usuario/pwd/${isAuth.usuario.id}`, senhas, {
+                .put(`${url}/usuario/pwd/${isAuth.usuario.id}`, senhas, {
                     headers: { Authorization: `Bearer ${isAuth.accessToken}` },
                 })
                 .then((data) => {
@@ -56,7 +58,7 @@ function Perfil({ isAuth, setIsAuth }) {
         if (window.confirm('Tem certeza que quer alterar seu nome?')) {
             axios
                 .put(
-                    `https://gmed.onrender.com/usuario/${isAuth.usuario.id}`,
+                    `${url}/usuario/${isAuth.usuario.id}`,
                     { nome: nome },
                     {
                         headers: { Authorization: `Bearer ${isAuth.accessToken}` },
