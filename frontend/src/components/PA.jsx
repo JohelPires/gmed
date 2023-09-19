@@ -51,11 +51,12 @@ function PA({ item, isAuth, setReload, setToast, isSmallScreen }) {
                 </Button>
             </ButtonGroup>
             <AddPAModal
-                editMode={true}
+                editmode={true}
                 pa={item}
-                isAuth={isAuth}
-                setReload={setReload}
+                isauth={isAuth}
+                setreload={setReload}
                 show={modalShow}
+                settoast={setToast}
                 onHide={() => setModalShow(false)}
             />
             {/* <ViewModal med={item} show={viewModalShow} onHide={() => setViewModalShow(false)} /> */}

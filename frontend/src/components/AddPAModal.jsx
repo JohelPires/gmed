@@ -14,7 +14,7 @@ function AddPAModal(props) {
     } = useForm({
         shouldUnregister: true,
         defaultValues: {
-            nome: props.editMode ? props.pa.nome : '',
+            nome: props.editmode ? props.pa.nome : '',
         },
     })
 
@@ -26,35 +26,35 @@ function AddPAModal(props) {
             nome: data.nome,
         }
 
-        if (props.editMode) {
+        if (props.editmode) {
             axios
                 .put(`${url}/pa/${props.pa.id}`, novoPA, {
-                    headers: { Authorization: `Bearer ${props.isAuth.accessToken}` },
+                    headers: { Authorization: `Bearer ${props.isauth.accessToken}` },
                 })
                 .then((data) => {
                     console.log('Princípio ativo atualizado.')
-                    props.setToast({ msg: 'Princípio ativo atualizado.', show: true, title: 'Notificação' })
-                    props.setReload((prev) => prev + 1)
+                    props.settoast({ msg: 'Princípio ativo atualizado.', show: true, title: 'Notificação' })
+                    props.setreload((prev) => prev + 1)
                     props.onHide()
                 })
                 .catch((err) => {
                     setErro(err)
-                    // props.setReload((prev) => prev + 1)
+                    // props.setreload((prev) => prev + 1)
                 })
         } else {
             axios
                 .post(`${url}/pa`, novoPA, {
-                    headers: { Authorization: `Bearer ${props.isAuth.accessToken}` },
+                    headers: { Authorization: `Bearer ${props.isauth.accessToken}` },
                 })
                 .then((data) => {
                     console.log('Princípio ativo adicionado.')
-                    props.setToast({ msg: 'Princípio ativo adicionado.', show: true, title: 'Notificação' })
-                    props.setReload((prev) => prev + 1)
+                    props.settoast({ msg: 'Princípio ativo adicionado.', show: true, title: 'Notificação' })
+                    props.setreload((prev) => prev + 1)
                     props.onHide()
                 })
                 .catch((err) => {
                     setErro(err.response.data.errors)
-                    // props.setReload((prev) => prev + 1)
+                    // props.setreload((prev) => prev + 1)
                 })
         }
     }
@@ -66,14 +66,14 @@ function AddPAModal(props) {
                 </Modal.Header>
                 <Modal.Body style={{ background: '#F0F0F0' }}>
                     {/* {errors.valor && <span style={{ color: 'red' }}>Digite um valor diferente de zero</span>} */}
-                    {erro &&
+                    {/* {erro &&
                         erro.map((item) => {
                             return (
                                 <p key={item} style={{ color: 'red' }}>
                                     <small variant='danger'>{item.message}</small>
                                 </p>
                             )
-                        })}
+                        })} */}
                     <Stack gap={1}>
                         <Form.Group className='mb-3'>
                             <Form.Label>Nome</Form.Label>
@@ -85,7 +85,7 @@ function AddPAModal(props) {
                     <Button onClick={props.onHide} variant='secondary'>
                         Cancelar
                     </Button>
-                    <Button type='submit'>{props.editMode ? 'Salvar' : 'Adicionar'}</Button>
+                    <Button type='submit'>{props.editmode ? 'Salvar' : 'Adicionar'}</Button>
                 </Modal.Footer>
             </Form>
         </Modal>
