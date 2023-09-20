@@ -18,8 +18,9 @@ const sequelize = new Sequelize(
 )
 
 // const sequelize = new Sequelize(
-//     'postgres://gmed:4CHc2naatlBTDVLQO4dMH8xYebhQgVkl@dpg-ck4adqnqj8ts73brtqbg-a.oregon-postgres.render.com/gmed',
-//     { ssl: true }
+//     'postgres://gmed:4CHc2naatlBTDVLQO4dMH8xYebhQgVkl@dpg-ck4adqnqj8ts73brtqbg-a.oregon-postgres.render.com/gmed'
 // )
+
+// const sequelize = new Sequelize('postgres://gmed:4CHc2naatlBTDVLQO4dMH8xYebhQgVkl@dpg-ck4adqnqj8ts73brtqbg-a/gmed')
 
 module.exports = sequelize
